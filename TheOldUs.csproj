@@ -17,15 +17,47 @@
     <Compile Include="Assets\ButtonSprites.cs" />
     <Compile Include="Assets\GifAnimations.cs" />
     <Compile Include="Assets\ScreenshotSprites.cs" />
+    <Compile Include="Assets\Prefabs.cs" />
     <Compile Include="BepInEx\BepInAutoPluginAttribute.cs" />
     <Compile Include="BepInEx\Preloader\Core\Patching\PatcherAutoPluginAttribute.cs" />
     <Compile Include="Components\PlayerAnimationHelper.cs" />
+    <Compile Include="Components\PlayerJail.cs" />
+    <Compile Include="Components\RoleHelper.cs" />
+    <Compile Include="Patches\CustomRoleManagerPatch.cs" />
+    <Compile Include="Roles\BaseRole\CrewmateBase.cs" />
+    <Compile Include="Roles\BaseRole\NeutralBase.cs" />
+    <Compile Include="Roles\Cleaner\Clean.cs" />
+    <Compile Include="Roles\Cleaner\CleanerRole.cs" />
+    <Compile Include="Roles\Cleaner\CleanerKill.cs" />
+    <Compile Include="Roles\Cleaner\CleanRpc.cs" />
+    <Compile Include="Roles\ControllerHelper.cs" />
+    <Compile Include="Roles\Jailer\ArrestRpc.cs" />
+    <Compile Include="Roles\Jailer\JailerArrest.cs" />
+    <Compile Include="Roles\Jailer\JailerRelease.cs" />
+    <Compile Include="Roles\Jailer\JailerRole.cs" />
+    <Compile Include="Roles\JesterRole.cs" />
+    <Compile Include="Roles\Psychic\MoveTask.cs" />
+    <Compile Include="Roles\Psychic\MoveTaskRpc.cs" />
+    <Compile Include="Roles\Psychic\MovePlayer.cs" />
+    <Compile Include="Roles\Psychic\MovePlayerRpc.cs" />
+    <Compile Include="Roles\Psychic\PsychicRole.cs" />
     <Compile Include="Roles\Sheriff\SheriffKill.cs" />
     <Compile Include="Roles\Sheriff\SheriffRole.cs" />
-    <Compile Include="Roles\TOUBaseRole.cs" />
+    <Compile Include="Roles\BaseRole\ImpostorBase.cs" />
     <Compile Include="TheOldUsPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Sprites\Buttons\funnyTemporaryButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Sprites\jail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Sprites\Buttons\JailerArrest.png" />
+    <EmbeddedResource Include="Assets\Sprites\Buttons\JailerRelease.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Sprites\Buttons\SheriffKill.png" />

@@ -13,17 +13,17 @@ using UnityEngine;
 
 namespace TheOldUs.Components
 {
-    public class TOUPlayerComponent : PlayerComponent
+    public class PlayerAnimationHelper : PlayerComponent
     {
-        public static Material OriginalPlayerMaterial = AmongUsClient.Instance.PlayerPrefab.cosmetics.bodySprites[0].BodySprite.material;
         public static Material InvisibleMaterial = new Material(Shader.Find("Unlit/Transparent"));
+        public Material OriginalPlayerMaterial = AmongUsClient.Instance.PlayerPrefab.cosmetics.bodySprites[0].BodySprite.material;
         public SpriteRenderer Animator;
         public GifFile RunAnim;
         public GifFile IdleAnim;
         public bool Transformed;
         public bool Invisible;
         private float time;
-        public void Awake()
+        public void Start()
         {
             Animator = new GameObject("Animator").AddComponent<SpriteRenderer>();
             Animator.transform.SetParent(transform);
@@ -37,14 +37,18 @@ namespace TheOldUs.Components
                 Animator.transform.localScale = vec;
             });
         }
-        public void Update()
+        public void UpdateRenderes()
         {
-            time += Time.deltaTime;
             Animator.enabled = Transformed;
             if (player.cosmetics.currentBodySprite != null)
             {
                 player.cosmetics.currentBodySprite.BodySprite.material = Transformed ? InvisibleMaterial : OriginalPlayerMaterial;
+                player.SetPlayerMaterialColors(player.cosmetics.currentBodySprite.BodySprite);
             }
+        }
+        public void Update()
+        {
+            time += Time.deltaTime;
             if (Transformed)
             {
                 player.cosmetics.nameText?.gameObject.SetActive(false);

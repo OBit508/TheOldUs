@@ -5,6 +5,7 @@ using HarmonyLib;
 using System;
 using System.Diagnostics;
 using TheOldUs.Assets;
+using TheOldUs.Roles;
 
 namespace TheOldUs
 {
@@ -27,6 +28,7 @@ namespace TheOldUs
                 ButtonSprites.LoadButtonSprites();
                 ScreenshotSprites.LoadScreenshotSprites();
                 GifAnimations.LoadAnimations();
+                Prefabs.LoadPrefabs();
             }), ModName);
             Harmony.PatchAll();
         }

@@ -11,10 +11,11 @@ using FungleAPI.Configuration.Attributes;
 using TheOldUs.Assets;
 using TheOldUs.Components;
 using FungleAPI.Components;
+using TheOldUs.Roles.BaseRole;
 
 namespace TheOldUs.Roles.Sheriff
 {
-    public class SheriffRole : TOUBaseRole, ICustomRole
+    internal class SheriffRole : CrewmateBase, ICustomRole
     {
         [ModdedNumberOption("Kill Cooldown", null, 5, 60)]
         public static float KillCooldown => 15;
@@ -32,6 +33,11 @@ namespace TheOldUs.Roles.Sheriff
         {
             CanKill = true,
             Buttons = new CustomAbilityButton[] { CustomAbilityButton.Instance<SheriffKill>() },
+            GhostRole = AmongUs.GameOptions.RoleTypes.CrewmateGhost
         };
+        public override Il2CppSystem.Collections.Generic.List<PlayerControl> GetValidTargets()
+        {
+            return GetTempPlayerList();
+        }
     }
 }
