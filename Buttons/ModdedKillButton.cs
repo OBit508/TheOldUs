@@ -1,4 +1,5 @@
 ﻿using FungleAPI;
+using FungleAPI.Hud;
 using FungleAPI.Role;
 using FungleAPI.Utilities;
 using Rewired.Utils;
@@ -7,48 +8,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Assets;
-using TheOldUs.Roles.Psychic;
-using TheOldUs.Roles.Sheriff;
 using UnityEngine;
 
-namespace TheOldUs.Roles.Cleaner
+namespace TheOldUs.Buttons
 {
-    internal class CleanerKill : CustomAbilityButton
+    internal class ModdedKillButton : CustomAbilityButton
     {
-        public static PlayerControl Target;
-        public static bool OnlyMe
-        {
-            get
-            {
-                int count = 0;
-                foreach (PlayerControl player in PlayerControl.AllPlayerControls)
-                {
-                    if (!player.Data.IsDead && player.Data.Role.GetTeam() == PlayerControl.LocalPlayer.Data.Role.GetTeam())
-                    {
-                        count++;
-                    }
-                }
-                return count <= 1;
-            }
-        }
+        public PlayerControl Target;
+        public bool CanKill => PlayerControl.LocalPlayer != null && PlayerControl.LocalPlayer.Data != null && PlayerControl.LocalPlayer.Data.Role != null && PlayerControl.LocalPlayer.Data.Role.CanKill();
         public override bool CanUse 
         {
             get
             {
-                return OnlyMe && Target != null;
+                return CanKill && Target != null;
             }
         }
         public override bool CanClick => CanUse;
         public override float Cooldown => GameOptionsManager.Instance.currentGameOptions.GetFloat(AmongUs.GameOptions.FloatOptionNames.KillCooldown);
         public override string OverrideText => StringNames.KillLabel.GetString();
-        public override Color32 TextOutlineColor { get; } = Palette.ImpostorRed;
+        public override Color32 TextOutlineColor => Color.red;
         public override Sprite ButtonSprite => HudManager.Instance.KillButton.graphic.sprite;
         public override void Update()
         {
             base.Update();
             PlayerControl newTarget = null;
-            if (OnlyMe)
+            if (CanKill)
             {
                 newTarget = PlayerControl.LocalPlayer.Data.Role.FindClosestTarget();
             }

@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace TheOldUs.Roles.Cleaner
+namespace TheOldUs.RPCs
 {
-    internal class CleanRpc : CustomRpc<DeadBody>
+    internal class RpcCleanDeadBody : CustomRpc<DeadBody>
     {
         public override void Write(MessageWriter writer, DeadBody value)
         {

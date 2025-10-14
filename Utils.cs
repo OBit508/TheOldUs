@@ -1,4 +1,5 @@
 ﻿using FungleAPI.Utilities;
+using Hazel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,17 @@ namespace TheOldUs
                 rend.material.SetFloat("_Outline", active ? 1 : 0);
                 rend.material.SetColor("_OutlineColor", color);
             }
+        }
+        public static void WriteConsole(this MessageWriter writer, Console console)
+        {
+            writer.Write(console.ConsoleId);
+            writer.Write((int)console.Room);
+        }
+        public static Console ReadConsole(this MessageReader reader)
+        {
+            int id = reader.ReadInt32();
+            SystemTypes type = (SystemTypes)reader.ReadInt32();
+            return ShipStatus.Instance.AllConsoles.FirstOrDefault(c => c.ConsoleId == id && c.Room == type);
         }
     }
 }

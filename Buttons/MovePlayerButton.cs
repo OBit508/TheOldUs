@@ -1,22 +1,25 @@
-﻿using FungleAPI.Role;
+﻿using FungleAPI.Hud;
+using FungleAPI.Networking;
+using FungleAPI.Role;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Assets;
+using TheOldUs.Roles.Impostors;
+using TheOldUs.RPCs;
 using UnityEngine;
 
-namespace TheOldUs.Roles.Psychic
+namespace TheOldUs.Buttons
 {
-    internal class MovePlayer : CustomAbilityButton
+    internal class MovePlayerbutton : CustomAbilityButton
     {
         public override bool CanUse => !PsychicRole.MovingConsole;
         public override bool CanClick => CanUse;
         public override float Cooldown => PsychicRole.MovePlayerCooldown;
         public override string OverrideText => "Move Player";
         public override Color32 TextOutlineColor { get; } = new Color32(161, 121, 171, byte.MaxValue);
-        public override Sprite ButtonSprite => ButtonSprites.TemporaryButton;
+        public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
         public override bool TransformButton => true;
         public override float TransformDuration => PsychicRole.MovePlayerDuration;
         public override void Click()
@@ -25,8 +28,13 @@ namespace TheOldUs.Roles.Psychic
         }
         public override void Destransform()
         {
+            base.Destransform();
+            if (PsychicRole.MovingPlayer)
+            {
+                CustomRpcManager.Instance<RpcStopMove>().Send(PlayerControl.LocalPlayer, PlayerControl.LocalPlayer.NetId);
+            }
             PsychicRole.MovingPlayer = false;
-            PsychicRole.player = null;
+            PsychicRole.movedPlayer = null;
         }
     }
 }

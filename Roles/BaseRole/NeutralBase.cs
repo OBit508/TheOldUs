@@ -1,4 +1,6 @@
 ﻿using AmongUs.GameOptions;
+using FungleAPI.GameOver;
+using FungleAPI.GameOver.Ends;
 using FungleAPI.Role;
 using FungleAPI.Utilities;
 using System;
@@ -76,7 +78,7 @@ namespace TheOldUs.Roles.BaseRole
         }
         public override bool DidWin(GameOverReason gameOverReason)
         {
-            return CustomRoleManager.DidWin(this, gameOverReason);
+            return GameOverManager.Instance<NeutralGameOver>().Reason == gameOverReason;
         }
         public override DeadBody FindClosestBody()
         {

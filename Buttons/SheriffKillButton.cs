@@ -1,18 +1,19 @@
-﻿using System;
+﻿using FungleAPI;
+using FungleAPI.Hud;
+using FungleAPI.Role;
+using FungleAPI.Utilities;
+using Rewired.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FungleAPI;
-using FungleAPI.Role;
-using FungleAPI.Utilities;
-using Rewired.Utils;
-using TheOldUs.Assets;
+using TheOldUs.Roles.Crewmates;
 using UnityEngine;
 
-namespace TheOldUs.Roles.Sheriff
+namespace TheOldUs.Buttons
 {
-    public class SheriffKill : CustomAbilityButton
+    public class SheriffKillButton : CustomAbilityButton
     {
         public PlayerControl Target;
         public override bool CanUse => Target != null;
@@ -22,7 +23,7 @@ namespace TheOldUs.Roles.Sheriff
         public override bool HaveUses => SheriffRole.UsesCount > 0;
         public override int NumUses => (int)SheriffRole.UsesCount;
         public override Color32 TextOutlineColor { get; } = new Color32(254, 153, 0, byte.MaxValue);
-        public override Sprite ButtonSprite => ButtonSprites.SheriffKill;
+        public override Sprite ButtonSprite => TOUAssets.SheriffKill;
         public override void Update()
         {
             base.Update();

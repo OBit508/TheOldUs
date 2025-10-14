@@ -6,14 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Assets;
 using TheOldUs.Components;
 using UnityEngine;
 using static Il2CppSystem.Linq.Expressions.Interpreter.CastInstruction.CastInstructionNoT;
 
-namespace TheOldUs.Roles.Jailer
+namespace TheOldUs.RPCs
 {
-    internal class ArrestRpc : CustomRpc<(PlayerControl target, bool arrested)>
+    internal class RpcArrestPlayer : CustomRpc<(PlayerControl target, bool arrested)>
     {
         public override void Write(MessageWriter writer, (PlayerControl target, bool arrested) value)
         {
@@ -21,11 +20,11 @@ namespace TheOldUs.Roles.Jailer
             writer.Write(value.arrested);
             if (value.arrested)
             {
-                Prefabs.Jail.Instantiate().Player = value.target;
+                TOUAssets.Jail.Instantiate().Player = value.target;
             }
             else
             {
-                GameObject.Destroy(PlayerJail.Jails[value.target].gameObject);
+                UnityEngine.Object.Destroy(PlayerJail.Jails[value.target].gameObject);
                 PlayerJail.Jails.Remove(value.target);
             }
         }
@@ -35,11 +34,11 @@ namespace TheOldUs.Roles.Jailer
             bool arrested = reader.ReadBoolean();
             if (arrested)
             {
-                Prefabs.Jail.Instantiate().Player = target;
+                TOUAssets.Jail.Instantiate().Player = target;
             }
             else
             {
-                GameObject.Destroy(PlayerJail.Jails[target].gameObject);
+                UnityEngine.Object.Destroy(PlayerJail.Jails[target].gameObject);
                 PlayerJail.Jails.Remove(target);
             }
         }

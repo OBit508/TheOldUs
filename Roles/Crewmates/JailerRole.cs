@@ -1,4 +1,6 @@
-﻿using FungleAPI.Configuration.Attributes;
+﻿using FungleAPI.Configuration;
+using FungleAPI.Configuration.Attributes;
+using FungleAPI.Hud;
 using FungleAPI.Role;
 using FungleAPI.Role.Teams;
 using FungleAPI.Translation;
@@ -7,12 +9,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.Buttons;
 using TheOldUs.Components;
 using TheOldUs.Roles.BaseRole;
-using TheOldUs.Roles.Sheriff;
 using UnityEngine;
 
-namespace TheOldUs.Roles.Jailer
+namespace TheOldUs.Roles.Crewmates
 {
     internal class JailerRole : CrewmateBase, ICustomRole
     {
@@ -30,10 +32,6 @@ namespace TheOldUs.Roles.Jailer
         public StringNames RoleBlurMed { get; } = new Translator("You need to arrest all the impostors to win.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Jailer can arrest any player and if he want to he can release any player on the jail.").StringName;
         public Color RoleColor { get; } = Color.blue;
-        public RoleConfig Configuration => new RoleConfig(this)
-        {
-            Buttons = new CustomAbilityButton[] { CustomAbilityButton.Instance<JailerArrest>(), CustomAbilityButton.Instance<JailerRelease>() },
-            GhostRole = AmongUs.GameOptions.RoleTypes.CrewmateGhost
-        };
+        public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<ArrestPlayerButton>(), CustomAbilityButton.Instance<ReleasePlayerButton>() };
     }
 }

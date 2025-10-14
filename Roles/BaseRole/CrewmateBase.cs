@@ -34,7 +34,7 @@ namespace TheOldUs.Roles.BaseRole
         }
         public override bool DidWin(GameOverReason gameOverReason)
         {
-            return CustomRoleManager.DidWin(this, gameOverReason);
+            return GameManager.Instance.DidHumansWin(gameOverReason);
         }
         public override DeadBody FindClosestBody()
         {

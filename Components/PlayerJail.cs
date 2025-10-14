@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using FungleAPI.Attributes;
 using FungleAPI.Networking;
-using TheOldUs.Roles.Jailer;
+using TheOldUs.RPCs;
 
 namespace TheOldUs.Components
 {
@@ -27,7 +27,7 @@ namespace TheOldUs.Components
                 Player.NetTransform.SnapTo(transform.position);
                 if (Player.AmOwner && Player.Data.IsDead)
                 {
-                    CustomRpcManager.Instance<ArrestRpc>().Send((Player, false), Player.NetId);
+                    CustomRpcManager.Instance<RpcArrestPlayer>().Send((Player, false), Player.NetId);
                 }
             }
         }

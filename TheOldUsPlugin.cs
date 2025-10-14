@@ -1,11 +1,15 @@
 ﻿using BepInEx;
 using BepInEx.Unity.IL2CPP;
 using FungleAPI;
+using FungleAPI.PluginLoading;
+using FungleAPI.Utilities;
 using HarmonyLib;
 using System;
 using System.Diagnostics;
-using TheOldUs.Assets;
+using TheOldUs.Components;
 using TheOldUs.Roles;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TheOldUs
 {
@@ -23,13 +27,14 @@ namespace TheOldUs
         public static ModPlugin Plugin;
         public override void Load()
         {
-            Plugin = ModPlugin.RegisterMod(this, ModVersion, new Action(delegate
+            SceneManager.add_sceneLoaded((Action<Scene, LoadSceneMode>)delegate (Scene scene, LoadSceneMode _)
             {
-                ButtonSprites.LoadButtonSprites();
-                ScreenshotSprites.LoadScreenshotSprites();
-                GifAnimations.LoadAnimations();
-                Prefabs.LoadPrefabs();
-            }), ModName);
+                if (scene.name == "MainMenu" && ControllerHelper.myController == null)
+                {
+                    new GameObject("ControllerHelper").AddComponent<ControllerHelper>().DontDestroy();
+                }
+            });
+            Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TOUAssets.LoadAssets), ModName);
             Harmony.PatchAll();
         }
     }
