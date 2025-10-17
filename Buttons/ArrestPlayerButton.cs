@@ -15,6 +15,7 @@ using TheOldUs.Roles;
 using TheOldUs.RPCs;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using TheOldUs.TOU;
 
 namespace TheOldUs.Buttons
 {
@@ -32,7 +33,7 @@ namespace TheOldUs.Buttons
         public override void Update()
         {
             base.Update();
-            PlayerControl newTarget = PlayerControl.LocalPlayer.Data.Role.FindClosestTarget(new Predicate<PlayerControl>(player => PlayerJail.Jails.ContainsKey(player)));
+            PlayerControl newTarget = PlayerControl.LocalPlayer.Data.Role.FindClosestTarget(new Predicate<PlayerControl>(player => JailBehaviour.ArrestedPlayers.Contains(player)));
             if (newTarget != Target)
             {
                 if (Target != null && !Target.IsNullOrDestroyed())
@@ -50,6 +51,7 @@ namespace TheOldUs.Buttons
                 if (Target != null)
                 {
                     CustomRpcManager.Instance<RpcArrestPlayer>().Send((Target, true), PlayerControl.LocalPlayer.NetId);
+                    Target.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
                     Target = null;
                 }
             }

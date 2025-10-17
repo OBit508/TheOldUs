@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Roles.Crewmates;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Buttons

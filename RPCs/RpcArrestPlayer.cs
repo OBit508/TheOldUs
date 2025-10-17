@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Components;
+using TheOldUs.TOU;
 using UnityEngine;
 using static Il2CppSystem.Linq.Expressions.Interpreter.CastInstruction.CastInstructionNoT;
+using static UnityEngine.GraphicsBuffer;
 
 namespace TheOldUs.RPCs
 {
@@ -20,12 +22,13 @@ namespace TheOldUs.RPCs
             writer.Write(value.arrested);
             if (value.arrested)
             {
-                TOUAssets.Jail.Instantiate().Player = value.target;
+                JailBehaviour.ArrestedPlayers.Add(value.target);
+                value.target.NetTransform.SnapTo(new Vector2(TOUSettings.InvertX ? 12 : -12, TOUSettings.InvertY ? -3 : 3));
             }
             else
             {
-                UnityEngine.Object.Destroy(PlayerJail.Jails[value.target].gameObject);
-                PlayerJail.Jails.Remove(value.target);
+                JailBehaviour.ArrestedPlayers.Remove(value.target);
+                value.target.NetTransform.SnapTo(new Vector2(TOUSettings.InvertX ? 12 : -12, TOUSettings.InvertY ? -1 : 1));
             }
         }
         public override void Handle(MessageReader reader)
@@ -34,12 +37,13 @@ namespace TheOldUs.RPCs
             bool arrested = reader.ReadBoolean();
             if (arrested)
             {
-                TOUAssets.Jail.Instantiate().Player = target;
+                JailBehaviour.ArrestedPlayers.Add(target);
+                target.NetTransform.SnapTo(new Vector2(TOUSettings.InvertX ? 12 : -12, TOUSettings.InvertY ? -3 : 3));
             }
             else
             {
-                UnityEngine.Object.Destroy(PlayerJail.Jails[target].gameObject);
-                PlayerJail.Jails.Remove(target);
+                JailBehaviour.ArrestedPlayers.Remove(target);
+                target.NetTransform.SnapTo(new Vector2(TOUSettings.InvertX ? 12 : -12, TOUSettings.InvertY ? -1 : 1));
             }
         }
     }

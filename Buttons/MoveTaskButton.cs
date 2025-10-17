@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using TheOldUs.Components;
 using TheOldUs.Roles.Impostors;
 using TheOldUs.RPCs;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Buttons
@@ -22,7 +23,7 @@ namespace TheOldUs.Buttons
         public override float Cooldown => PsychicRole.MoveConsoleCooldown;
         public override string OverrideText => "Move Task";
         public override Color32 TextOutlineColor { get; } = new Color32(161, 121, 171, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
+        public override Sprite ButtonSprite => TOUAssets.MedScan;
         public override bool TransformButton => true;
         public override float TransformDuration => PsychicRole.MoveConsoleDuration;
         public override void Click()

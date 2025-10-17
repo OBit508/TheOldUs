@@ -27,35 +27,32 @@ namespace TheOldUs.Components
         {
             Animator = new GameObject("Animator").AddComponent<SpriteRenderer>();
             Animator.transform.SetParent(transform);
+            Animator.transform.localPosition = new Vector3(0, 0, -1);
             Animator.gameObject.AddComponent<Updater>().lateUpdate = new Action(delegate
             {
-                Vector3 vec = Vector3.one;
+                Vector3 vec = Vector3.one * 1.3f;
                 if (player.cosmetics.FlipX)
                 {
                     vec.x *= -1;
                 }
                 Animator.transform.localScale = vec;
+                Vector3 vec2 = Vector3.zero;
+                vec2.z = player.transform.position.z - 0.0000000000000000000000000001f;
+                Animator.transform.localPosition = vec2;
             });
-        }
-        public void UpdateRenderes()
-        {
-            Animator.enabled = Transformed;
-            if (player.cosmetics.currentBodySprite != null)
-            {
-                player.cosmetics.currentBodySprite.BodySprite.material = Transformed ? InvisibleMaterial : OriginalPlayerMaterial;
-                player.SetPlayerMaterialColors(player.cosmetics.currentBodySprite.BodySprite);
-            }
         }
         public void Update()
         {
+            Animator.enabled = Transformed;
+            player.cosmetics.currentBodySprite.BodySprite.transform.localScale = Transformed ? Vector3.zero : Vector3.one * 0.5f;
             time += Time.deltaTime;
+            player.cosmetics.nameText?.gameObject.SetActive(!Transformed);
+            player.cosmetics.hat?.gameObject.SetActive(!Transformed);
+            player.cosmetics.CurrentPet?.gameObject.SetActive(!Transformed);
+            player.cosmetics.skin?.gameObject.SetActive(!Transformed);
+            player.cosmetics.visor?.gameObject.SetActive(!Transformed);
             if (Transformed)
             {
-                player.cosmetics.nameText?.gameObject.SetActive(false);
-                player.cosmetics.hat?.gameObject.SetActive(false);
-                player.cosmetics.CurrentPet?.gameObject.SetActive(false);
-                player.cosmetics.skin?.gameObject.SetActive(false);
-                player.cosmetics.visor?.gameObject.SetActive(false);
                 if (RunAnim != null && player.MyPhysics.Animations.IsPlayingRunAnimation())
                 {
                     Animator.sprite = RunAnim.GetSprite(time);
@@ -65,33 +62,43 @@ namespace TheOldUs.Components
                     Animator.sprite = IdleAnim.GetSprite(time);
                 }
             }
-            if (!player.Data.IsDead)
+            if (player.Visible)
             {
-                Color color = player.Visible ? new Color(1, 1, 1, 1) : new Color(1, 1, 1, 0);
-                if (Invisible && player.Visible)
-                {
-                    if (!player.AmOwner)
-                    {
-                        color = new Color(1, 1, 1, 0);
-                    }
-                    if (player.Data.Role.GetTeam() == PlayerControl.LocalPlayer.Data.Role.GetTeam() || player.Data.IsDead)
-                    {
-                        color = new Color(1, 1, 1, 0.4f);
-                    }
-                }
-                player.cosmetics.hat.FrontLayer.color = color;
-                player.cosmetics.hat.BackLayer.color = color;
-                player.cosmetics.skin.layer.color = color;
-                player.cosmetics.visor.Image.color = color;
+                Color hatColor = GetCosmeticColor(CosmeticType.hat);
+                player.cosmetics.hat.FrontLayer.color = hatColor;
+                player.cosmetics.hat.BackLayer.color = hatColor;
+                player.cosmetics.nameText.color = player.Data.IsDead ? (player.AmOwner ? hatColor : Color.clear) : hatColor;
+                player.cosmetics.skin.layer.color = GetCosmeticColor(CosmeticType.skin);
+                player.cosmetics.visor.Image.color = GetCosmeticColor(CosmeticType.visor);
                 if (player.cosmetics.CurrentPet != null)
                 {
                     player.cosmetics.CurrentPet.renderers.ToArray().ToList().ForEach(new Action<SpriteRenderer>(delegate (SpriteRenderer rend)
                     {
-                        rend.color = color;
+                        rend.color = GetCosmeticColor(CosmeticType.pet);
                     }));
                 }
-                player.cosmetics.currentBodySprite.BodySprite.color = color;
+                Animator.color = GetCosmeticColor(CosmeticType.body);
+                player.cosmetics.currentBodySprite.BodySprite.color = Animator.color;
             }
+        }
+        public Color GetCosmeticColor(CosmeticType type)
+        {
+            switch (type)
+            {
+                case CosmeticType.body: return Invisible && !player.Data.IsDead ? new Color(1, 1, 1, 0.5f) : Color.white;
+                case CosmeticType.hat: return Invisible || player.Data.IsDead ? new Color(1, 1, 1, 0.5f) : Color.white;
+                case CosmeticType.pet: return Invisible && !player.Data.IsDead ? new Color(1, 1, 1, 0.5f) : Color.white;
+                case CosmeticType.skin: return player.Data.IsDead ? Color.clear : (Invisible ? new Color(1, 1, 1, 0.5f) : Color.white);
+                default: return Invisible || player.Data.IsDead ? new Color(1, 1, 1, 0.5f) : Color.white;
+            }
+        }
+        public enum CosmeticType
+        {
+            body,
+            hat,
+            pet,
+            skin,
+            visor
         }
     }
 }

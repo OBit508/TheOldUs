@@ -24,8 +24,6 @@ namespace TheOldUs.Roles.Crewmates
         public static int ArrestUses => 5;
         [ModdedNumberOption("Release Cooldown", null, 5, 120)]
         public static float ReleaseCooldown => 15;
-        [ModdedNumberOption("Release Uses", null, 0, 30, 1, null, true, NumberSuffixes.None)]
-        public static int ReleaseUses => 5;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
         public StringNames RoleName { get; } = new Translator("Jailer").StringName;
         public StringNames RoleBlur { get; } = new Translator("You need to arrest all the impostors.").StringName;

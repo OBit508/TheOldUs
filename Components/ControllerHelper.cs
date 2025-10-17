@@ -1,4 +1,6 @@
-﻿using FungleAPI.Utilities;
+﻿using FungleAPI.Configuration;
+using FungleAPI.PluginLoading;
+using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace TheOldUs.Components
     [FungleAPI.Attributes.RegisterTypeInIl2Cpp]
     public class ControllerHelper : MonoBehaviour
     {
+        public static ModPlugin pl => TheOldUsPlugin.Plugin;
         public static Controller myController;
         public static Dictionary<Controller.TouchState, ChangeableValue<bool>> Touches = new Dictionary<Controller.TouchState, ChangeableValue<bool>>();
         public void Start()

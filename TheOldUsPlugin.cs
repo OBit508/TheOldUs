@@ -8,6 +8,7 @@ using System;
 using System.Diagnostics;
 using TheOldUs.Components;
 using TheOldUs.Roles;
+using TheOldUs.TOU;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,6 +36,7 @@ namespace TheOldUs
                 }
             });
             Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TOUAssets.LoadAssets), ModName);
+            Plugin.UseShipReference = true;
             Harmony.PatchAll();
         }
     }

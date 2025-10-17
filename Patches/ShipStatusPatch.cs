@@ -1,4 +1,6 @@
-﻿using FungleAPI.Networking;
+﻿using BepInEx.Unity.IL2CPP.Utils.Collections;
+using FungleAPI.GameOver;
+using FungleAPI.Networking;
 using FungleAPI.Utilities;
 using HarmonyLib;
 using System;
@@ -6,7 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.GameOvers;
 using TheOldUs.RPCs;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Patches
@@ -26,6 +30,38 @@ namespace TheOldUs.Patches
             MovingPlayers.Clear();
             WaitingConsoles.Clear();
             MovingPlayers.Clear();
+            TOUAssets.Jail.Instantiate(__instance.transform).transform.position = new Vector3(-12, 3.8f, 3);
+            Vector3 size = Vector3.one * 1.2f;
+            if (TOUSettings.InvertX)
+            {
+                size.x *= -1;
+            }
+            if (TOUSettings.InvertY)
+            {
+                size.y *= -1;
+            }
+            __instance.transform.localScale = size;
+            if (__instance.SafeCast<SkeldShipStatus>() == null)
+            {
+                System.Collections.IEnumerator WaitToFinishGame()
+                {
+                    while (GameManager.Instance == null || !HudManager.InstanceExists || IntroCutscene.Instance != null)
+                    {
+                        yield return null;
+                    }
+                    while (true)
+                    {
+                        try
+                        {
+                            GameManager.Instance.RpcEndGame<NotSkeldGameOver>();
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
+                __instance.StartCoroutine(WaitToFinishGame().WrapToIl2Cpp());
+            }
         }
         [HarmonyPatch("FixedUpdate")]
         [HarmonyPostfix]

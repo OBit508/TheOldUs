@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Roles.Impostors;
 using TheOldUs.RPCs;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Buttons
