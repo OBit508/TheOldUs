@@ -1,4 +1,5 @@
-﻿using FungleAPI.Configuration.Attributes;
+﻿using FungleAPI.Base.Roles;
+using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Player;
@@ -14,7 +15,6 @@ using System.Threading.Tasks;
 using TheOldUs.Buttons;
 using TheOldUs.Components;
 using TheOldUs.Patches;
-using TheOldUs.Roles.BaseRole;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
@@ -35,7 +35,6 @@ namespace TheOldUs.Roles.Crewmates
         public StringNames RoleBlurMed { get; } = new Translator("Use your gun to shoot the impostors.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Hitman can use a gun to shoot players.").StringName;
         public Color RoleColor { get; } = Palette.Orange;
-        public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<EquipGunButton>(), CustomAbilityButton.Instance<UnequipGunButton>(), CustomAbilityButton.Instance<ReloadButton>() };
         public void Start()
         {
             if (Player != null && Player.AmOwner)

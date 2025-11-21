@@ -1,4 +1,5 @@
-﻿using FungleAPI.Components;
+﻿using FungleAPI.Base.Roles;
+using FungleAPI.Components;
 using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
@@ -12,7 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Buttons;
 using TheOldUs.Components;
-using TheOldUs.Roles.BaseRole;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Crewmates
@@ -32,7 +32,6 @@ namespace TheOldUs.Roles.Crewmates
         public StringNames RoleBlurLong { get; } = new Translator("The sheriff can shoot others players but if he shoot an crewmate he die.").StringName;
         public Color RoleColor { get; } = new Color(1, (float)(204.0 / 255.0), 0, 1);
         public bool CanKill => true;
-        public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<SheriffKillButton>() };
         public override Il2CppSystem.Collections.Generic.List<PlayerControl> GetValidTargets()
         {
             return GetTempPlayerList();

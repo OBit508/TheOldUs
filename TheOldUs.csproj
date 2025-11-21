@@ -49,8 +49,6 @@
     <Compile Include="Components\JailBehaviour.cs" />
     <Compile Include="Components\PsychicVentHelper.cs" />
     <Compile Include="Patches\ShipStatusPatch.cs" />
-    <Compile Include="Roles\BaseRole\CrewmateBase.cs" />
-    <Compile Include="Roles\BaseRole\NeutralBase.cs" />
     <Compile Include="Buttons\CleanDeadBodyButton.cs" />
     <Compile Include="Roles\Impostors\CleanerRole.cs" />
     <Compile Include="Buttons\ModdedKillButton.cs" />
@@ -69,7 +67,6 @@
     <Compile Include="RPCs\RpcStopMove.cs" />
     <Compile Include="Buttons\SheriffKillButton.cs" />
     <Compile Include="Roles\Crewmates\SheriffRole.cs" />
-    <Compile Include="Roles\BaseRole\ImpostorBase.cs" />
     <Compile Include="Buttons\CreateVentButton.cs" />
     <Compile Include="RPCs\RpcCreateVent.cs" />
     <Compile Include="Roles\Impostors\VentCreatorRole.cs" />

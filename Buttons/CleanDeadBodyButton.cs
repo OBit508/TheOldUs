@@ -1,4 +1,5 @@
-﻿using FungleAPI.Hud;
+﻿using FungleAPI.Base.Buttons;
+using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Role;
 using FungleAPI.Translation;
@@ -16,28 +17,21 @@ using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    internal class CleanDeadBodyButton : CustomAbilityButton
+    internal class CleanDeadBodyButton : RoleTargetButton<DeadBody, CleanerRole>
     {
-        public static DeadBody Target;
         public override bool CanUse => Target != null;
         public override bool CanClick => CanUse;
         public override float Cooldown => CleanerRole.CleanCooldown;
         public override string OverrideText => "Clean";
         public override Color32 TextOutlineColor { get; } = new Color32(47, 173, 212, byte.MaxValue);
         public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
-        public override void Update()
+        public override void SetOutline(DeadBody target, bool active)
         {
-            base.Update();
-            DeadBody newTarget = PlayerControl.LocalPlayer.Data.Role.FindClosestBody();
-            if (newTarget != Target)
-            {
-                if (Target != null && !Target.IsNullOrDestroyed())
-                {
-                    Target?.SetOutline(false, TextOutlineColor);
-                }
-                newTarget?.SetOutline(true, TextOutlineColor);
-                Target = newTarget;
-            }
+            target?.SetOutline(active, TextOutlineColor);
+        }
+        public override DeadBody GetTarget()
+        {
+            return Role != null ? Role.FindClosestBody() : null;
         }
         public override void Click()
         {

@@ -1,4 +1,5 @@
-﻿using FungleAPI.Hud;
+﻿using FungleAPI.Base.Buttons;
+using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Utilities;
 using System;
@@ -13,7 +14,7 @@ using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    public class HauntButton : CustomAbilityButton
+    public class HauntButton : RoleButton<NovisorRole>
     {
         public static ShapeshifterMinigame ShapPanelPrefab = RoleManager.Instance.AllRoles.ToSystemList().FirstOrDefault(role => role.Role == AmongUs.GameOptions.RoleTypes.Shapeshifter).SafeCast<ShapeshifterRole>().ShapeshifterMenu;
         public static ShapeshifterMinigame ShapMinigame;

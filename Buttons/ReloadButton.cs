@@ -1,4 +1,5 @@
-﻿using FungleAPI.Hud;
+﻿using FungleAPI.Base.Buttons;
+using FungleAPI.Hud;
 using FungleAPI.Networking;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    public class ReloadButton : CustomAbilityButton
+    internal class ReloadButton : RoleButton<HitmanRole>
     {
         public static RoleHelper Helper
         {
@@ -26,7 +27,7 @@ namespace TheOldUs.Buttons
                 return null;
             }
         }
-        public override bool Active => Helper != null && Helper.ShowingGun;
+        public override bool Active => base.Active && Helper != null && Helper.ShowingGun;
         public override bool CanUse => !HitmanRole.CanShoot;
         public override bool CanClick => CanUse;
         public override float Cooldown => HitmanRole.ReloadCooldown;

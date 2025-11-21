@@ -11,12 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Buttons;
-using TheOldUs.Roles.BaseRole;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
 {
-    internal class VentCreatorRole : ImpostorBase, ICustomRole
+    internal class VentCreatorRole : ImpostorRole, ICustomRole
     {
         [ModdedNumberOption("Create Vent Cooldown", 1, 60)]
         public static float CreateVentCooldown => 10;
@@ -30,6 +29,5 @@ namespace TheOldUs.Roles.Impostors
         public StringNames RoleBlurMed { get; } = new Translator("you can create vents.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The VentCreator can create vents and he's vents will connect with all nearby vents.").StringName;
         public Color RoleColor { get; } = Color.red;
-        public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<CreateVentButton>() };
     }
 }

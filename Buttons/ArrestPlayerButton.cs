@@ -16,12 +16,12 @@ using TheOldUs.RPCs;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using TheOldUs.TOU;
+using FungleAPI.Base.Buttons;
 
 namespace TheOldUs.Buttons
 {
-    internal class ArrestPlayerButton : CustomAbilityButton
+    internal class ArrestPlayerButton : RoleTargetButton<PlayerControl, JailerRole>
     {
-        public PlayerControl Target;
         public override bool CanUse => Target != null;
         public override bool CanClick => CanUse;
         public override float Cooldown => JailerRole.ArrestCooldown;
@@ -30,19 +30,13 @@ namespace TheOldUs.Buttons
         public override int NumUses => JailerRole.ArrestUses;
         public override Color32 TextOutlineColor { get; } = Color.blue;
         public override Sprite ButtonSprite => TOUAssets.JailerArrest;
-        public override void Update()
+        public override void SetOutline(PlayerControl target, bool active)
         {
-            base.Update();
-            PlayerControl newTarget = PlayerControl.LocalPlayer.Data.Role.FindClosestTarget(new Predicate<PlayerControl>(player => JailBehaviour.ArrestedPlayers.Contains(player)));
-            if (newTarget != Target)
-            {
-                if (Target != null && !Target.IsNullOrDestroyed())
-                {
-                    Target?.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
-                }
-                newTarget?.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
-                Target = newTarget;
-            }
+            target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
+        }
+        public override PlayerControl GetTarget()
+        {
+            return Role != null ? Role.FindClosestTarget() : null;
         }
         public override void Click()
         {

@@ -1,4 +1,5 @@
-﻿using FungleAPI.Configuration;
+﻿using FungleAPI.Base.Roles;
+using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
@@ -15,7 +16,6 @@ using System.Threading.Tasks;
 using TheOldUs.Buttons;
 using TheOldUs.Components;
 using TheOldUs.Patches;
-using TheOldUs.Roles.BaseRole;
 using TheOldUs.RPCs;
 using UnityEngine;
 using UnityEngine._Scripting.APIUpdating;
@@ -48,7 +48,6 @@ namespace TheOldUs.Roles.Impostors
         public StringNames RoleBlurMed { get; } = new Translator("You can use your mind to move things.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Psychic can move players and tasks and after a few seconds they return to their original position.").StringName;
         public Color RoleColor { get; } = new Color32(161, 121, 171, byte.MaxValue);
-        public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<MoveTaskButton>(), CustomAbilityButton.Instance<MovePlayerbutton>() };
         public bool UseVanillaKillButton => false;
         public bool CanKill => PlayerControl.AllPlayerControls.FindAll(Il2CppUtils.ToIl2CppPredicate(new System.Predicate<PlayerControl>(p => p.Data.Role.GetTeam() == Team))).Count <= 1;
         public void Update()
@@ -116,7 +115,7 @@ namespace TheOldUs.Roles.Impostors
                         }
                         Touch = null;
                     }
-                    else if (Touch.dragState == DragState.Holding)
+                    else if (Touch.dragState == DragState.Dragging)
                     {
                         timer -= Time.deltaTime;
                         if (timer <= 0)

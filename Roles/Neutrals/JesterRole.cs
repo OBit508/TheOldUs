@@ -1,4 +1,5 @@
-﻿using FungleAPI.Configuration;
+﻿using FungleAPI.Base.Roles;
+using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.GameOver;
 using FungleAPI.GameOver.Ends;
@@ -12,7 +13,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Roles.BaseRole;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Neutrals

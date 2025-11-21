@@ -1,4 +1,5 @@
 ﻿using FungleAPI;
+using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Role;
@@ -16,7 +17,7 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace TheOldUs.Buttons
 {
-    internal class CreateVentButton : CustomAbilityButton
+    internal class CreateVentButton : RoleButton<VentCreatorRole>
     {
         public override bool CanUse => true;
         public override bool CanClick => CanUse;

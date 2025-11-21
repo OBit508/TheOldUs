@@ -1,4 +1,5 @@
 ﻿using FungleAPI;
+using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Player;
 using FungleAPI.Role;
@@ -9,13 +10,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.Roles.Impostors;
 using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    internal class ModdedKillButton : CustomAbilityButton
+    internal class ModdedKillButton : TargetButton<PlayerControl>
     {
-        public PlayerControl Target;
         public bool CanKill => PlayerControl.LocalPlayer != null && PlayerControl.LocalPlayer.Data != null && PlayerControl.LocalPlayer.Data.Role != null && PlayerControl.LocalPlayer.Data.Role.CanKill();
         public override bool CanUse 
         {
@@ -29,23 +30,25 @@ namespace TheOldUs.Buttons
         public override string OverrideText => StringNames.KillLabel.GetString();
         public override Color32 TextOutlineColor => Color.red;
         public override Sprite ButtonSprite => HudManager.Instance.KillButton.graphic.sprite;
-        public override void Update()
+        public override bool Active
         {
-            base.Update();
-            PlayerControl newTarget = null;
-            if (CanKill)
+            get
             {
-                newTarget = PlayerControl.LocalPlayer.Data.Role.FindClosestTarget();
-            }
-            if (newTarget != Target)
-            {
-                if (Target != null && !Target.IsNullOrDestroyed())
+                if (PlayerControl.LocalPlayer != null && PlayerControl.LocalPlayer.Data != null && PlayerControl.LocalPlayer.Data.Role != null)
                 {
-                    Target?.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(PlayerControl.LocalPlayer.Data.Role.TeamColor));
+                    Type type = PlayerControl.LocalPlayer.Data.Role.GetType();
+                    return type == typeof(CleanerRole) || type == typeof(PsychicRole);
                 }
-                newTarget?.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(PlayerControl.LocalPlayer.Data.Role.TeamColor));
-                Target = newTarget;
+                return false;
             }
+        }
+        public override void SetOutline(PlayerControl target, bool active)
+        {
+            target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
+        }
+        public override PlayerControl GetTarget()
+        {
+            return PlayerControl.LocalPlayer != null && PlayerControl.LocalPlayer.Data != null && PlayerControl.LocalPlayer.Data.Role != null ? PlayerControl.LocalPlayer.Data.Role.FindClosestTarget() : null;
         }
         public override void Click()
         {

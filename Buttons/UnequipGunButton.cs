@@ -1,4 +1,5 @@
-﻿using FungleAPI.Hud;
+﻿using FungleAPI.Base.Buttons;
+using FungleAPI.Hud;
 using FungleAPI.Networking;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Components;
+using TheOldUs.Roles.Crewmates;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    public class UnequipGunButton : CustomAbilityButton
+    internal class UnequipGunButton : RoleButton<HitmanRole>
     {
         public static RoleHelper Helper
         {
@@ -25,7 +27,7 @@ namespace TheOldUs.Buttons
                 return null;
             }
         }
-        public override bool Active => Helper != null && Helper.ShowingGun;
+        public override bool Active => base.Active && Helper != null && Helper.ShowingGun;
         public override bool CanUse => true;
         public override bool CanClick => CanUse;
         public override float Cooldown => 1;

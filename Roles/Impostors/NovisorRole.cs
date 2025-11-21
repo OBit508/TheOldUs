@@ -1,4 +1,5 @@
-﻿using FungleAPI.Configuration.Attributes;
+﻿using FungleAPI.Base.Roles;
+using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Player;
@@ -13,7 +14,6 @@ using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Buttons;
 using TheOldUs.Components;
-using TheOldUs.Roles.BaseRole;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
@@ -49,7 +49,6 @@ namespace TheOldUs.Roles.Impostors
         public StringNames RoleBlurMed => RoleBlur;
         public StringNames RoleBlurLong => RoleBlur;
         public Color RoleColor { get; } = Color.gray;
-        public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<NovisorTransformButton>(), CustomAbilityButton.Instance<SplitButton>(), CustomAbilityButton.Instance<NovisorInvisibleButton>(), CustomAbilityButton.Instance<HauntButton>() };
         public bool UseVanillaKillButton => true;
         public bool CanUseVent => !Transformed;
         public void Start()

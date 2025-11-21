@@ -1,4 +1,5 @@
-﻿using FungleAPI.Hud;
+﻿using FungleAPI.Base.Buttons;
+using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Utilities;
 using System;
@@ -13,7 +14,7 @@ using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    public class NovisorInvisibleButton : CustomAbilityButton
+    public class NovisorInvisibleButton : RoleButton<NovisorRole>
     {
         public NovisorRole Novisor
         {

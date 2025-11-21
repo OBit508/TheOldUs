@@ -1,4 +1,5 @@
 ﻿using FungleAPI;
+using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Role;
@@ -18,7 +19,7 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace TheOldUs.Buttons
 {
-    internal class ReleasePlayerButton : CustomAbilityButton
+    internal class ReleasePlayerButton : RoleButton<JailerRole>
     {
         public static ShapeshifterMinigame ShapPanelPrefab = RoleManager.Instance.AllRoles.ToSystemList().FirstOrDefault(role => role.Role == AmongUs.GameOptions.RoleTypes.Shapeshifter).SafeCast<ShapeshifterRole>().ShapeshifterMenu;
         public static ShapeshifterMinigame ShapMinigame;

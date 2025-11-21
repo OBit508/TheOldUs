@@ -1,4 +1,5 @@
-﻿using FungleAPI.Hud;
+﻿using FungleAPI.Base.Buttons;
+using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Role;
 using System;
@@ -15,7 +16,7 @@ using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    internal class MovePlayerbutton : CustomAbilityButton
+    internal class MovePlayerbutton : RoleButton<PsychicRole>
     {
         public override bool CanUse => !PsychicRole.MovingConsole;
         public override bool CanClick => CanUse;

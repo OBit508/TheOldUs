@@ -1,4 +1,5 @@
 ﻿using FungleAPI;
+using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Player;
 using FungleAPI.Role;
@@ -15,9 +16,8 @@ using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    public class SheriffKillButton : CustomAbilityButton
+    internal class SheriffKillButton : RoleTargetButton<PlayerControl, SheriffRole>
     {
-        public PlayerControl Target;
         public override bool CanUse => Target != null;
         public override bool CanClick => CanUse;
         public override float Cooldown => SheriffRole.KillCooldown;
@@ -26,19 +26,13 @@ namespace TheOldUs.Buttons
         public override int NumUses => (int)SheriffRole.UsesCount;
         public override Color32 TextOutlineColor { get; } = new Color32(254, 153, 0, byte.MaxValue);
         public override Sprite ButtonSprite => TOUAssets.SheriffKill;
-        public override void Update()
+        public override void SetOutline(PlayerControl target, bool active)
         {
-            base.Update();
-            PlayerControl newTarget = PlayerControl.LocalPlayer.Data.Role.FindClosestTarget();
-            if (newTarget != Target)
-            {
-                if (Target != null && !Target.IsNullOrDestroyed())
-                {
-                    Target?.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
-                }
-                newTarget?.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
-                Target = newTarget;
-            }
+            target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
+        }
+        public override PlayerControl GetTarget()
+        {
+            return Role != null ? Role.FindClosestTarget() : null;
         }
         public override void Click()
         {
