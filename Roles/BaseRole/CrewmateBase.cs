@@ -1,4 +1,5 @@
 ﻿using AmongUs.GameOptions;
+using FungleAPI.Player;
 using FungleAPI.Role;
 using FungleAPI.Utilities;
 using Il2CppSystem;

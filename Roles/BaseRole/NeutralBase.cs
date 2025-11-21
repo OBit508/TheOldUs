@@ -1,6 +1,7 @@
 ﻿using AmongUs.GameOptions;
 using FungleAPI.GameOver;
 using FungleAPI.GameOver.Ends;
+using FungleAPI.Player;
 using FungleAPI.Role;
 using FungleAPI.Utilities;
 using System;

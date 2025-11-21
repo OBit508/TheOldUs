@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.Components;
+using TheOldUs.Patches;
 using TheOldUs.Roles.Impostors;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
@@ -26,6 +28,10 @@ namespace TheOldUs.Buttons
         public override void Click()
         {
             PsychicRole.MovingPlayer = true;
+            foreach (PlayerControl player in PlayerControl.AllPlayerControls)
+            {
+                TOUAssets.Target.Instantiate(player.transform).GetComponent<TargetBehaviour>().Predicate = new Predicate<PlayerControl>(p => !p.Data.IsDead && !p.AmOwner && !p.inVent && p.Visible && !p.Data.Disconnected && !ShipStatusPatch.WaitingPlayers.ContainsKey(p));
+            }
         }
         public override void Destransform()
         {
@@ -36,6 +42,7 @@ namespace TheOldUs.Buttons
             }
             PsychicRole.MovingPlayer = false;
             PsychicRole.movedPlayer = null;
+            TargetBehaviour.DestroyAll();
         }
     }
 }

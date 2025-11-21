@@ -22,7 +22,7 @@ namespace TheOldUs.Buttons
     {
         public static ShapeshifterMinigame ShapPanelPrefab = RoleManager.Instance.AllRoles.ToSystemList().FirstOrDefault(role => role.Role == AmongUs.GameOptions.RoleTypes.Shapeshifter).SafeCast<ShapeshifterRole>().ShapeshifterMenu;
         public static ShapeshifterMinigame ShapMinigame;
-        public override bool CanUse => Vector2.Distance(PlayerControl.LocalPlayer.transform.position, JailBehaviour.Bars.transform.position) <= 2;
+        public override bool CanUse => Vector2.Distance(PlayerControl.LocalPlayer.transform.position, JailBehaviour.Bars.transform.position) <= 2 && ShapMinigame == null;
         public override bool CanClick => CanUse;
         public override float Cooldown => JailerRole.ReleaseCooldown;
         public override string OverrideText => "Release";

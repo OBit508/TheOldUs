@@ -18,11 +18,11 @@ namespace TheOldUs.Roles.Crewmates
 {
     internal class JailerRole : CrewmateBase, ICustomRole
     {
-        [ModdedNumberOption("Arrest Cooldown", null, 5, 120)]
+        [ModdedNumberOption("Arrest Cooldown", 5, 120)]
         public static float ArrestCooldown => 15;
-        [ModdedNumberOption("Arrest Uses", null, 0, 30, 1, null, true, NumberSuffixes.None)]
+        [ModdedNumberOption("Arrest Uses", 0, 30, 1, null, true, NumberSuffixes.None)]
         public static int ArrestUses => 5;
-        [ModdedNumberOption("Release Cooldown", null, 5, 120)]
+        [ModdedNumberOption("Release Cooldown", 5, 120)]
         public static float ReleaseCooldown => 15;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
         public StringNames RoleName { get; } = new Translator("Jailer").StringName;

@@ -1,7 +1,11 @@
-﻿using FungleAPI.Hud;
+﻿using FungleAPI.Configuration.Attributes;
+using FungleAPI.Hud;
+using FungleAPI.Networking;
+using FungleAPI.Player;
 using FungleAPI.Role;
 using FungleAPI.Role.Teams;
 using FungleAPI.Translation;
+using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,34 +14,31 @@ using System.Threading.Tasks;
 using TheOldUs.Buttons;
 using TheOldUs.Components;
 using TheOldUs.Roles.BaseRole;
-using UnityEngine;
-using FungleAPI.Configuration.Attributes;
-using FungleAPI.Utilities;
-using FungleAPI.Networking;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
+using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
 {
     public class NovisorRole : ImpostorBase, ICustomRole
     {
-        [ModdedNumberOption("Transform Cooldown", null, 5, 60)]
+        [ModdedNumberOption("Transform Cooldown", 5, 60)]
         public static float TransformCooldown => 20;
-        [ModdedNumberOption("Transform Duration", null, 5, 60)]
+        [ModdedNumberOption("Transform Duration", 5, 60)]
         public static float TransformDuration => 20;
-        [ModdedNumberOption("Split Cooldown", null, 5, 60)]
+        [ModdedNumberOption("Split Cooldown", 5, 60)]
         public static float SplitCooldown => 20;
-        [ModdedNumberOption("Invisiblity Cooldown", null, 5, 60)]
+        [ModdedNumberOption("Invisiblity Cooldown", 5, 60)]
         public static float InvisibleCooldown => 20;
-        [ModdedNumberOption("Invisiblity Duration", null, 5, 60)]
+        [ModdedNumberOption("Invisiblity Duration", 5, 60)]
         public static float InvisibleDuration => 10;
-        [ModdedNumberOption("Haunt Cooldown", null, 5, 60)]
+        [ModdedNumberOption("Haunt Cooldown", 5, 60)]
         public static float HauntCooldown => 10;
-        [ModdedNumberOption("Clone Speed", null, 1, 10, 0.5f, null, false, NumberSuffixes.Multiplier)]
+        [ModdedNumberOption("Clone Speed", 1, 10, 0.5f, null, false, NumberSuffixes.Multiplier)]
         public static float CloneSpeed => 1;
-        [ModdedNumberOption("Clone Lifetime", null, 1, 120)]
+        [ModdedNumberOption("Clone Lifetime", 1, 120)]
         public static float CloneLifetime => 10;
-        [ModdedNumberOption("Haunt Speed", null, 3, 20, 1, null, false, NumberSuffixes.Multiplier)]
+        [ModdedNumberOption("Haunt Speed", 3, 20, 1, null, false, NumberSuffixes.Multiplier)]
         public static float HauntSpeed => 7;
         public PlayerAnimationHelper AnimationHelper;
         public bool Transformed;

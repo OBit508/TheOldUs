@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Components;
+using TheOldUs.Patches;
 using TheOldUs.Roles.Impostors;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
@@ -29,6 +30,13 @@ namespace TheOldUs.Buttons
         public override void Click()
         {
             PsychicRole.MovingConsole = true;
+            foreach (Console console in ShipStatus.Instance.AllConsoles)
+            {
+                if ((console.TaskTypes.Count > 0 || console.ValidTasks.Count > 0) && !ShipStatusPatch.WaitingConsoles.ContainsKey(console))
+                {
+                    TOUAssets.Target.Instantiate(console.transform);
+                }
+            }
         }
         public override void Destransform()
         {
@@ -39,6 +47,7 @@ namespace TheOldUs.Buttons
             }
             PsychicRole.MovingConsole = false;
             PsychicRole.movedConsole = null;
+            TargetBehaviour.DestroyAll();
         }
     }
 }

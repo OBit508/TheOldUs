@@ -28,7 +28,7 @@ namespace TheOldUs.Components
             {
                 if (Vector2.Distance(player.transform.position, transform.position) > 3.2f)
                 {
-                    player.NetTransform.SnapTo(new Vector2(TOUSettings.InvertX ? 12 : -12, TOUSettings.InvertY ? -3 : 3));
+                    player.NetTransform.SnapTo(new Vector2(TOUSettings.Ship.InvertX ? 12 : -12, TOUSettings.Ship.InvertY ? -3 : 3));
                 }
             }
         }

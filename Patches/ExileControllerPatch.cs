@@ -13,7 +13,7 @@ namespace TheOldUs.Patches
     {
         public static bool Prefix(ExileController __instance, [HarmonyArgument(0)] ExileController.InitProperties init)
         {
-            if (TOUSettings.ArrestWhenEjected)
+            if (TOUSettings.Jail.ArrestWhenEjected)
             {
                 if (__instance.specialInputHandler != null)
                 {
@@ -28,12 +28,12 @@ namespace TheOldUs.Patches
                 {
                     DestroyableSingleton<HudManager>.Instance.SetMapButtonEnabled(false);
                 }
+                __instance.Player.gameObject.SetActive(false);
+                __instance.ImpostorText.color = new UnityEngine.Color(0, 0, 0, 0);
+                __instance.EjectSound = null;
                 if (init != null && init.outfit != null)
                 {
-                    __instance.Player.gameObject.SetActive(false);
                     __instance.completeString = init.outfit.PlayerName + " was sent to the jail.";
-                    __instance.ImpostorText.color = new UnityEngine.Color(0, 0, 0, 0);
-                    __instance.EjectSound = null;
                     __instance.Player.UpdateFromPlayerOutfit(init.outfit, PlayerMaterial.MaskType.Exile, false, false, new Action(delegate
                     {
                         SkinViewData skinViewData;
@@ -62,10 +62,6 @@ namespace TheOldUs.Patches
                         __instance.Player.SetCustomHatPosition(__instance.exileHatPosition);
                         __instance.Player.SetCustomVisorPosition(__instance.exileVisorPosition);
                     }
-                }
-                if (init != null)
-                {
-
                 }
                 else
                 {

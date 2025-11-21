@@ -10,17 +10,19 @@ namespace TheOldUs.TOU
 {
     public class TOUSettings : ModSettings
     {
-        [SettingsGroup("Jail")]
-        public static string JailId => "__jail";
-        [ModdedToggleOption("When ejected players go to jail", "__jail")]
-        public static bool ArrestWhenEjected => true;
-        [SettingsGroup("Ship")]
-        public static string ShipId => "__ship";
-        [ModdedToggleOption("Invert X", "__ship")]
-        public static bool InvertX => false;
-        [ModdedToggleOption("Invert Y", "__ship")]
-        public static bool InvertY => false;
-        [ModdedToggleOption("Better Doors", "__ship")]
-        public static bool BetterDoors => true;
+        public class Jail : SettingsGroup
+        {
+            [ModdedToggleOption("When ejected players go to jail")]
+            public static bool ArrestWhenEjected => true;
+        }
+        public class Ship : SettingsGroup
+        {
+            [ModdedToggleOption("Invert X")]
+            public static bool InvertX => false;
+            [ModdedToggleOption("Invert Y")]
+            public static bool InvertY => false;
+            [ModdedToggleOption("Better Doors")]
+            public static bool BetterDoors => true;
+        }
     }
 }

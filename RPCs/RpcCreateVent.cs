@@ -25,7 +25,7 @@ namespace TheOldUs.RPCs
                     nearbyVents.Add(vent);
                 }
             }
-            Helpers.CreateVent(value, nearbyVents);
+            Helpers.CreateVent(Helpers.VentType.Skeld, value, nearbyVents);
         }
         public override void Handle(MessageReader reader)
         {
@@ -38,7 +38,7 @@ namespace TheOldUs.RPCs
                     nearbyVents.Add(vent);
                 }
             }
-            Helpers.CreateVent(value, nearbyVents);
+            Helpers.CreateVent(Helpers.VentType.Skeld, value, nearbyVents);
         }
     }
 }

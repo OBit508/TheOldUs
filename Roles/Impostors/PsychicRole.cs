@@ -24,22 +24,23 @@ namespace TheOldUs.Roles.Impostors
 {
     internal class PsychicRole : ImpostorBase, ICustomRole
     {
-        [ModdedNumberOption("Move Console Cooldown", null, 5, 60)]
+        [ModdedNumberOption("Move Console Cooldown", 5, 60)]
         public static float MoveConsoleCooldown => 15;
-        [ModdedNumberOption("Move Player Cooldown", null, 5, 60)]
+        [ModdedNumberOption("Move Player Cooldown", 5, 60)]
         public static float MovePlayerCooldown => 20;
-        [ModdedNumberOption("Move Console Duration", null, 5, 60)]
+        [ModdedNumberOption("Move Console Duration", 5, 60)]
         public static float MoveConsoleDuration => 20;
-        [ModdedNumberOption("Move Player Duration", null, 5, 60)]
+        [ModdedNumberOption("Move Player Duration", 5, 60)]
         public static float MovePlayerDuration => 20;
-        [ModdedNumberOption("Time until the object returns", null, 5, 60)]
+        [ModdedNumberOption("Time until the object returns", 5, 60)]
         public static float ObjetTime => 10;
         public static bool MovingConsole;
         public static bool MovingPlayer;
         public static Console movedConsole;
         public static PlayerControl movedPlayer;
         public static bool LastCheck;
-        public static Controller.TouchState Touch;
+        public static ControllerHelper.TouchState Touch;
+        public static ControllerHelper myController;
         public static float timer;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
         public StringNames RoleName { get; } = new Translator("Psychic").StringName;
@@ -49,7 +50,7 @@ namespace TheOldUs.Roles.Impostors
         public Color RoleColor { get; } = new Color32(161, 121, 171, byte.MaxValue);
         public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<MoveTaskButton>(), CustomAbilityButton.Instance<MovePlayerbutton>() };
         public bool UseVanillaKillButton => false;
-        public bool CanKill => PlayerControl.AllPlayerControls.FindAll(FungleAPI.Utilities.Il2CppUtils.ToIl2Cpp(new System.Predicate<PlayerControl>(p => p.Data.Role.GetTeam() == Team))).Count <= 1;
+        public bool CanKill => PlayerControl.AllPlayerControls.FindAll(Il2CppUtils.ToIl2CppPredicate(new System.Predicate<PlayerControl>(p => p.Data.Role.GetTeam() == Team))).Count <= 1;
         public void Update()
         {
             if (Player != null && Player.AmOwner)
@@ -64,8 +65,9 @@ namespace TheOldUs.Roles.Impostors
                     Zoom(3);
                     LastCheck = false;
                 }
-                Controller.TouchState touch;
-                if (Touch == null && (MovingConsole || MovingPlayer) && ControllerHelper.AnyStartedTouch(out touch))
+                myController.Update();
+                ControllerHelper.TouchState touch;
+                if (Touch == null && (MovingConsole || MovingPlayer) && myController.AnyStarted(out touch))
                 {
                     Touch = touch;
                     Collider2D[] hits = Physics2D.OverlapPointAll(Touch.Position);
@@ -161,6 +163,7 @@ namespace TheOldUs.Roles.Impostors
                 MovingPlayer = false;
                 movedConsole = null;
                 movedPlayer = null;
+                myController = new ControllerHelper();
             }
         }
         public void Zoom(float size)

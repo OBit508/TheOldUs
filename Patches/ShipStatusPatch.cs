@@ -32,11 +32,11 @@ namespace TheOldUs.Patches
             MovingPlayers.Clear();
             TOUAssets.Jail.Instantiate(__instance.transform).transform.position = new Vector3(-12, 3.8f, 3);
             Vector3 size = Vector3.one * 1.2f;
-            if (TOUSettings.InvertX)
+            if (TOUSettings.Ship.InvertX)
             {
                 size.x *= -1;
             }
-            if (TOUSettings.InvertY)
+            if (TOUSettings.Ship.InvertY)
             {
                 size.y *= -1;
             }

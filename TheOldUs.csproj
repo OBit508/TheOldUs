@@ -14,13 +14,17 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Compile Include="Buttons\EquipGunButton.cs" />
     <Compile Include="Buttons\HauntButton.cs" />
     <Compile Include="Buttons\NovisorInvisibleButton.cs" />
     <Compile Include="Buttons\NovisorTransformButton.cs" />
+    <Compile Include="Buttons\ReloadButton.cs" />
     <Compile Include="Buttons\SplitButton.cs" />
+    <Compile Include="Buttons\UnequipGunButton.cs" />
     <Compile Include="Components\BetterDoorHelper.cs" />
     <Compile Include="Components\FakeNovisorComp.cs" />
     <Compile Include="Components\RoleHelper.cs" />
+    <Compile Include="Components\TargetBehaviour.cs" />
     <Compile Include="GameOvers\NotSkeldGameOver.cs" />
     <Compile Include="Patches\DummyBehaviourPatch.cs" />
     <Compile Include="Patches\ExileControllerPatch.cs" />
@@ -29,6 +33,7 @@
     <Compile Include="Patches\PlainDoorPatch.cs" />
     <Compile Include="Patches\PlayerControlPatch.cs" />
     <Compile Include="Patches\PlayerVoteAreaPatch.cs" />
+    <Compile Include="Patches\UseButtonPatch.cs" />
     <Compile Include="Roles\Crewmates\HitmanRole.cs" />
     <Compile Include="Roles\Impostors\NovisorRole.cs" />
     <Compile Include="RPCs\RpcHaunt.cs" />
@@ -36,10 +41,10 @@
     <Compile Include="RPCs\RpcNovisorTransform.cs" />
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
     <Compile Include="RPCs\RpcSplit.cs" />
+    <Compile Include="RPCs\RpcUpdateGun.cs" />
     <Compile Include="TOU\TOUAssets.cs" />
     <Compile Include="BepInEx\BepInAutoPluginAttribute.cs" />
     <Compile Include="BepInEx\Preloader\Core\Patching\PatcherAutoPluginAttribute.cs" />
-    <Compile Include="Components\ControllerHelper.cs" />
     <Compile Include="Components\PlayerAnimationHelper.cs" />
     <Compile Include="Components\JailBehaviour.cs" />
     <Compile Include="Components\PsychicVentHelper.cs" />
@@ -71,9 +76,11 @@
     <Compile Include="TheOldUsPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
-    <Compile Include="TOU\TOUFolder.cs" />
     <Compile Include="TOU\TOUSettings.cs" />
     <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Varied\Target.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Varied\Gun.png" />

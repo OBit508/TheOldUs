@@ -43,6 +43,9 @@ namespace TheOldUs.TOU
             LoadJail();
             FakeNovisor = new Prefab<FakeNovisorComp>(new GameObject("FakeNovisor").AddComponent<GifAnimator>().gameObject.AddComponent<SpriteRenderer>().gameObject.AddComponent<FakeNovisorComp>());
             FakeNovisor.prefab.gameObject.AddComponent<BoxCollider2D>().size = new Vector2(0.8f, 1.8f);
+            Target = new Prefab<GameObject>(new GameObject("Target"));
+            Target.prefab.AddComponent<SpriteRenderer>().sprite = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Varied.Target", 100);
+            Target.prefab.AddComponent<TargetBehaviour>();
         }
         public static void LoadJail()
         {
@@ -52,7 +55,7 @@ namespace TheOldUs.TOU
             SpriteRenderer bars = new GameObject("Bars").AddComponent<SpriteRenderer>();
             bars.sprite = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Ship.Bars", 200);
             bars.transform.SetParent(Jail.prefab.transform);
-            bars.transform.localPosition = new Vector3(0f, -2f, -2.7256f);
+            bars.transform.localPosition = new Vector3(0f, -2f, -0.002f);
             bars.transform.localScale = new Vector3(1, 0.9f, 1);
             BoxCollider2D c1 = new GameObject("Collider").AddComponent<BoxCollider2D>();
             c1.transform.SetParent(Jail.prefab.transform);
@@ -96,6 +99,7 @@ namespace TheOldUs.TOU
         public static GifFile NovisorAttack;
         public static Prefab<JailBehaviour> Jail;
         public static Prefab<FakeNovisorComp> FakeNovisor;
+        public static Prefab<GameObject> Target;
     }
 }
 

@@ -38,6 +38,7 @@ namespace TheOldUs.Buttons
         {
             if (Novisor != null)
             {
+                HudManager.Instance.ImpostorVentButton.ToggleVisible(false);
                 CustomRpcManager.Instance<RpcNovisorTransform>().Send((PlayerControl.LocalPlayer, true), PlayerControl.LocalPlayer.NetId);
             }
         }
@@ -45,6 +46,7 @@ namespace TheOldUs.Buttons
         {
             if (Novisor != null)
             {
+                HudManager.Instance.ImpostorVentButton.ToggleVisible(true);
                 CustomRpcManager.Instance<RpcNovisorTransform>().Send((PlayerControl.LocalPlayer, false), PlayerControl.LocalPlayer.NetId);
                 NovisorInvisibleButton novisorInvisible = CustomAbilityButton.Instance<NovisorInvisibleButton>();
                 if (novisorInvisible.Transformed)

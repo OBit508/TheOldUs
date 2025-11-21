@@ -28,7 +28,7 @@ namespace TheOldUs.Buttons
                 return null;
             }
         }
-        public override bool CanClick => Novisor != null && Novisor.Transformed && Novisor.Target == null;
+        public override bool CanClick => Novisor != null && Novisor.Transformed && Novisor.Target == null && ShapMinigame == null;
         public override bool CanUse => CanClick;
         public override float Cooldown => NovisorRole.HauntCooldown;
         public override string OverrideText => "Haunt";
@@ -38,6 +38,7 @@ namespace TheOldUs.Buttons
         {
             if (Novisor != null)
             {
+                SetCooldown(0);
                 ShapMinigame = GameObject.Instantiate<ShapeshifterMinigame>(ShapPanelPrefab, Camera.main.transform);
                 Minigame.Instance = ShapMinigame;
                 ShapMinigame.timeOpened = Time.realtimeSinceStartup;
@@ -69,6 +70,7 @@ namespace TheOldUs.Buttons
                     shapeshifterPanel.transform.localPosition = new Vector3(ShapMinigame.XStart + (float)num * ShapMinigame.XOffset, ShapMinigame.YStart + (float)num2 * ShapMinigame.YOffset, -1f);
                     shapeshifterPanel.SetPlayer(i, player.Data, new Action(delegate
                     {
+                        SetCooldown(Cooldown);
                         ShapMinigame.ForceClose();
                         if (Novisor != null)
                         {

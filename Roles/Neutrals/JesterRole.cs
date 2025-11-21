@@ -19,7 +19,7 @@ namespace TheOldUs.Roles.Neutrals
 {
     internal class JesterRole : NeutralBase, ICustomRole
     {
-        [ModdedToggleOption("Can Vent", null)]
+        [ModdedToggleOption("Can Vent")]
         public static bool Vent => true;
         public ModdedTeam Team { get; } = ModdedTeam.Neutrals;
         public StringNames RoleName { get; } = new Translator("Jester").StringName;

@@ -17,14 +17,27 @@ namespace TheOldUs.Components
     {
         public AutoOpenDoor Door;
         public bool Open = true;
+        public float timer;
         public void Awake()
         {
             Door = transform.parent.GetComponent<AutoOpenDoor>();
             Image = Door.GetComponent<SpriteRenderer>();
             Image.material = new Material(Shader.Find("Sprites/Outline"));
         }
+        public new void Start()
+        {
+            SetDoorway();
+        }
+        public void Update()
+        {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+        }
         public void SetDoorway()
         {
+            timer = 3;
             Open = !Open;
             Door.myCollider.isTrigger = Open;
             if (Door.shadowCollider != null)
@@ -56,8 +69,8 @@ namespace TheOldUs.Components
             Vector3 center = @object.Collider.bounds.center;
             Vector3 position = transform.position;
             float num = Vector2.Distance(center, position);
-            couldUse = TOUSettings.BetterDoors && !pc.IsDead && Door.Open;
-            canUse = (num <= UsableDistance && !PhysicsHelpers.AnythingBetween(@object.Collider, center, position, Constants.ShipOnlyMask, useTriggers: false)) & couldUse;
+            couldUse = TOUSettings.Ship.BetterDoors && !pc.IsDead && Door.Open;
+            canUse = (num <= UsableDistance && !PhysicsHelpers.AnythingBetween(@object.Collider, center, position, Constants.ShipOnlyMask, false)) & couldUse;
             return num;
         }
 

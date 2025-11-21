@@ -19,7 +19,7 @@ namespace TheOldUs.Roles.Impostors
 {
     internal class CleanerRole : ImpostorBase, ICustomRole
     {
-        [ModdedNumberOption("Clean Cooldown", null, 5, 60)]
+        [ModdedNumberOption("Clean Cooldown", 5, 60)]
         public static float CleanCooldown => 15;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
         public StringNames RoleName { get; } = new Translator("Cleaner").StringName;
@@ -29,6 +29,6 @@ namespace TheOldUs.Roles.Impostors
         public Color RoleColor { get; } = new Color32(47, 173, 212, byte.MaxValue);
         public List<CustomAbilityButton> Buttons { get; } = new List<CustomAbilityButton>() { CustomAbilityButton.Instance<ModdedKillButton>(), CustomAbilityButton.Instance<CleanDeadBodyButton>() };
         public bool UseVanillaKillButton => false;
-        public bool CanKill => PlayerControl.AllPlayerControls.FindAll(FungleAPI.Utilities.Il2CppUtils.ToIl2Cpp(new Predicate<PlayerControl>(p => p.Data.Role.GetTeam() == Team))).Count <= 1;
+        public bool CanKill => PlayerControl.AllPlayerControls.FindAll(FungleAPI.Utilities.Il2CppUtils.ToIl2CppPredicate(new Predicate<PlayerControl>(p => p.Data.Role.GetTeam() == Team))).Count <= 1;
     }
 }

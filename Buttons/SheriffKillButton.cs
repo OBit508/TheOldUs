@@ -1,5 +1,6 @@
 ﻿using FungleAPI;
 using FungleAPI.Hud;
+using FungleAPI.Player;
 using FungleAPI.Role;
 using FungleAPI.Utilities;
 using Rewired.Utils;

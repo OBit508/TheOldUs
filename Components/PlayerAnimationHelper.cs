@@ -62,12 +62,16 @@ namespace TheOldUs.Components
                     Animator.sprite = IdleAnim.GetSprite(time);
                 }
             }
+            player.cosmetics.nameText.color = Color.clear;
             if (player.Visible)
             {
                 Color hatColor = GetCosmeticColor(CosmeticType.hat);
                 player.cosmetics.hat.FrontLayer.color = hatColor;
                 player.cosmetics.hat.BackLayer.color = hatColor;
-                player.cosmetics.nameText.color = player.Data.IsDead ? (player.AmOwner ? hatColor : Color.clear) : hatColor;
+                if (!player.Data.IsDead || PlayerControl.LocalPlayer.Data.IsDead)
+                {
+                    player.cosmetics.nameText.color = hatColor;
+                }
                 player.cosmetics.skin.layer.color = GetCosmeticColor(CosmeticType.skin);
                 player.cosmetics.visor.Image.color = GetCosmeticColor(CosmeticType.visor);
                 if (player.cosmetics.CurrentPet != null)

@@ -28,15 +28,7 @@ namespace TheOldUs
         public static ModPlugin Plugin;
         public override void Load()
         {
-            SceneManager.add_sceneLoaded((Action<Scene, LoadSceneMode>)delegate (Scene scene, LoadSceneMode _)
-            {
-                if (scene.name == "MainMenu" && ControllerHelper.myController == null)
-                {
-                    new GameObject("ControllerHelper").AddComponent<ControllerHelper>().DontDestroy();
-                }
-            });
             Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TOUAssets.LoadAssets), ModName);
-            Plugin.UseShipReference = true;
             Harmony.PatchAll();
         }
     }
