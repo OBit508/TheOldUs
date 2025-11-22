@@ -17,6 +17,7 @@ namespace TheOldUs.Buttons
 {
     internal class EquipGunButton : RoleButton<HitmanRole>
     {
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public static RoleHelper Helper
         {
             get

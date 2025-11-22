@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Roles.Crewmates;
+using TheOldUs.Roles.Neutrals;
 using TheOldUs.TOU;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace TheOldUs.Components
     {
         public SpriteRenderer Gun;
         public bool ShowingGun;
+        public Color DefaultVisorColor = new Color(0.5843f, 0.7922f, 0.8627f, 1);
         public void Update()
         {
             if (player != null)
@@ -39,6 +41,11 @@ namespace TheOldUs.Components
                         Gun.transform.localScale = vec;
                     }
                 }
+                try
+                {
+                    player.cosmetics.currentBodySprite.BodySprite.material.SetColor("_VisorColor", ArsonistRole.SoakedPlayers[PlayerControl.LocalPlayer].Contains(player) ? Palette.Orange : DefaultVisorColor);
+                }
+                catch { }
             }
         }
     }

@@ -27,6 +27,7 @@ namespace TheOldUs.Buttons
                 return null;
             }
         }
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse => Novisor != null && Novisor.Transformed;
         public override bool CanClick => CanUse;
         public override float Cooldown => NovisorRole.SplitCooldown;

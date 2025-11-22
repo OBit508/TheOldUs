@@ -19,6 +19,7 @@ namespace TheOldUs.Buttons
 {
     internal class CreateVentButton : RoleButton<VentCreatorRole>
     {
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse => true;
         public override bool CanClick => CanUse;
         public override float Cooldown => VentCreatorRole.CreateVentCooldown;

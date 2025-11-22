@@ -23,6 +23,7 @@ namespace TheOldUs.Buttons
     {
         public static ShapeshifterMinigame ShapPanelPrefab = RoleManager.Instance.AllRoles.ToSystemList().FirstOrDefault(role => role.Role == AmongUs.GameOptions.RoleTypes.Shapeshifter).SafeCast<ShapeshifterRole>().ShapeshifterMenu;
         public static ShapeshifterMinigame ShapMinigame;
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse => Vector2.Distance(PlayerControl.LocalPlayer.transform.position, JailBehaviour.Bars.transform.position) <= 2 && ShapMinigame == null;
         public override bool CanClick => CanUse;
         public override float Cooldown => JailerRole.ReleaseCooldown;
@@ -59,7 +60,6 @@ namespace TheOldUs.Buttons
                 PlayerControl player = JailBehaviour.ArrestedPlayers[i];
                 int num = i % 3;
                 int num2 = i / 3;
-                bool flag = PlayerControl.LocalPlayer.Data.Role.NameColor == player.Data.Role.NameColor;
                 ShapeshifterPanel shapeshifterPanel = GameObject.Instantiate<ShapeshifterPanel>(ShapMinigame.PanelPrefab, ShapMinigame.transform);
                 shapeshifterPanel.transform.localPosition = new Vector3(ShapMinigame.XStart + (float)num * ShapMinigame.XOffset, ShapMinigame.YStart + (float)num2 * ShapMinigame.YOffset, -1f);
                 shapeshifterPanel.SetPlayer(i, player.Data, new Action(delegate
@@ -68,7 +68,7 @@ namespace TheOldUs.Buttons
                     CustomRpcManager.Instance<RpcArrestPlayer>().Send((player, false), PlayerControl.LocalPlayer.NetId);
                     SetCooldown(Cooldown);
                 }));
-                shapeshifterPanel.NameText.color = (flag ? player.Data.Role.NameColor : Color.white);
+                shapeshifterPanel.NameText.color = Color.white;
                 ShapMinigame.potentialVictims.Add(shapeshifterPanel);
             }
         }

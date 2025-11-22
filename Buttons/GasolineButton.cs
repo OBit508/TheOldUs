@@ -1,36 +1,31 @@
 ﻿using FungleAPI;
+using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
-using FungleAPI.Role;
 using FungleAPI.Utilities;
-using Rewired.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Components;
 using TheOldUs.Roles.Crewmates;
-using TheOldUs.Roles;
+using TheOldUs.Roles.Neutrals;
 using TheOldUs.RPCs;
+using TheOldUs.TOU;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
-using TheOldUs.TOU;
-using FungleAPI.Base.Buttons;
 
 namespace TheOldUs.Buttons
 {
-    internal class ArrestPlayerButton : RoleTargetButton<PlayerControl, JailerRole>
+    internal class GasolineButton : RoleTargetButton<PlayerControl, ArsonistRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse => Target != null;
         public override bool CanClick => CanUse;
-        public override float Cooldown => JailerRole.ArrestCooldown;
-        public override string OverrideText => "Arrest";
-        public override bool HaveUses => JailerRole.ArrestUses > 0;
-        public override int NumUses => JailerRole.ArrestUses;
-        public override Color32 TextOutlineColor { get; } = Color.blue;
-        public override Sprite ButtonSprite => TOUAssets.JailerArrest;
+        public override float Cooldown => ArsonistRole.GasolineCooldown;
+        public override string OverrideText => "Gasoline";
+        public override Color32 TextOutlineColor { get; } = new Color32(173, 95, 5, byte.MaxValue);
+        public override Sprite ButtonSprite => TOUAssets.Gasoline;
         public override void SetOutline(PlayerControl target, bool active)
         {
             target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
@@ -45,7 +40,7 @@ namespace TheOldUs.Buttons
             {
                 if (Target != null)
                 {
-                    CustomRpcManager.Instance<RpcArrestPlayer>().Send((Target, true), PlayerControl.LocalPlayer.NetId);
+                    CustomRpcManager.Instance<RpcSoak>().Send((Player, Target), PlayerControl.LocalPlayer.NetId);
                     Target.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
                     Target = null;
                 }

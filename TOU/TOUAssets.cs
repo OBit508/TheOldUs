@@ -33,6 +33,8 @@ namespace TheOldUs.TOU
             UnequipGun = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.UnequipGun", 100);
             Reload = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Reload", 100);
             Gun = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Varied.Gun", 100);
+            Gasoline = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Gasoline", 100);
+            Flame = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Flame", 100);
             NovisorIdle = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorIdle", 100);
             NovisorRun = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorRun", 100);
             NovisorAttack = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorAttack", 100);
@@ -55,8 +57,8 @@ namespace TheOldUs.TOU
             SpriteRenderer bars = new GameObject("Bars").AddComponent<SpriteRenderer>();
             bars.sprite = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Ship.Bars", 200);
             bars.transform.SetParent(Jail.prefab.transform);
-            bars.transform.localPosition = new Vector3(0f, -2f, -0.002f);
             bars.transform.localScale = new Vector3(1, 0.9f, 1);
+            bars.transform.localPosition = new Vector3(0f, -2f, -2.776f);
             BoxCollider2D c1 = new GameObject("Collider").AddComponent<BoxCollider2D>();
             c1.transform.SetParent(Jail.prefab.transform);
             c1.transform.localScale = new Vector3(1.6f, 0.8f, 1);
@@ -94,6 +96,8 @@ namespace TheOldUs.TOU
         public static Sprite UnequipGun;
         public static Sprite Reload;
         public static Sprite Gun;
+        public static Sprite Flame;
+        public static Sprite Gasoline;
         public static GifFile NovisorIdle;
         public static GifFile NovisorRun;
         public static GifFile NovisorAttack;

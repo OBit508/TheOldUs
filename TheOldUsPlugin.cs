@@ -24,12 +24,13 @@ namespace TheOldUs
         public const string ModDescription = "This is a ModTemplate for the API FungleAPI";
         public const string ModId = "com." + Owner + "." + ModName;
         public const string ModVersion = "1.0.0";
-        public Harmony Harmony { get; } = new Harmony(ModId);
+        public static Harmony Harmony = new Harmony(ModId);
         public static ModPlugin Plugin;
         public override void Load()
         {
             Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TOUAssets.LoadAssets), ModName);
             Harmony.PatchAll();
+            Utils.PatchFungleAPI();
         }
     }
 }

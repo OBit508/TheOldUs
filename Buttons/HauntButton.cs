@@ -29,6 +29,7 @@ namespace TheOldUs.Buttons
                 return null;
             }
         }
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanClick => Novisor != null && Novisor.Transformed && Novisor.Target == null && ShapMinigame == null;
         public override bool CanUse => CanClick;
         public override float Cooldown => NovisorRole.HauntCooldown;
@@ -66,7 +67,6 @@ namespace TheOldUs.Buttons
                     PlayerControl player = list[i];
                     int num = i % 3;
                     int num2 = i / 3;
-                    bool flag = PlayerControl.LocalPlayer.Data.Role.NameColor == player.Data.Role.NameColor;
                     ShapeshifterPanel shapeshifterPanel = GameObject.Instantiate<ShapeshifterPanel>(ShapMinigame.PanelPrefab, ShapMinigame.transform);
                     shapeshifterPanel.transform.localPosition = new Vector3(ShapMinigame.XStart + (float)num * ShapMinigame.XOffset, ShapMinigame.YStart + (float)num2 * ShapMinigame.YOffset, -1f);
                     shapeshifterPanel.SetPlayer(i, player.Data, new Action(delegate
@@ -78,7 +78,7 @@ namespace TheOldUs.Buttons
                             CustomRpcManager.Instance<RpcHaunt>().Send((PlayerControl.LocalPlayer, player), PlayerControl.LocalPlayer.NetId);
                         }
                     }));
-                    shapeshifterPanel.NameText.color = (flag ? player.Data.Role.NameColor : Color.white);
+                    shapeshifterPanel.NameText.color = Color.white;
                     ShapMinigame.potentialVictims.Add(shapeshifterPanel);
                 }
             }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.GameOvers;
+using TheOldUs.Roles.Neutrals;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
@@ -26,6 +27,7 @@ namespace TheOldUs.Patches
         [HarmonyPostfix]
         public static void StartPostfix(ShipStatus __instance)
         {
+            ArsonistRole.SoakedPlayers.Clear();
             MovingConsoles.Clear();
             MovingPlayers.Clear();
             WaitingConsoles.Clear();
@@ -41,27 +43,6 @@ namespace TheOldUs.Patches
                 size.y *= -1;
             }
             __instance.transform.localScale = size;
-            if (__instance.SafeCast<SkeldShipStatus>() == null)
-            {
-                System.Collections.IEnumerator WaitToFinishGame()
-                {
-                    while (GameManager.Instance == null || !HudManager.InstanceExists || IntroCutscene.Instance != null)
-                    {
-                        yield return null;
-                    }
-                    while (true)
-                    {
-                        try
-                        {
-                            GameManager.Instance.RpcEndGame<NotSkeldGameOver>();
-                        }
-                        catch
-                        {
-                        }
-                    }
-                }
-                __instance.StartCoroutine(WaitToFinishGame().WrapToIl2Cpp());
-            }
         }
         [HarmonyPatch("FixedUpdate")]
         [HarmonyPostfix]

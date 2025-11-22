@@ -19,6 +19,7 @@ namespace TheOldUs.Buttons
 {
     internal class CleanDeadBodyButton : RoleTargetButton<DeadBody, CleanerRole>
     {
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse => Target != null;
         public override bool CanClick => CanUse;
         public override float Cooldown => CleanerRole.CleanCooldown;

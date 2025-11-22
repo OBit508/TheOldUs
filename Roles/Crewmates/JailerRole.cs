@@ -5,6 +5,7 @@ using FungleAPI.Hud;
 using FungleAPI.Role;
 using FungleAPI.Role.Teams;
 using FungleAPI.Translation;
+using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,5 +31,11 @@ namespace TheOldUs.Roles.Crewmates
         public StringNames RoleBlurMed { get; } = new Translator("You need to arrest all the impostors to win.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Jailer can arrest any player and if he want to he can release any player on the jail.").StringName;
         public Color RoleColor { get; } = Color.blue;
+        public override Il2CppSystem.Collections.Generic.List<PlayerControl> GetValidTargets()
+        {
+            List<PlayerControl> list = GetTempPlayerList().ToSystemList();
+            list.RemoveAll(t => t.Data.Role.GetTeam() == Team && !Team.FriendlyFire && JailBehaviour.ArrestedPlayers.Contains(t));
+            return list.ToIl2CppList();
+        }
     }
 }

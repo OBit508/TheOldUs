@@ -27,6 +27,7 @@ namespace TheOldUs.Buttons
                 return null;
             }
         }
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool Active => base.Active && Helper != null && Helper.ShowingGun;
         public override bool CanUse => !HitmanRole.CanShoot;
         public override bool CanClick => CanUse;

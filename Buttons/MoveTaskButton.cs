@@ -20,6 +20,7 @@ namespace TheOldUs.Buttons
 {
     internal class MoveTaskButton : RoleButton<PsychicRole>
     {
+        public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse => !PsychicRole.MovingPlayer;
         public override bool CanClick => CanUse;
         public override float Cooldown => PsychicRole.MoveConsoleCooldown;

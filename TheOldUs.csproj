@@ -15,6 +15,8 @@
   <PropertyGroup />
   <ItemGroup>
     <Compile Include="Buttons\EquipGunButton.cs" />
+    <Compile Include="Buttons\FlameButton.cs" />
+    <Compile Include="Buttons\GasolineButton.cs" />
     <Compile Include="Buttons\HauntButton.cs" />
     <Compile Include="Buttons\NovisorInvisibleButton.cs" />
     <Compile Include="Buttons\NovisorTransformButton.cs" />
@@ -36,9 +38,11 @@
     <Compile Include="Patches\UseButtonPatch.cs" />
     <Compile Include="Roles\Crewmates\HitmanRole.cs" />
     <Compile Include="Roles\Impostors\NovisorRole.cs" />
+    <Compile Include="Roles\Neutrals\ArsonistRole.cs" />
     <Compile Include="RPCs\RpcHaunt.cs" />
     <Compile Include="RPCs\RpcInvisible.cs" />
     <Compile Include="RPCs\RpcNovisorTransform.cs" />
+    <Compile Include="RPCs\RpcSoak.cs" />
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
     <Compile Include="RPCs\RpcSplit.cs" />
     <Compile Include="RPCs\RpcUpdateGun.cs" />
@@ -75,6 +79,12 @@
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
     <Compile Include="TOU\TOUSettings.cs" />
     <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\Flame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\Gasoline.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Varied\Target.png" />
