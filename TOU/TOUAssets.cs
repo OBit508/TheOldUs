@@ -39,6 +39,8 @@ namespace TheOldUs.TOU
             AcidVent = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Ship.AcidVent", 100);
             Clean = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Clean", 80);
             Grab = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Grab", 100);
+            Teleport = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Teleport", 110);
+            UnlockVents = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.UnlockVents", 110);
             NovisorIdle = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorIdle", 100);
             NovisorRun = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorRun", 100);
             NovisorAttack = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorAttack", 100);
@@ -118,6 +120,8 @@ namespace TheOldUs.TOU
         public static Sprite AcidVent;
         public static Sprite Clean;
         public static Sprite Grab;
+        public static Sprite Teleport;
+        public static Sprite UnlockVents;
         public static GifFile NovisorIdle;
         public static GifFile NovisorRun;
         public static GifFile NovisorAttack;

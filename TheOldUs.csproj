@@ -23,7 +23,9 @@
     <Compile Include="Buttons\NovisorTransformButton.cs" />
     <Compile Include="Buttons\ReloadButton.cs" />
     <Compile Include="Buttons\SplitButton.cs" />
+    <Compile Include="Buttons\TeleportButton.cs" />
     <Compile Include="Buttons\UnequipGunButton.cs" />
+    <Compile Include="Buttons\UnlockVentsButton.cs" />
     <Compile Include="Components\AcidTsunami.cs" />
     <Compile Include="Components\BetterDoorHelper.cs" />
     <Compile Include="Components\FakeNovisorComp.cs" />
@@ -39,6 +41,7 @@
     <Compile Include="Patches\PlayerVoteAreaPatch.cs" />
     <Compile Include="Patches\UseButtonPatch.cs" />
     <Compile Include="Patches\VentPatch.cs" />
+    <Compile Include="Roles\Crewmates\HackerRole.cs" />
     <Compile Include="Roles\Crewmates\HitmanRole.cs" />
     <Compile Include="Roles\Impostors\AcidMaster.cs" />
     <Compile Include="Roles\Impostors\NovisorRole.cs" />
@@ -85,6 +88,10 @@
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
     <Compile Include="TOU\TOUSettings.cs" />
     <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\Teleport.png" />
+    <EmbeddedResource Include="Resources\Buttons\UnlockVents.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\Grab.png" />

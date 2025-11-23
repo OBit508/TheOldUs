@@ -15,7 +15,7 @@ namespace TheOldUs.Roles.Impostors
 {
     internal class AcidMaster : ImpostorBase, ICustomRole
     {
-        [ModdedNumberOption("Tsunami Speed", 1, 15, 0.5f)]
+        [ModdedNumberOption("Tsunami Speed", 1, 15, 0.5f, null, true, NumberSuffixes.Multiplier)]
         public static float TsunamiSpeed => 5;
         [ModdedNumberOption("Acid Cooldown", 5, 60)]
         public static float AcidCooldown => 15;

@@ -19,7 +19,7 @@ namespace TheOldUs.Patches
     [HarmonyPatch(typeof(ShipStatus), "Start")]
     internal static class ShipStatusPatch
     {
-        public static Vector2[] Vents = new Vector2[] { new Vector2(-4, 1), new Vector2(-12, 1), new Vector2(-17, -5), new Vector2(-9, -14.5f), new Vector2(0, -16), new Vector2(4, -15), new Vector2(12, -3.5f), new Vector2(7.5f, 1.2f), new Vector2(-11.2f, 2.9f), new Vector2(1.2f, -7), new Vector2(9, -12.5f) };
+        public static Vector2[] Points = new Vector2[] { new Vector2(-4, 1), new Vector2(-12, 1), new Vector2(-17, -5), new Vector2(-9, -14.5f), new Vector2(0, -16), new Vector2(4, -15), new Vector2(12, -3.5f), new Vector2(7.5f, 1.2f), new Vector2(1.2f, -7), new Vector2(9, -12.5f) };
         public static Dictionary<PlayerControl, Console> MovingConsoles = new Dictionary<PlayerControl, Console>();
         public static Dictionary<PlayerControl, PlayerControl> MovingPlayers = new Dictionary<PlayerControl, PlayerControl>();
         public static Dictionary<PlayerControl, (ChangeableValue<float>, Vector2)> WaitingPlayers = new Dictionary<PlayerControl, (ChangeableValue<float>, Vector2)>();
@@ -36,7 +36,8 @@ namespace TheOldUs.Patches
             WaitingConsoles.Clear();
             MovingPlayers.Clear();
             TOUAssets.Jail.Instantiate(__instance.transform).transform.position = new Vector3(-12, 3.756f, 3);
-            foreach (Vector2 pos in Vents)
+            AcidVents.Add(Utils.CreateAcidVent(new Vector2(-11.2f, 2.9f)));
+            foreach (Vector2 pos in Points)
             {
                 AcidVents.Add(Utils.CreateAcidVent(pos));
             }
