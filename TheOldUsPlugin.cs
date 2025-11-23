@@ -21,14 +21,14 @@ namespace TheOldUs
     {
         public const string ModName = "TheOldUs";
         public const string Owner = "rafael";
-        public const string ModDescription = "This is a ModTemplate for the API FungleAPI";
+        public const string ModDescription = "This mod is inspired by older Among Us game mods";
         public const string ModId = "com." + Owner + "." + ModName;
-        public const string ModVersion = "1.0.0";
+        public const string ModVersion = "0.0.1";
         public static Harmony Harmony = new Harmony(ModId);
         public static ModPlugin Plugin;
         public override void Load()
         {
-            Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TOUAssets.LoadAssets), ModName);
+            Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TOUAssets.LoadAssets), ModName, "[TheOldUs v" + ModVersion + "] - Dev");
             Harmony.PatchAll();
             Utils.PatchFungleAPI();
         }

@@ -42,7 +42,7 @@ namespace TheOldUs.Components
                 PlayerControl component = other.GetComponent<PlayerControl>();
                 if (component != null && component.Data != null && !component.Data.IsDead && component.Data.Role != null && component.Data.Role.GetTeam() != FungleAPI.Role.Teams.ModdedTeam.Impostors && (AmongUsClient.Instance.NetworkMode == NetworkModes.OnlineGame && component.AmOwner || AmongUsClient.Instance.NetworkMode == NetworkModes.FreePlay))
                 {
-                    component.RpcCustomMurderPlayer(component, MurderResultFlags.Succeeded, false, true, false, false);
+                    component.RpcDie(DeadBodyType.Normal);
                 }
             }
         }

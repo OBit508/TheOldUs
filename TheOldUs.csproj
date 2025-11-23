@@ -14,6 +14,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Compile Include="Buttons\CreateTsunami.cs" />
     <Compile Include="Buttons\EquipGunButton.cs" />
     <Compile Include="Buttons\FlameButton.cs" />
     <Compile Include="Buttons\GasolineButton.cs" />
@@ -23,6 +24,7 @@
     <Compile Include="Buttons\ReloadButton.cs" />
     <Compile Include="Buttons\SplitButton.cs" />
     <Compile Include="Buttons\UnequipGunButton.cs" />
+    <Compile Include="Components\AcidTsunami.cs" />
     <Compile Include="Components\BetterDoorHelper.cs" />
     <Compile Include="Components\FakeNovisorComp.cs" />
     <Compile Include="Components\RoleHelper.cs" />
@@ -36,13 +38,17 @@
     <Compile Include="Patches\PlayerControlPatch.cs" />
     <Compile Include="Patches\PlayerVoteAreaPatch.cs" />
     <Compile Include="Patches\UseButtonPatch.cs" />
+    <Compile Include="Patches\VentPatch.cs" />
     <Compile Include="Roles\Crewmates\HitmanRole.cs" />
+    <Compile Include="Roles\Impostors\AcidMaster.cs" />
     <Compile Include="Roles\Impostors\NovisorRole.cs" />
     <Compile Include="Roles\Neutrals\ArsonistRole.cs" />
+    <Compile Include="RPCs\RpcDie.cs" />
     <Compile Include="RPCs\RpcHaunt.cs" />
     <Compile Include="RPCs\RpcInvisible.cs" />
     <Compile Include="RPCs\RpcNovisorTransform.cs" />
     <Compile Include="RPCs\RpcSoak.cs" />
+    <Compile Include="RPCs\RpcSummonTsunami.cs" />
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
     <Compile Include="RPCs\RpcSplit.cs" />
     <Compile Include="RPCs\RpcUpdateGun.cs" />
@@ -81,6 +87,24 @@
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\Grab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\CreateVent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\Clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Ship\AcidTsunami.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Ship\AcidVent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\Acid.png" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\Flame.png" />
   </ItemGroup>
   <ItemGroup>
@@ -108,9 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\MedScan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Buttons\VentCreator-CreateVent.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Animations\NovisorIdle.gif" />

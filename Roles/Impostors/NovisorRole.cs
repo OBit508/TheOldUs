@@ -1,4 +1,5 @@
-﻿using FungleAPI.Base.Roles;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
@@ -20,6 +21,7 @@ using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
 {
+    [FungleIgnore]
     public class NovisorRole : ImpostorBase, ICustomRole
     {
         [ModdedNumberOption("Transform Cooldown", 5, 60)]

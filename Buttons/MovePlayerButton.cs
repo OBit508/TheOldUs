@@ -24,7 +24,7 @@ namespace TheOldUs.Buttons
         public override float Cooldown => PsychicRole.MovePlayerCooldown;
         public override string OverrideText => "Move Player";
         public override Color32 TextOutlineColor { get; } = new Color32(161, 121, 171, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
+        public override Sprite ButtonSprite => TOUAssets.Grab;
         public override bool TransformButton => true;
         public override float TransformDuration => PsychicRole.MovePlayerDuration;
         public override void Click()

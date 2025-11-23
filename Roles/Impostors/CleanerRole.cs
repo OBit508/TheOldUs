@@ -1,4 +1,5 @@
-﻿using FungleAPI.Configuration;
+﻿using FungleAPI.Base.Roles;
+using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.GameOver;
 using FungleAPI.GameOver.Ends;
@@ -16,7 +17,7 @@ using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
 {
-    internal class CleanerRole : ImpostorRole, ICustomRole
+    internal class CleanerRole : ImpostorBase, ICustomRole
     {
         [ModdedNumberOption("Clean Cooldown", 5, 60)]
         public static float CleanCooldown => 15;

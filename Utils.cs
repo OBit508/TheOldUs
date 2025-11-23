@@ -2,11 +2,13 @@
 using FungleAPI;
 using FungleAPI.GameOver;
 using FungleAPI.GameOver.Ends;
+using FungleAPI.Networking;
 using FungleAPI.Role;
 using FungleAPI.Role.Teams;
 using FungleAPI.Utilities;
 using HarmonyLib;
 using Hazel;
+using PowerTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Components;
 using TheOldUs.GameOvers;
+using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
 
@@ -22,6 +25,29 @@ namespace TheOldUs
 {
     internal static class Utils
     {
+        public static void RpcDie(this PlayerControl player, DeadBodyType createdBody, float dissolveDelay = 0)
+        {
+            CustomRpcManager.Instance<RpcDie>().Send((player, createdBody, dissolveDelay), PlayerControl.LocalPlayer.NetId);
+        }
+        public static void Die(this PlayerControl player, DeadBodyType createdBody, float dissolveDelay = 0)
+        {
+            player.Die(DeathReason.Kill, true);
+            DeadBody body = Helpers.CreateCustomBody(player, createdBody);
+            if (createdBody == DeadBodyType.Viper)
+            {
+                body.SafeCast<ViperDeadBody>().SetupViperInfo(dissolveDelay, null, player);
+            }
+        }
+        public static Vent CreateAcidVent(Vector2 position)
+        {
+            Vent vent = Helpers.CreateVent(Helpers.VentType.Skeld, position);
+            vent.EnterVentAnim = null;
+            vent.ExitVentAnim = null;
+            vent.GetComponent<SpriteAnim>().enabled = false;
+            vent.GetComponent<Animator>().enabled = false;
+            vent.GetComponent<SpriteRenderer>().sprite = TOUAssets.AcidVent;
+            return vent;
+        }
         public static PlayerControl FindClosestTarget(this RoleBehaviour role, Predicate<PlayerControl> toRemove)
         {
             List<PlayerControl> playersInAbilityRangeSorted = role.GetPlayersInAbilityRangeSorted(RoleBehaviour.GetTempPlayerList()).ToSystemList();
@@ -66,7 +92,26 @@ namespace TheOldUs
                     TheOldUsPlugin.Harmony.Patch(type.GetMethod("BeginPostfix"), new HarmonyMethod(typeof(Utils).GetMethod("BeginPostfix")));
                     TheOldUsPlugin.Plugin.BasePlugin.Log.LogWarning("Patched FungleAPI BeginPostfix");
                 }
+                else if (type.Name == "CustomRoleManager")
+                {
+                    TheOldUsPlugin.Harmony.Patch(type.GetMethod("CanVent"), new HarmonyMethod(typeof(Utils).GetMethod("CanVent")));
+                    TheOldUsPlugin.Plugin.BasePlugin.Log.LogWarning("Patched FungleAPI CanVent");
+                }
+                else if (type.Name == "VentPatch")
+                {
+                    FungleAPIPlugin.Harmony.Unpatch(typeof(Vent).GetMethod("CanUse"), type.GetMethod("CanUsePrefix"));
+                    TheOldUsPlugin.Plugin.BasePlugin.Log.LogWarning("Removed FungleAPI CanUsePrefix patch");
+                }
             }
+        }
+        public static bool CanVent(RoleBehaviour roleBehaviour, ref bool __result)
+        {
+            if (AcidTsunami.Instance != null && !roleBehaviour.IsDead)
+            {
+                __result = true;
+                return false;
+            }
+            return true;
         }
         public static bool BeginPostfix()
         {

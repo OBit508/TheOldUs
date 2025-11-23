@@ -26,7 +26,19 @@ namespace TheOldUs.Buttons
             }
         }
         public override bool CanClick => CanUse;
-        public override float Cooldown => GameOptionsManager.Instance.currentGameOptions.GetFloat(AmongUs.GameOptions.FloatOptionNames.KillCooldown);
+        public override float Cooldown
+        {
+            get
+            {
+                float cooldown = GameOptionsManager.Instance.currentGameOptions.GetFloat(AmongUs.GameOptions.FloatOptionNames.KillCooldown);
+                if (PlayerControl.LocalPlayer != null && PlayerControl.LocalPlayer.Data != null && PlayerControl.LocalPlayer.Data.Role != null)
+                {
+                    Type type = PlayerControl.LocalPlayer.Data.Role.GetType();
+                    return type == typeof(AcidMaster) ? cooldown + AcidMaster.ExtraKillCooldown : cooldown;
+                }
+                return cooldown;
+            }
+        }
         public override string OverrideText => StringNames.KillLabel.GetString();
         public override Color32 TextOutlineColor => Color.red;
         public override Sprite ButtonSprite => HudManager.Instance.KillButton.graphic.sprite;
@@ -37,7 +49,7 @@ namespace TheOldUs.Buttons
                 if (PlayerControl.LocalPlayer != null && PlayerControl.LocalPlayer.Data != null && PlayerControl.LocalPlayer.Data.Role != null)
                 {
                     Type type = PlayerControl.LocalPlayer.Data.Role.GetType();
-                    return type == typeof(CleanerRole) || type == typeof(PsychicRole);
+                    return type == typeof(CleanerRole) || type == typeof(PsychicRole) || type == typeof(AcidMaster);
                 }
                 return false;
             }

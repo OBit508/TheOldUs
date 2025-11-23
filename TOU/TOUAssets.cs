@@ -26,7 +26,7 @@ namespace TheOldUs.TOU
             SheriffKill = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.SheriffKill", 130);
             JailerArrest = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.JailerArrest", 300);
             JailerRelease = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.JailerRelease", 250);
-            VentCreator_CreateVent = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.VentCreator-CreateVent", 150);
+            CreateVent = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.CreateVent", 100);
             MedScan = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.MedScan", 100);
             Cuffs = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Varied.Cuffs", 225);
             EquipGun = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.EquipGun", 100);
@@ -35,6 +35,10 @@ namespace TheOldUs.TOU
             Gun = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Varied.Gun", 100);
             Gasoline = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Gasoline", 100);
             Flame = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Flame", 100);
+            Acid = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Acid", 80);
+            AcidVent = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Ship.AcidVent", 100);
+            Clean = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Clean", 80);
+            Grab = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Grab", 100);
             NovisorIdle = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorIdle", 100);
             NovisorRun = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorRun", 100);
             NovisorAttack = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorAttack", 100);
@@ -43,11 +47,23 @@ namespace TheOldUs.TOU
         public static void LoadPrefabs()
         {
             LoadJail();
+            LoadTsunami();
             FakeNovisor = new Prefab<FakeNovisorComp>(new GameObject("FakeNovisor").AddComponent<GifAnimator>().gameObject.AddComponent<SpriteRenderer>().gameObject.AddComponent<FakeNovisorComp>());
             FakeNovisor.prefab.gameObject.AddComponent<BoxCollider2D>().size = new Vector2(0.8f, 1.8f);
             Target = new Prefab<GameObject>(new GameObject("Target"));
             Target.prefab.AddComponent<SpriteRenderer>().sprite = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Varied.Target", 100);
             Target.prefab.AddComponent<TargetBehaviour>();
+        }
+        public static void LoadTsunami()
+        {
+            Tsunami = new Prefab<AcidTsunami>(new GameObject("Tsunami").AddComponent<AcidTsunami>());
+            Tsunami.prefab.gameObject.AddComponent<SpriteRenderer>().sprite = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Ship.AcidTsunami", 100);
+            BoxCollider2D collider = Tsunami.prefab.gameObject.AddComponent<BoxCollider2D>();
+            collider.isTrigger = true;
+            Vector2 size = collider.size;
+            size.x = 1;
+            collider.size = size;
+            collider.transform.localScale = Vector3.one * 3.1f;
         }
         public static void LoadJail()
         {
@@ -89,7 +105,7 @@ namespace TheOldUs.TOU
         public static Sprite SheriffKill;
         public static Sprite JailerArrest;
         public static Sprite JailerRelease;
-        public static Sprite VentCreator_CreateVent;
+        public static Sprite CreateVent;
         public static Sprite MedScan;
         public static Sprite Cuffs;
         public static Sprite EquipGun;
@@ -98,12 +114,17 @@ namespace TheOldUs.TOU
         public static Sprite Gun;
         public static Sprite Flame;
         public static Sprite Gasoline;
+        public static Sprite Acid;
+        public static Sprite AcidVent;
+        public static Sprite Clean;
+        public static Sprite Grab;
         public static GifFile NovisorIdle;
         public static GifFile NovisorRun;
         public static GifFile NovisorAttack;
         public static Prefab<JailBehaviour> Jail;
         public static Prefab<FakeNovisorComp> FakeNovisor;
         public static Prefab<GameObject> Target;
+        public static Prefab<AcidTsunami> Tsunami;
     }
 }
 

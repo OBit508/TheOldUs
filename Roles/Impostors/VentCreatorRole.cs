@@ -1,4 +1,5 @@
-﻿using FungleAPI.Configuration;
+﻿using FungleAPI.Base.Roles;
+using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
@@ -15,7 +16,7 @@ using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
 {
-    internal class VentCreatorRole : ImpostorRole, ICustomRole
+    internal class VentCreatorRole : ImpostorBase, ICustomRole
     {
         [ModdedNumberOption("Create Vent Cooldown", 1, 60)]
         public static float CreateVentCooldown => 10;
