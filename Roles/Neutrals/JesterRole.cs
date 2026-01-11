@@ -6,7 +6,7 @@ using FungleAPI.GameOver.Ends;
 using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Translation;
 using System;
 using System.Collections.Generic;

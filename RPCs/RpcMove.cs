@@ -1,16 +1,18 @@
-﻿using FungleAPI.Networking;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using Hazel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.Utilities;
+using UnityEngine;
 
 namespace TheOldUs.RPCs
 {
-    internal class RpcMove : CustomRpc<(PlayerControl player, Console console, Vector2 position)>
+    internal class RpcMove : AdvancedRpc<(PlayerControl player, Console console, Vector2 position)>
     {
         public override void Write(MessageWriter writer, (PlayerControl player, Console console, Vector2 position) value)
         {

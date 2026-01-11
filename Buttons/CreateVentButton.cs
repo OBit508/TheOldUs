@@ -30,7 +30,7 @@ namespace TheOldUs.Buttons
         public override Sprite ButtonSprite => TOUAssets.CreateVent;
         public override void Click()
         {
-            CustomRpcManager.Instance<RpcCreateVent>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcCreateVent>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer);
         }
     }
 }

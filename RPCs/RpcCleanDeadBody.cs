@@ -1,4 +1,5 @@
 ﻿using BepInEx.Unity.IL2CPP.Utils.Collections;
+using FungleAPI.Base.Rpc;
 using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using Hazel;
@@ -11,7 +12,7 @@ using UnityEngine;
 
 namespace TheOldUs.RPCs
 {
-    internal class RpcCleanDeadBody : CustomRpc<DeadBody>
+    internal class RpcCleanDeadBody : AdvancedRpc<DeadBody>
     {
         public override void Write(MessageWriter writer, DeadBody value)
         {

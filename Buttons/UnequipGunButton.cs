@@ -37,7 +37,7 @@ namespace TheOldUs.Buttons
         public override Sprite ButtonSprite => TOUAssets.UnequipGun;
         public override void Click()
         {
-            CustomRpcManager.Instance<RpcUpdateGun>().Send((PlayerControl.LocalPlayer, false), PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcUpdateGun>().Send(false, PlayerControl.LocalPlayer);
             Button.ToggleVisible(false);
             CustomAbilityButton.Instance<ReloadButton>().Button.ToggleVisible(false);
             CustomAbilityButton.Instance<EquipGunButton>().Button.ToggleVisible(true);

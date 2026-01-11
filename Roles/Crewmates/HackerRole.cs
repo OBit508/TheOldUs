@@ -2,7 +2,7 @@
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Translation;
 using System;
 using System.Collections.Generic;

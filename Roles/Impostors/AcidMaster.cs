@@ -1,7 +1,8 @@
-﻿using FungleAPI.Base.Roles;
+﻿using AmongUs.GameOptions;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Translation;
 using FungleAPI.Utilities;
 using System;
@@ -21,7 +22,7 @@ namespace TheOldUs.Roles.Impostors
         public static float AcidCooldown => 15;
         [ModdedNumberOption("Acid Uses", 0, 10, 1, null, true, NumberSuffixes.None)]
         public static int AcidUses => 3;
-        [ModdedNumberOption("Extra kill cooldown", 5, 60)]
+        [ModdedNumberOption("Extra kill cooldown", 0, 60)]
         public static float ExtraKillCooldown => 15;
         [ModdedNumberOption("Deadbody dissolve delay", 5, 30)]
         public static float DissolveDelay => 15;
@@ -44,6 +45,17 @@ namespace TheOldUs.Roles.Impostors
                     viperDeadBody.SetupViperInfo(DissolveDelay, Player, victim);
                 }
             }
+        }
+        public KillButtonConfig CreateKillConfig()
+        {
+            KillButtonConfig killButtonConfig = new KillButtonConfig();
+            killButtonConfig.Cooldown = () => GameOptionsManager.Instance.CurrentGameOptions.GetFloat(FloatOptionNames.KillCooldown) + ExtraKillCooldown;
+            killButtonConfig.InitializeButton = delegate
+            {
+                killButtonConfig.Button.ChangeGraphic(RoleManager.Instance.GetRole(RoleTypes.Viper).SafeCast<ViperRole>().killSprite);
+                killButtonConfig.Button.ChangeButtonText(StringNames.ViperAbility);
+            };
+            return killButtonConfig;
         }
     }
 }

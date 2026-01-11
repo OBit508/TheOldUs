@@ -4,7 +4,7 @@ using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Translation;
 using System;
 using System.Collections.Generic;
@@ -32,9 +32,5 @@ namespace TheOldUs.Roles.Crewmates
         public StringNames RoleBlurLong { get; } = new Translator("The sheriff can shoot others players but if he shoot an crewmate he die.").StringName;
         public Color RoleColor { get; } = new Color(1, (float)(204.0 / 255.0), 0, 1);
         public bool CanKill => true;
-        public override Il2CppSystem.Collections.Generic.List<PlayerControl> GetValidTargets()
-        {
-            return GetTempPlayerList();
-        }
     }
 }

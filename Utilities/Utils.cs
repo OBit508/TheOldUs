@@ -4,7 +4,7 @@ using FungleAPI.GameOver;
 using FungleAPI.GameOver.Ends;
 using FungleAPI.Networking;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Utilities;
 using HarmonyLib;
 using Hazel;
@@ -21,13 +21,13 @@ using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
 
-namespace TheOldUs
+namespace TheOldUs.Utilities
 {
     internal static class Utils
     {
         public static void RpcDie(this PlayerControl player, DeadBodyType createdBody, float dissolveDelay = 0)
         {
-            CustomRpcManager.Instance<RpcDie>().Send((player, createdBody, dissolveDelay), PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcDie>().Send((player, createdBody, dissolveDelay), PlayerControl.LocalPlayer);
         }
         public static void Die(this PlayerControl player, DeadBodyType createdBody, float dissolveDelay = 0)
         {

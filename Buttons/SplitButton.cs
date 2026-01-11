@@ -36,7 +36,7 @@ namespace TheOldUs.Buttons
         public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
         public override void Click()
         {
-            CustomRpcManager.Instance<RpcSplit>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcSplit>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using FungleAPI.Networking;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using FungleAPI.Role;
 using Hazel;
@@ -12,7 +13,7 @@ using static Il2CppSystem.Linq.Expressions.Interpreter.CastInstruction.CastInstr
 
 namespace TheOldUs.RPCs
 {
-    public class RpcInvisible : CustomRpc<(PlayerControl player, bool invisible)>
+    public class RpcInvisible : AdvancedRpc<(PlayerControl player, bool invisible)>
     {
         public override void Write(MessageWriter writer, (PlayerControl player, bool invisible) value)
         {

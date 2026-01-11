@@ -2,12 +2,14 @@
 using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
+using FungleAPI.Player;
 using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.Components;
 using TheOldUs.Roles.Crewmates;
 using TheOldUs.Roles.Neutrals;
 using TheOldUs.RPCs;
@@ -40,7 +42,7 @@ namespace TheOldUs.Buttons
             {
                 if (Target != null)
                 {
-                    CustomRpcManager.Instance<RpcSoak>().Send((Player, Target), PlayerControl.LocalPlayer.NetId);
+                    Target.GetPlayerComponent<RoleHelper>().Soaked = true;
                     Target.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
                     Target = null;
                 }

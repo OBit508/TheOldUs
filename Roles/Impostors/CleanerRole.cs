@@ -1,11 +1,12 @@
-﻿using FungleAPI.Base.Roles;
+﻿using AmongUs.GameOptions;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.GameOver;
 using FungleAPI.GameOver.Ends;
 using FungleAPI.Hud;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Translation;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,13 @@ namespace TheOldUs.Roles.Impostors
         public StringNames RoleBlurMed { get; } = new Translator("You can help others imporstors cleaning dead bodies.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Cleaner can clean dead bodies.").StringName;
         public Color RoleColor { get; } = new Color32(47, 173, 212, byte.MaxValue);
-        public bool UseVanillaKillButton => false;
+        public bool UseVanillaKillButton => true;
         public bool CanKill => PlayerControl.AllPlayerControls.FindAll(FungleAPI.Utilities.Il2CppUtils.ToIl2CppPredicate(new Predicate<PlayerControl>(p => p.Data.Role.GetTeam() == Team))).Count <= 1;
+        public KillButtonConfig CreateKillConfig()
+        {
+            KillButtonConfig killButtonConfig = new KillButtonConfig();
+            killButtonConfig.CanUse = () => CanKill && killButtonConfig.Button.isActiveAndEnabled && killButtonConfig.Button.currentTarget != null && !killButtonConfig.Button.isCoolingDown && !PlayerControl.LocalPlayer.Data.IsDead && PlayerControl.LocalPlayer.CanMove;
+            return killButtonConfig;
+        }
     }
 }

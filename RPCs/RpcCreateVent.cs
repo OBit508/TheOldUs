@@ -1,4 +1,5 @@
-﻿using FungleAPI.Networking;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using FungleAPI.Utilities;
 using Hazel;
@@ -12,7 +13,7 @@ using UnityEngine;
 
 namespace TheOldUs.RPCs
 {
-    internal class RpcCreateVent : CustomRpc<Vector2>
+    internal class RpcCreateVent : AdvancedRpc<Vector2>
     {
         public override void Write(MessageWriter writer, Vector2 value)
         {

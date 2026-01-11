@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using TheOldUs.Roles.Impostors;
 using TheOldUs.RPCs;
 using TheOldUs.TOU;
+using TheOldUs.Utilities;
 using UnityEngine;
 
 namespace TheOldUs.Buttons
@@ -36,7 +37,7 @@ namespace TheOldUs.Buttons
         }
         public override void Click()
         {
-            CustomRpcManager.Instance<RpcCleanDeadBody>().Send(Target, PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcCleanDeadBody>().Send(Target, PlayerControl.LocalPlayer);
         }
     }
 }

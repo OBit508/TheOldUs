@@ -38,7 +38,7 @@ namespace TheOldUs.Buttons
         {
             try
             {
-                if (Target.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Crewmates)
+                if (Target.Data.Role.GetTeam() == FungleAPI.Teams.ModdedTeam.Crewmates)
                 {
                     PlayerControl.LocalPlayer.RpcCustomMurderPlayer(PlayerControl.LocalPlayer, PlayerControl.LocalPlayer.protectedByGuardianId == -1 ? MurderResultFlags.Succeeded : MurderResultFlags.FailedProtected, false, true, false);
                     if (SheriffRole.TargetDie)

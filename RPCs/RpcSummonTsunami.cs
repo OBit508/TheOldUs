@@ -1,4 +1,5 @@
-﻿using FungleAPI.Networking;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using Hazel;
 using System;
@@ -13,7 +14,7 @@ using static Il2CppSystem.Linq.Expressions.Interpreter.CastInstruction.CastInstr
 
 namespace TheOldUs.RPCs
 {
-    internal class RpcSummonTsunami : CustomRpc
+    internal class RpcSummonTsunami : SimpleRpc
     {
         public override void Write(MessageWriter writer)
         {

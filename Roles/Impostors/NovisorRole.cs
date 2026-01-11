@@ -5,7 +5,7 @@ using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Player;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Translation;
 using FungleAPI.Utilities;
 using System;
@@ -83,7 +83,7 @@ namespace TheOldUs.Roles.Impostors
                         if (Player.AmOwner && Vector2.Distance(Player.transform.position, Target.transform.position) <= 0.3f)
                         {
                             Player.RpcCustomMurderPlayer(Target, MurderResultFlags.DecisionByHost, false);
-                            CustomRpcManager.Instance<RpcHaunt>().Send((Player, null), Player.NetId);
+                            Rpc<RpcHaunt>.Instance.Send((Player, null), Player);
                         }
                     }
                 }

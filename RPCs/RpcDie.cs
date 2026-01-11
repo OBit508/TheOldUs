@@ -1,4 +1,5 @@
-﻿using FungleAPI.Networking;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using FungleAPI.Utilities;
 using Hazel;
@@ -7,10 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.Utilities;
 
 namespace TheOldUs.RPCs
 {
-    internal class RpcDie : CustomRpc<(PlayerControl player, DeadBodyType type, float dissolveDelay)>
+    internal class RpcDie : AdvancedRpc<(PlayerControl player, DeadBodyType type, float dissolveDelay)>
     {
         public override void Write(MessageWriter writer, (PlayerControl player, DeadBodyType type, float dissolveDelay) value)
         {

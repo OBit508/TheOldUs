@@ -27,7 +27,7 @@ namespace TheOldUs.Buttons
         public override Sprite ButtonSprite => TOUAssets.Acid;
         public override void Click()
         {
-            CustomRpcManager.Instance<RpcSummonTsunami>().Send(PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcSummonTsunami>().Send(PlayerControl.LocalPlayer);
         }
     }
 }

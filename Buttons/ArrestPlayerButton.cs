@@ -45,7 +45,7 @@ namespace TheOldUs.Buttons
             {
                 if (Target != null)
                 {
-                    CustomRpcManager.Instance<RpcArrestPlayer>().Send((Target, true), PlayerControl.LocalPlayer.NetId);
+                    CustomRpcManager.Instance<RpcArrestPlayer>().Send((Target, true), PlayerControl.LocalPlayer);
                     Target.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(TextOutlineColor));
                     Target = null;
                 }

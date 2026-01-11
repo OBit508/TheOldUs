@@ -38,12 +38,12 @@ namespace TheOldUs.Buttons
         public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
         public override void Click()
         {
-            CustomRpcManager.Instance<RpcInvisible>().Send((PlayerControl.LocalPlayer, true), PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcInvisible>().Send((PlayerControl.LocalPlayer, true), PlayerControl.LocalPlayer);
         }
         public override void Destransform()
         {
             base.Destransform();
-            CustomRpcManager.Instance<RpcInvisible>().Send((PlayerControl.LocalPlayer, false), PlayerControl.LocalPlayer.NetId);
+            CustomRpcManager.Instance<RpcInvisible>().Send((PlayerControl.LocalPlayer, false), PlayerControl.LocalPlayer);
         }
     }
 }

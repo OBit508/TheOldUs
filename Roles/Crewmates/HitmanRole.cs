@@ -4,7 +4,7 @@ using FungleAPI.Hud;
 using FungleAPI.Networking;
 using FungleAPI.Player;
 using FungleAPI.Role;
-using FungleAPI.Role.Teams;
+using FungleAPI.Teams;
 using FungleAPI.Translation;
 using FungleAPI.Utilities;
 using System;
@@ -28,32 +28,30 @@ namespace TheOldUs.Roles.Crewmates
         [ModdedNumberOption("Reload Uses", 0, 30, 1, null, true, NumberSuffixes.None)]
         public static int ReloadUses => 5;
         public static bool CanShoot;
-        public static ControllerHelper myController = new ControllerHelper();
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
         public StringNames RoleName { get; } = new Translator("Hitman").StringName;
         public StringNames RoleBlur { get; } = new Translator("Shoot the impostors.").StringName;
         public StringNames RoleBlurMed { get; } = new Translator("Use your gun to shoot the impostors.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Hitman can use a gun to shoot players.").StringName;
         public Color RoleColor { get; } = Palette.Orange;
+        public RoleHelper Helper;
         public void Start()
         {
             if (Player != null && Player.AmOwner)
             {
                 CanShoot = true;
-                myController = new ControllerHelper();
+                Helper = Player.GetPlayerComponent<RoleHelper>();
             }
         }
         public void Update()
         {
             if (Player != null && Player.AmOwner)
             {
-                myController.Update();
-                ControllerHelper.TouchState touch;
-                if (CanShoot && Player.GetComponent<RoleHelper>().ShowingGun)
+                if (CanShoot && Helper.ShowingGun)
                 {
-                    if (myController.AnyStarted(out touch))
+                    if (Input.GetMouseButton(0))
                     {
-                        foreach (Collider2D collider in Physics2D.OverlapPointAll(touch.Position))
+                        foreach (Collider2D collider in Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
                         {
                             PlayerControl player = collider.GetComponent<PlayerControl>();
                             if (player != null && !player.Data.IsDead && !player.AmOwner && !player.inVent && player.Visible && !player.Data.Disconnected)

@@ -75,7 +75,7 @@ namespace TheOldUs.Buttons
                         ShapMinigame.ForceClose();
                         if (Novisor != null)
                         {
-                            CustomRpcManager.Instance<RpcHaunt>().Send((PlayerControl.LocalPlayer, player), PlayerControl.LocalPlayer.NetId);
+                            CustomRpcManager.Instance<RpcHaunt>().Send((PlayerControl.LocalPlayer, player), PlayerControl.LocalPlayer);
                         }
                     }));
                     shapeshifterPanel.NameText.color = Color.white;

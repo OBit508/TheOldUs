@@ -1,4 +1,5 @@
-﻿using FungleAPI.Networking;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using Hazel;
 using System;
@@ -10,7 +11,7 @@ using TheOldUs.Roles.Impostors;
 
 namespace TheOldUs.RPCs
 {
-    public class RpcNovisorTransform : CustomRpc<(PlayerControl novisor, bool transformed)>
+    public class RpcNovisorTransform : AdvancedRpc<(PlayerControl novisor, bool transformed)>
     {
         public override void Write(MessageWriter writer, (PlayerControl novisor, bool transformed) value)
         {

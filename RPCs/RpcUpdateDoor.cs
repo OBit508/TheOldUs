@@ -1,4 +1,5 @@
-﻿using FungleAPI.Networking.RPCs;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking.RPCs;
 using Hazel;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using TheOldUs.Components;
 
 namespace TheOldUs.RPCs
 {
-    public class RpcUpdateDoor : CustomRpc<BetterDoorHelper>
+    public class RpcUpdateDoor : AdvancedRpc<BetterDoorHelper>
     {
         public override void Write(MessageWriter writer, BetterDoorHelper value)
         {

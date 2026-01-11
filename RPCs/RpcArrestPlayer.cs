@@ -1,4 +1,5 @@
-﻿using FungleAPI.Networking;
+﻿using FungleAPI.Base.Rpc;
+using FungleAPI.Networking;
 using FungleAPI.Networking.RPCs;
 using Hazel;
 using System;
@@ -14,7 +15,7 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace TheOldUs.RPCs
 {
-    internal class RpcArrestPlayer : CustomRpc<(PlayerControl target, bool arrested)>
+    internal class RpcArrestPlayer : AdvancedRpc<(PlayerControl target, bool arrested)>
     {
         public override void Write(MessageWriter writer, (PlayerControl target, bool arrested) value)
         {

@@ -79,7 +79,7 @@ namespace TheOldUs.Components
             CanUse(PlayerControl.LocalPlayer.Data, out var canUse, out var _);
             if (canUse)
             {
-                CustomRpcManager.Instance<RpcUpdateDoor>().Send(this, ShipStatus.Instance.NetId);
+                CustomRpcManager.Instance<RpcUpdateDoor>().Send(this, ShipStatus.Instance);
             }
         }
 

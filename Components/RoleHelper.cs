@@ -16,6 +16,7 @@ namespace TheOldUs.Components
     {
         public SpriteRenderer Gun;
         public bool ShowingGun;
+        public bool Soaked;
         public Color DefaultVisorColor = new Color(0.5843f, 0.7922f, 0.8627f, 1);
         public void Update()
         {
@@ -43,7 +44,7 @@ namespace TheOldUs.Components
                 }
                 try
                 {
-                    player.cosmetics.currentBodySprite.BodySprite.material.SetColor("_VisorColor", ArsonistRole.SoakedPlayers[PlayerControl.LocalPlayer].Contains(player) ? Palette.Orange : DefaultVisorColor);
+                    player.cosmetics.currentBodySprite.BodySprite.material.SetColor("_VisorColor", Soaked ? Palette.Orange : DefaultVisorColor);
                 }
                 catch { }
             }

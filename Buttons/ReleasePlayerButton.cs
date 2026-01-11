@@ -65,7 +65,7 @@ namespace TheOldUs.Buttons
                 shapeshifterPanel.SetPlayer(i, player.Data, new Action(delegate
                 {
                     ShapMinigame.ForceClose();
-                    CustomRpcManager.Instance<RpcArrestPlayer>().Send((player, false), PlayerControl.LocalPlayer.NetId);
+                    CustomRpcManager.Instance<RpcArrestPlayer>().Send((player, false), PlayerControl.LocalPlayer);
                     SetCooldown(Cooldown);
                 }));
                 shapeshifterPanel.NameText.color = Color.white;
