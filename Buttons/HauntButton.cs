@@ -34,7 +34,7 @@ namespace TheOldUs.Buttons
         public override bool CanUse => CanClick;
         public override float Cooldown => NovisorRole.HauntCooldown;
         public override string OverrideText => "Haunt";
-        public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
+        public override Sprite ButtonSprite => TouAssets.TemporaryButton;
         public override Color32 TextOutlineColor => Color.red;
         public override void Click()
         {

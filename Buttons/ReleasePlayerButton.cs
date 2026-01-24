@@ -29,7 +29,7 @@ namespace TheOldUs.Buttons
         public override float Cooldown => JailerRole.ReleaseCooldown;
         public override string OverrideText => "Release";
         public override Color32 TextOutlineColor { get; } = Color.blue;
-        public override Sprite ButtonSprite => TOUAssets.JailerRelease;
+        public override Sprite ButtonSprite => TouAssets.JailerRelease;
         public override void Update()
         {
             base.Update();

@@ -29,7 +29,7 @@ namespace TheOldUs
         public static ModPlugin Plugin;
         public override void Load()
         {
-            Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TOUAssets.LoadAssets), ModName, "[TheOldUs v" + ModVersion + "] - Dev");
+            Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TouAssets.LoadAssets), ModName, "[TheOldUs v" + ModVersion + "] - Dev");
             Harmony.PatchAll();
             Utils.PatchFungleAPI();
         }

@@ -14,7 +14,7 @@ namespace TheOldUs.Patches
     {
         public static void Postfix(MapBehaviour __instance)
         {
-            if (TOUSettings.Ship.InvertY)
+            if (TouSettings.Ship.InvertY)
             {
                 Vector3 pos = __instance.HerePoint.transform.localPosition;
                 pos.y *= -1;

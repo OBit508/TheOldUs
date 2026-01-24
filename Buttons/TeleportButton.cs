@@ -28,7 +28,7 @@ namespace TheOldUs.Buttons
         public override bool TransformButton => true;
         public override float TransformDuration => HackerRole.TeleportDelay;
         public override Color32 TextOutlineColor { get; } = new Color32(0, 110, 17, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.Teleport;
+        public override Sprite ButtonSprite => TouAssets.Teleport;
         public override void Destransform()
         {
             PlayerControl.LocalPlayer.NetTransform.RpcSnapTo(ShipStatusPatch.Points[new System.Random().Next(0, ShipStatusPatch.Points.Count() - 1)]);

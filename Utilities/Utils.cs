@@ -45,7 +45,7 @@ namespace TheOldUs.Utilities
             vent.ExitVentAnim = null;
             vent.GetComponent<SpriteAnim>().enabled = false;
             vent.GetComponent<Animator>().enabled = false;
-            vent.GetComponent<SpriteRenderer>().sprite = TOUAssets.AcidVent;
+            vent.GetComponent<SpriteRenderer>().sprite = TouAssets.AcidVent;
             return vent;
         }
         public static PlayerControl FindClosestTarget(this RoleBehaviour role, Predicate<PlayerControl> toRemove)
@@ -115,7 +115,7 @@ namespace TheOldUs.Utilities
         }
         public static bool BeginPostfix()
         {
-            return !TOUSettings.Jail.ArrestWhenEjected;
+            return !TouSettings.Jail.ArrestWhenEjected;
         }
         public static bool CheckEndCriteria()
         {

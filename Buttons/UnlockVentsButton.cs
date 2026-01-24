@@ -24,7 +24,7 @@ namespace TheOldUs.Buttons
         public override bool TransformButton => true;
         public override float TransformDuration => HackerRole.UnlockVentsDuration;
         public override Color32 TextOutlineColor { get; } = new Color32(0, 110, 17, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.UnlockVents;
+        public override Sprite ButtonSprite => TouAssets.UnlockVents;
         public override void Destransform()
         {
             if (Vent.currentVent != null)

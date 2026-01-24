@@ -24,12 +24,12 @@ namespace TheOldUs.RPCs
             if (value.arrested)
             {
                 JailBehaviour.ArrestedPlayers.Add(value.target);
-                value.target.NetTransform.SnapTo(new Vector2(TOUSettings.Ship.InvertX ? 12 : -12, TOUSettings.Ship.InvertY ? -3 : 3));
+                value.target.NetTransform.SnapTo(new Vector2(TouSettings.Ship.InvertX ? 12 : -12, TouSettings.Ship.InvertY ? -3 : 3));
             }
             else
             {
                 JailBehaviour.ArrestedPlayers.Remove(value.target);
-                value.target.NetTransform.SnapTo(new Vector2(TOUSettings.Ship.InvertX ? 12 : -12, TOUSettings.Ship.InvertY ? -1 : 1));
+                value.target.NetTransform.SnapTo(new Vector2(TouSettings.Ship.InvertX ? 12 : -12, TouSettings.Ship.InvertY ? -1 : 1));
             }
         }
         public override void Handle(MessageReader reader)
@@ -39,12 +39,12 @@ namespace TheOldUs.RPCs
             if (arrested)
             {
                 JailBehaviour.ArrestedPlayers.Add(target);
-                target.NetTransform.SnapTo(new Vector2(TOUSettings.Ship.InvertX ? 12 : -12, TOUSettings.Ship.InvertY ? -3 : 3));
+                target.NetTransform.SnapTo(new Vector2(TouSettings.Ship.InvertX ? 12 : -12, TouSettings.Ship.InvertY ? -3 : 3));
             }
             else
             {
                 JailBehaviour.ArrestedPlayers.Remove(target);
-                target.NetTransform.SnapTo(new Vector2(TOUSettings.Ship.InvertX ? 12 : -12, TOUSettings.Ship.InvertY ? -1 : 1));
+                target.NetTransform.SnapTo(new Vector2(TouSettings.Ship.InvertX ? 12 : -12, TouSettings.Ship.InvertY ? -1 : 1));
             }
         }
     }

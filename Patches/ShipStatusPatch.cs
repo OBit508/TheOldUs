@@ -27,18 +27,18 @@ namespace TheOldUs.Patches
         public static void StartPostfix(ShipStatus __instance)
         {
             AcidVents.Clear();
-            TOUAssets.Jail.Instantiate(__instance.transform).transform.position = new Vector3(-12, 3.756f, 3);
+            TouAssets.Jail.Instantiate(__instance.transform).transform.position = new Vector3(-12, 3.756f, 3);
             AcidVents.Add(Utils.CreateAcidVent(new Vector2(-11.2f, 2.9f)));
             foreach (Vector2 pos in Points)
             {
                 AcidVents.Add(Utils.CreateAcidVent(pos));
             }
             Vector3 size = Vector3.one * 1.2f;
-            if (TOUSettings.Ship.InvertX)
+            if (TouSettings.Ship.InvertX)
             {
                 size.x *= -1;
             }
-            if (TOUSettings.Ship.InvertY)
+            if (TouSettings.Ship.InvertY)
             {
                 size.y *= -1;
             }

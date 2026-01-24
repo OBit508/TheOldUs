@@ -28,7 +28,7 @@ namespace TheOldUs.Buttons
         public override bool HaveUses => true;
         public override int NumUses => 1;
         public override Color32 TextOutlineColor { get; } = new Color32(173, 95, 5, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.Flame;
+        public override Sprite ButtonSprite => TouAssets.Flame;
         public override void Click()
         {
             GameManager.Instance.RpcEndGame(new List<NetworkedPlayerInfo>() { Player.Data }, "Arsonist's victory", TextOutlineColor, TextOutlineColor);

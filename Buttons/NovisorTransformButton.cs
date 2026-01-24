@@ -35,7 +35,7 @@ namespace TheOldUs.Buttons
         public override bool TransformButton => true;
         public override float TransformDuration => NovisorRole.TransformDuration;
         public override Color32 TextOutlineColor { get; } = Color.red;
-        public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
+        public override Sprite ButtonSprite => TouAssets.TemporaryButton;
         public override void Click()
         {
             if (Novisor != null)

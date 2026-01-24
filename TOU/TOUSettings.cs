@@ -8,7 +8,7 @@ using FungleAPI.Configuration.Attributes;
 
 namespace TheOldUs.TOU
 {
-    public class TOUSettings : ModSettings
+    public class TouSettings : ModSettings
     {
         public class Jail : SettingsGroup
         {

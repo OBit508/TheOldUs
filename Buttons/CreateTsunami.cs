@@ -24,7 +24,7 @@ namespace TheOldUs.Buttons
         public override bool HaveUses => AcidMaster.AcidUses > 0;
         public override int NumUses => AcidMaster.AcidUses;
         public override Color32 TextOutlineColor { get; } = new Color32(0, 255, 8, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.Acid;
+        public override Sprite ButtonSprite => TouAssets.Acid;
         public override void Click()
         {
             CustomRpcManager.Instance<RpcSummonTsunami>().Send(PlayerControl.LocalPlayer);

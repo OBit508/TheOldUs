@@ -19,10 +19,10 @@ namespace TheOldUs.Patches
     {
         public static bool Prefix(PlayerControl __instance)
         {
-            if (TOUSettings.Jail.ArrestWhenEjected)
+            if (TouSettings.Jail.ArrestWhenEjected)
             {
                 JailBehaviour.ArrestedPlayers.Add(__instance);
-                __instance.NetTransform.SnapTo(new Vector2(TOUSettings.Ship.InvertX ? 12 : -12, TOUSettings.Ship.InvertY ? -3 : 3));
+                __instance.NetTransform.SnapTo(new Vector2(TouSettings.Ship.InvertX ? 12 : -12, TouSettings.Ship.InvertY ? -3 : 3));
                 if (__instance.Data.RoleType == CustomRoleManager.GetType<JesterRole>())
                 {
                     __instance.Data.Role.OnDeath(DeathReason.Exile);

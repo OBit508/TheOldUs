@@ -36,7 +36,7 @@ namespace TheOldUs.Buttons
         public override int NumUses => HitmanRole.ReloadUses;
         public override string OverrideText => "Reload";
         public override Color32 TextOutlineColor { get; } = Palette.Orange;
-        public override Sprite ButtonSprite => TOUAssets.Reload;
+        public override Sprite ButtonSprite => TouAssets.Reload;
         public override void Click()
         {
             HitmanRole.CanShoot = true;

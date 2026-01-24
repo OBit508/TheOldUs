@@ -66,7 +66,7 @@ namespace TheOldUs.Roles.Crewmates
                     {
                         foreach (PlayerControl player in PlayerControl.AllPlayerControls)
                         {
-                            TOUAssets.Target.Instantiate(player.transform).GetComponent<TargetBehaviour>().Predicate = new Predicate<PlayerControl>(p => !p.Data.IsDead && !p.AmOwner && !p.inVent && p.Visible && !p.Data.Disconnected);
+                            TouAssets.Target.Instantiate(player.transform).GetComponent<TargetBehaviour>().Predicate = new Predicate<PlayerControl>(p => !p.Data.IsDead && !p.AmOwner && !p.inVent && p.Visible && !p.Data.Disconnected);
                         }
                     }
                 }

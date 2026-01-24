@@ -18,11 +18,11 @@ namespace TheOldUs.RPCs
     {
         public override void Write(MessageWriter writer)
         {
-            TOUAssets.Tsunami.Instantiate().transform.position = new Vector3(-29, -4.6f, -20);
+            TouAssets.Tsunami.Instantiate().transform.position = new Vector3(-29, -4.6f, -20);
         }
         public override void Handle(MessageReader reader)
         {
-            TOUAssets.Tsunami.Instantiate().transform.position = new Vector3(-29, -4.6f, -20);
+            TouAssets.Tsunami.Instantiate().transform.position = new Vector3(-29, -4.6f, -20);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace TheOldUs.Buttons
         public override bool TransformButton => true;
         public override float TransformDuration => NovisorRole.InvisibleDuration;
         public override Color32 TextOutlineColor { get; } = Color.red;
-        public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
+        public override Sprite ButtonSprite => TouAssets.TemporaryButton;
         public override void Click()
         {
             CustomRpcManager.Instance<RpcInvisible>().Send((PlayerControl.LocalPlayer, true), PlayerControl.LocalPlayer);

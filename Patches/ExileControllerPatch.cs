@@ -23,7 +23,7 @@ namespace TheOldUs.Patches
                 {
                     @object.Exiled();
                 }
-                __instance.initData.networkedPlayer.IsDead = !TOUSettings.Jail.ArrestWhenEjected;
+                __instance.initData.networkedPlayer.IsDead = !TouSettings.Jail.ArrestWhenEjected;
             }
             if (DestroyableSingleton<TutorialManager>.InstanceExists || (GameManager.Instance != null && !GameManager.Instance.LogicFlow.IsGameOverDueToDeath()))
             {
@@ -36,7 +36,7 @@ namespace TheOldUs.Patches
         [HarmonyPrefix]
         public static bool BeginPrefix(ExileController __instance, [HarmonyArgument(0)] ExileController.InitProperties init)
         {
-            if (TOUSettings.Jail.ArrestWhenEjected)
+            if (TouSettings.Jail.ArrestWhenEjected)
             {
                 if (__instance.specialInputHandler != null)
                 {

@@ -35,7 +35,7 @@ namespace TheOldUs.Buttons
         public override float Cooldown => 1;
         public override string OverrideText => "Equip Gun";
         public override Color32 TextOutlineColor { get; } = Palette.Orange;
-        public override Sprite ButtonSprite => TOUAssets.EquipGun;
+        public override Sprite ButtonSprite => TouAssets.EquipGun;
         public override void Click()
         {
             CustomRpcManager.Instance<RpcUpdateGun>().Send(true, PlayerControl.LocalPlayer);

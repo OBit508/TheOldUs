@@ -22,6 +22,7 @@
     <Compile Include="Buttons\NovisorInvisibleButton.cs" />
     <Compile Include="Buttons\NovisorTransformButton.cs" />
     <Compile Include="Buttons\ReloadButton.cs" />
+    <Compile Include="Buttons\ReviveButton.cs" />
     <Compile Include="Buttons\SplitButton.cs" />
     <Compile Include="Buttons\TeleportButton.cs" />
     <Compile Include="Buttons\UnequipGunButton.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="RPCs\RpcHaunt.cs" />
     <Compile Include="RPCs\RpcInvisible.cs" />
     <Compile Include="RPCs\RpcNovisorTransform.cs" />
+    <Compile Include="RPCs\RpcRevive.cs" />
     <Compile Include="RPCs\RpcSummonTsunami.cs" />
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
     <Compile Include="RPCs\RpcSplit.cs" />

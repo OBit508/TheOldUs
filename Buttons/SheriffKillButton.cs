@@ -25,7 +25,7 @@ namespace TheOldUs.Buttons
         public override bool HaveUses => SheriffRole.UsesCount > 0;
         public override int NumUses => (int)SheriffRole.UsesCount;
         public override Color32 TextOutlineColor { get; } = new Color32(254, 153, 0, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.SheriffKill;
+        public override Sprite ButtonSprite => TouAssets.SheriffKill;
         public override void SetOutline(PlayerControl target, bool active)
         {
             target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(TextOutlineColor));

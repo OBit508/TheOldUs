@@ -27,7 +27,7 @@ namespace TheOldUs.Buttons
         public override float Cooldown => ArsonistRole.GasolineCooldown;
         public override string OverrideText => "Gasoline";
         public override Color32 TextOutlineColor { get; } = new Color32(173, 95, 5, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.Gasoline;
+        public override Sprite ButtonSprite => TouAssets.Gasoline;
         public override void SetOutline(PlayerControl target, bool active)
         {
             target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(TextOutlineColor));

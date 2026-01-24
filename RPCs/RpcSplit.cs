@@ -40,7 +40,7 @@ namespace TheOldUs.RPCs
             };
             foreach (Vector2 v in array)
             {
-                FakeNovisorComp fakeNovisor = TOUAssets.FakeNovisor.Instantiate();
+                FakeNovisorComp fakeNovisor = TouAssets.FakeNovisor.Instantiate();
                 fakeNovisor.transform.position = vec;
                 fakeNovisor.Direction = v;
             }

@@ -13,7 +13,7 @@ using FungleAPI.Components;
 
 namespace TheOldUs.TOU
 {
-    public static class TOUAssets
+    public static class TouAssets
     {
         public static Sprite TemporaryButton;
         public static void LoadAssets()
@@ -37,6 +37,8 @@ namespace TheOldUs.TOU
             Grab = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Grab", 100);
             Teleport = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Teleport", 110);
             UnlockVents = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.UnlockVents", 110);
+            Revive = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Revive", 100);
+            Rewind = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Rewind", 100);
             NovisorIdle = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorIdle", 100);
             NovisorRun = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorRun", 100);
             NovisorAttack = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorAttack", 100);
@@ -118,6 +120,8 @@ namespace TheOldUs.TOU
         public static Sprite Grab;
         public static Sprite Teleport;
         public static Sprite UnlockVents;
+        public static Sprite Revive;
+        public static Sprite Rewind;
         public static GifFile NovisorIdle;
         public static GifFile NovisorRun;
         public static GifFile NovisorAttack;

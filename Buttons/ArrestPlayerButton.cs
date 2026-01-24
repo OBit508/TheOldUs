@@ -30,7 +30,7 @@ namespace TheOldUs.Buttons
         public override bool HaveUses => JailerRole.ArrestUses > 0;
         public override int NumUses => JailerRole.ArrestUses;
         public override Color32 TextOutlineColor { get; } = Color.blue;
-        public override Sprite ButtonSprite => TOUAssets.JailerArrest;
+        public override Sprite ButtonSprite => TouAssets.JailerArrest;
         public override void SetOutline(PlayerControl target, bool active)
         {
             target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(TextOutlineColor));

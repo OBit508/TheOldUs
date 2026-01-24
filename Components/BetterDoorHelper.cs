@@ -69,7 +69,7 @@ namespace TheOldUs.Components
             Vector3 center = @object.Collider.bounds.center;
             Vector3 position = transform.position;
             float num = Vector2.Distance(center, position);
-            couldUse = TOUSettings.Ship.BetterDoors && !pc.IsDead && Door.Open;
+            couldUse = TouSettings.Ship.BetterDoors && !pc.IsDead && Door.Open;
             canUse = (num <= UsableDistance && !PhysicsHelpers.AnythingBetween(@object.Collider, center, position, Constants.ShipOnlyMask, false)) & couldUse;
             return num;
         }

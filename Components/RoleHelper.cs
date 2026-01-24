@@ -25,7 +25,7 @@ namespace TheOldUs.Components
                 if (Gun == null)
                 {
                     Gun = new GameObject("Gun").AddComponent<SpriteRenderer>();
-                    Gun.sprite = TOUAssets.Gun;
+                    Gun.sprite = TouAssets.Gun;
                     Gun.transform.SetParent(player.transform);
                     Gun.transform.localPosition = new Vector3(0, -0.1f, -0.1f);
                 }

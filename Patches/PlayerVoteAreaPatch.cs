@@ -21,7 +21,7 @@ namespace TheOldUs.Patches
             {
                 XMark = __instance.XMark.sprite;
             }
-            __instance.XMark.sprite = JailBehaviour.ArrestedPlayers.Contains(Helpers.GetPlayerById(__instance.TargetPlayerId)) ? TOUAssets.Cuffs : XMark;
+            __instance.XMark.sprite = JailBehaviour.ArrestedPlayers.Contains(Helpers.GetPlayerById(__instance.TargetPlayerId)) ? TouAssets.Cuffs : XMark;
         }
     }
 }

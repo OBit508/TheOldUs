@@ -26,7 +26,7 @@ namespace TheOldUs.Buttons
         public override float Cooldown => CleanerRole.CleanCooldown;
         public override string OverrideText => "Clean";
         public override Color32 TextOutlineColor { get; } = new Color32(47, 173, 212, byte.MaxValue);
-        public override Sprite ButtonSprite => TOUAssets.Clean;
+        public override Sprite ButtonSprite => TouAssets.Clean;
         public override void SetOutline(DeadBody target, bool active)
         {
             target?.SetOutline(active, TextOutlineColor);

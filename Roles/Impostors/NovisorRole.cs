@@ -58,7 +58,7 @@ namespace TheOldUs.Roles.Impostors
             if (Player != null)
             {
                 AnimationHelper = Player.GetComponent<PlayerAnimationHelper>();
-                AnimationHelper.IdleAnim = TOUAssets.NovisorIdle;
+                AnimationHelper.IdleAnim = TouAssets.NovisorIdle;
             }
         }
         public void Update()
@@ -68,7 +68,7 @@ namespace TheOldUs.Roles.Impostors
                 if (AnimationHelper != null)
                 {
                     AnimationHelper.Transformed = Transformed;
-                    AnimationHelper.RunAnim = Target != null ? TOUAssets.NovisorAttack : TOUAssets.NovisorRun;
+                    AnimationHelper.RunAnim = Target != null ? TouAssets.NovisorAttack : TouAssets.NovisorRun;
                 }
                 if (Target != null)
                 {

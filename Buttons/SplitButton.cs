@@ -33,7 +33,7 @@ namespace TheOldUs.Buttons
         public override float Cooldown => NovisorRole.SplitCooldown;
         public override string OverrideText => "Split";
         public override Color32 TextOutlineColor { get; } = Color.red;
-        public override Sprite ButtonSprite => TOUAssets.TemporaryButton;
+        public override Sprite ButtonSprite => TouAssets.TemporaryButton;
         public override void Click()
         {
             CustomRpcManager.Instance<RpcSplit>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer);

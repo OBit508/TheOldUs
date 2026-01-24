@@ -27,7 +27,7 @@ namespace TheOldUs.Buttons
         public override bool HaveUses => VentCreatorRole.MaxVents > 0;
         public override int NumUses => VentCreatorRole.MaxVents;
         public override Color32 TextOutlineColor { get; } = Color.red;
-        public override Sprite ButtonSprite => TOUAssets.CreateVent;
+        public override Sprite ButtonSprite => TouAssets.CreateVent;
         public override void Click()
         {
             CustomRpcManager.Instance<RpcCreateVent>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer);

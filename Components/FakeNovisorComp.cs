@@ -23,7 +23,7 @@ namespace TheOldUs.Components
         {
             Animator = GetComponent<GifAnimator>();
             Animator.spriteRenderer = GetComponent<SpriteRenderer>();
-            Animator.Gif = TOUAssets.NovisorRun;
+            Animator.Gif = TouAssets.NovisorRun;
             Animator.Play();
             transform.localScale = new Vector3(Direction.x < 0 ? -0.9f : 0.9f, 0.9f, 0.9f);
             GameObject.Destroy(gameObject, NovisorRole.CloneLifetime);
