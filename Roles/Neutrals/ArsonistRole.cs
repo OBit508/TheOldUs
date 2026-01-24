@@ -29,5 +29,6 @@ namespace TheOldUs.Roles.Neutrals
         {
             return base.ValidTarget(target) && !target.Object.GetPlayerComponent<RoleHelper>().Soaked;
         }
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

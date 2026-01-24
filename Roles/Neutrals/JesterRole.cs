@@ -35,6 +35,6 @@ namespace TheOldUs.Roles.Neutrals
                 GameManager.Instance.RpcEndGame(new List<NetworkedPlayerInfo>() { Player.Data }, "Jester's victory", RoleColor, RoleColor);
             }
         }
-
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

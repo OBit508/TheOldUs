@@ -24,5 +24,6 @@ namespace TheOldUs.Roles.Crewmates
         public StringNames RoleBlurMed { get; } = new Translator("The Medic can revive dead bodies.").StringName;
         public StringNames RoleBlurLong => RoleBlurMed;
         public Color RoleColor { get; } = new Color32(40, 165, 0, byte.MaxValue);
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

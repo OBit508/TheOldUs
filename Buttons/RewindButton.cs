@@ -31,7 +31,7 @@ namespace TheOldUs.Buttons
         {
             if (TimeManager.Instance != null)
             {
-                TimeManager.Instance.TimeManipulation = TimeManipulationType.TimeMaster;
+                Rpc<RpcChangeTimeManipulation>.Instance.Send(TimeManipulationType.TimeMaster, PlayerControl.LocalPlayer);
             }
         }
         public override void Update()

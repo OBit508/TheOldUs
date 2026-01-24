@@ -24,5 +24,6 @@ namespace TheOldUs.Roles.Crewmates
         public StringNames RoleBlurMed { get; } = new Translator("The Time Master can rewind the time.").StringName;
         public StringNames RoleBlurLong => RoleBlurMed;
         public Color RoleColor { get; } = new Color32(0, 124, 228, byte.MaxValue);
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

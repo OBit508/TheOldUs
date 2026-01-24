@@ -51,6 +51,7 @@
     <Compile Include="Roles\Impostors\AcidMaster.cs" />
     <Compile Include="Roles\Impostors\NovisorRole.cs" />
     <Compile Include="Roles\Neutrals\ArsonistRole.cs" />
+    <Compile Include="RPCs\RpcChangeTimeManipulation.cs" />
     <Compile Include="RPCs\RpcDie.cs" />
     <Compile Include="RPCs\RpcHaunt.cs" />
     <Compile Include="RPCs\RpcInvisible.cs" />

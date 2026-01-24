@@ -55,5 +55,6 @@ namespace TheOldUs.Roles.Impostors
             };
             return killButtonConfig;
         }
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

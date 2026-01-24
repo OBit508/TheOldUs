@@ -30,5 +30,6 @@ namespace TheOldUs.Roles.Impostors
         public StringNames RoleBlurMed { get; } = new Translator("you can create vents.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The VentCreator can create vents and he's vents will connect with all nearby vents.").StringName;
         public Color RoleColor { get; } = Color.red;
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

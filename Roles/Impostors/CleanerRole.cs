@@ -36,5 +36,6 @@ namespace TheOldUs.Roles.Impostors
             killButtonConfig.CanUse = () => CanKill && killButtonConfig.Button.isActiveAndEnabled && killButtonConfig.Button.currentTarget != null && !killButtonConfig.Button.isCoolingDown && !PlayerControl.LocalPlayer.Data.IsDead && PlayerControl.LocalPlayer.CanMove;
             return killButtonConfig;
         }
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

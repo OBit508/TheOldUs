@@ -76,5 +76,6 @@ namespace TheOldUs.Roles.Crewmates
                 }
             }
         }
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

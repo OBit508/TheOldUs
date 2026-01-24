@@ -36,5 +36,6 @@ namespace TheOldUs.Roles.Crewmates
         public Color RoleColor { get; } = new Color32(0, 110, 17, byte.MaxValue);
         public CustomAbilityButton Button = CustomAbilityButton.Instance<UnlockVentsButton>();
         public bool CanUseVent => Button.Transformed;
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

@@ -35,5 +35,6 @@ namespace TheOldUs.Roles.Crewmates
         {
             return base.ValidTarget(target) && !JailBehaviour.ArrestedPlayers.Contains(target.Object);
         }
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

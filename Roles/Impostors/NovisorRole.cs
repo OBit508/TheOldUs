@@ -94,5 +94,6 @@ namespace TheOldUs.Roles.Impostors
         {
             Transformed = false;
         }
+        public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }
