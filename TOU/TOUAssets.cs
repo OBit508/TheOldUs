@@ -37,8 +37,8 @@ namespace TheOldUs.TOU
             Grab = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Grab", 100);
             Teleport = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Teleport", 110);
             UnlockVents = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.UnlockVents", 110);
-            Revive = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Revive", 100);
-            Rewind = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Rewind", 100);
+            Revive = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Revive", 130);
+            Rewind = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Rewind", 120);
             NovisorIdle = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorIdle", 100);
             NovisorRun = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorRun", 100);
             NovisorAttack = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorAttack", 100);

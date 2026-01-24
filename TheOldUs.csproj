@@ -23,6 +23,7 @@
     <Compile Include="Buttons\NovisorTransformButton.cs" />
     <Compile Include="Buttons\ReloadButton.cs" />
     <Compile Include="Buttons\ReviveButton.cs" />
+    <Compile Include="Buttons\RewindButton.cs" />
     <Compile Include="Buttons\SplitButton.cs" />
     <Compile Include="Buttons\TeleportButton.cs" />
     <Compile Include="Buttons\UnequipGunButton.cs" />
@@ -32,6 +33,7 @@
     <Compile Include="Components\FakeNovisorComp.cs" />
     <Compile Include="Components\RoleHelper.cs" />
     <Compile Include="Components\TargetBehaviour.cs" />
+    <Compile Include="Components\TimeManager.cs" />
     <Compile Include="GameOvers\NotSkeldGameOver.cs" />
     <Compile Include="Patches\DummyBehaviourPatch.cs" />
     <Compile Include="Patches\ExileControllerPatch.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
     <Compile Include="TOU\TouSettings.cs" />
+    <Compile Include="Utilities\TimeManipulationType.cs" />
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>

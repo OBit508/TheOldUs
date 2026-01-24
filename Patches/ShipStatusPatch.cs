@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.Components;
 using TheOldUs.GameOvers;
 using TheOldUs.Roles.Neutrals;
 using TheOldUs.RPCs;
@@ -43,6 +44,7 @@ namespace TheOldUs.Patches
                 size.y *= -1;
             }
             __instance.transform.localScale = size;
+            TimeManager.Instance = __instance.gameObject.AddComponent<TimeManager>();
         }
     }
 }
