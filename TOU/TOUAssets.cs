@@ -11,10 +11,6 @@ using System.Reflection;
 using FungleAPI.Utilities;
 using FungleAPI.Components;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 namespace TheOldUs.TOU
 {
     public static class TOUAssets

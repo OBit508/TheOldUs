@@ -56,7 +56,7 @@
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
     <Compile Include="RPCs\RpcSplit.cs" />
     <Compile Include="RPCs\RpcUpdateGun.cs" />
-    <Compile Include="TOU\TOUAssets.cs" />
+    <Compile Include="TOU\TouAssets.cs" />
     <Compile Include="BepInEx\BepInAutoPluginAttribute.cs" />
     <Compile Include="BepInEx\Preloader\Core\Patching\PatcherAutoPluginAttribute.cs" />
     <Compile Include="Components\PlayerAnimationHelper.cs" />
@@ -79,8 +79,12 @@
     <Compile Include="TheOldUsPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
-    <Compile Include="TOU\TOUSettings.cs" />
+    <Compile Include="TOU\TouSettings.cs" />
     <Compile Include="Utilities\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\Revive.png" />
+    <EmbeddedResource Include="Resources\Buttons\Rewind.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\Teleport.png" />
@@ -149,9 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\SheriffKill.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Screenshots\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">

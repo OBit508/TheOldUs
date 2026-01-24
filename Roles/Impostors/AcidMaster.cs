@@ -32,8 +32,6 @@ namespace TheOldUs.Roles.Impostors
         public StringNames RoleBlurMed { get; } = new Translator("You can summon a acid tsunami that kills players.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Acid Master can summon a acid tsunami that destroy bodies and kill players.").StringName;
         public Color RoleColor { get; } = new Color32(0, 255, 8, byte.MaxValue);
-        public bool UseVanillaKillButton => false;
-        public bool CanKill => true;
         public DeadBodyType CreatedDeadBodyOnKill => DeadBodyType.Viper;
         public override void KillAnimSpecialSetup(DeadBody deadBody, PlayerControl killer, PlayerControl victim)
         {

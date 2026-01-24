@@ -31,9 +31,9 @@ namespace TheOldUs.Roles.Crewmates
         public StringNames RoleBlurMed { get; } = new Translator("You need to arrest all the impostors to win.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Jailer can arrest any player and if he want to he can release any player on the jail.").StringName;
         public Color RoleColor { get; } = Color.blue;
-        public override bool IsValidTarget(NetworkedPlayerInfo target)
+        public override bool ValidTarget(NetworkedPlayerInfo target)
         {
-            return base.IsValidTarget(target) && !JailBehaviour.ArrestedPlayers.Contains(target.Object);
+            return base.ValidTarget(target) && !JailBehaviour.ArrestedPlayers.Contains(target.Object);
         }
     }
 }

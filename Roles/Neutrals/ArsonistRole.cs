@@ -25,9 +25,9 @@ namespace TheOldUs.Roles.Neutrals
         public StringNames RoleBlurMed { get; } = new Translator("Put gasoline on others and light it.").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("The Arsonist needs to put gasoline on all the players in order to start a fire.").StringName;
         public Color RoleColor { get; } = new Color32(173, 95, 5, byte.MaxValue);
-        public override bool IsValidTarget(NetworkedPlayerInfo target)
+        public override bool ValidTarget(NetworkedPlayerInfo target)
         {
-            return base.IsValidTarget(target) && !target.Object.GetPlayerComponent<RoleHelper>().Soaked;
+            return base.ValidTarget(target) && !target.Object.GetPlayerComponent<RoleHelper>().Soaked;
         }
     }
 }
