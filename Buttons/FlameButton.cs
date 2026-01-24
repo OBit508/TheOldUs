@@ -21,7 +21,7 @@ namespace TheOldUs.Buttons
     internal class FlameButton : RoleButton<ArsonistRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => PlayerControl.AllPlayerControls.FindAll(new Predicate<PlayerControl>(p => !p.AmOwner && !p.Data.IsDead && p.GetPlayerComponent<RoleHelper>().Soaked).ToIl2CppPredicate()).Count == 0;
+        public override bool CanUse => PlayerControl.AllPlayerControls.FindAll(new Predicate<PlayerControl>(p => !p.AmOwner && !p.Data.IsDead && !p.GetPlayerComponent<RoleHelper>().Soaked).ToIl2CppPredicate()).Count <= 0;
         public override bool CanClick => CanUse;
         public override string OverrideText => "Flame";
         public override float Cooldown => 5;
