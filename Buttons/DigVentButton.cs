@@ -17,15 +17,15 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace TheOldUs.Buttons
 {
-    internal class CreateVentButton : RoleButton<VentCreatorRole>
+    internal class DigVentButton : RoleButton<DiggerRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse => true;
         public override bool CanClick => CanUse;
-        public override float Cooldown => VentCreatorRole.CreateVentCooldown;
-        public override string OverrideText => "Create Vent";
-        public override bool HaveUses => VentCreatorRole.MaxVents > 0;
-        public override int NumUses => VentCreatorRole.MaxVents;
+        public override float Cooldown => DiggerRole.CreateVentCooldown;
+        public override string OverrideText => "Dig Vent";
+        public override bool HaveUses => DiggerRole.MaxVents > 0;
+        public override int NumUses => DiggerRole.MaxVents;
         public override Color32 TextOutlineColor { get; } = Color.red;
         public override Sprite ButtonSprite => TouAssets.CreateVent;
         public override void Click()

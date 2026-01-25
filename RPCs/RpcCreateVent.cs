@@ -21,12 +21,12 @@ namespace TheOldUs.RPCs
             List<Vent> nearbyVents = new List<Vent>();
             foreach (Vent vent in ShipStatus.Instance.AllVents)
             {
-                if (Vector2.Distance(vent.transform.position, value) <= VentCreatorRole.ConnectDistance)
+                if (Vector2.Distance(vent.transform.position, value) <= DiggerRole.ConnectDistance)
                 {
                     nearbyVents.Add(vent);
                 }
             }
-            Helpers.CreateVent(Helpers.VentType.Skeld, value, nearbyVents);
+            Helpers.CreateVent(Helpers.VentType.Polus, value, nearbyVents);
         }
         public override void Handle(MessageReader reader)
         {
@@ -34,12 +34,12 @@ namespace TheOldUs.RPCs
             List<Vent> nearbyVents = new List<Vent>();
             foreach (Vent vent in ShipStatus.Instance.AllVents)
             {
-                if (Vector2.Distance(vent.transform.position, value) <= VentCreatorRole.ConnectDistance)
+                if (Vector2.Distance(vent.transform.position, value) <= DiggerRole.ConnectDistance)
                 {
                     nearbyVents.Add(vent);
                 }
             }
-            Helpers.CreateVent(Helpers.VentType.Skeld, value, nearbyVents);
+            Helpers.CreateVent(Helpers.VentType.Polus, value, nearbyVents);
         }
     }
 }

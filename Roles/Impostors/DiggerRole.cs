@@ -16,19 +16,19 @@ using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
 {
-    internal class VentCreatorRole : ImpostorBase, ICustomRole
+    internal class DiggerRole : ImpostorBase, ICustomRole
     {
-        [ModdedNumberOption("Create Vent Cooldown", 1, 60)]
+        [ModdedNumberOption("Dig Vent Cooldown", 1, 60)]
         public static float CreateVentCooldown => 10;
         [ModdedNumberOption("Max Vents", 0, 120, 1, null, true, NumberSuffixes.None)]
         public static int MaxVents => 7;
         [ModdedNumberOption("Connect Distance", 0.5f, 10, 0.5f)]
         public static float ConnectDistance => 4;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
-        public StringNames RoleName { get; } = new Translator("VentCreator").StringName;
-        public StringNames RoleBlur { get; } = new Translator("You can create vents.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("you can create vents.").StringName;
-        public StringNames RoleBlurLong { get; } = new Translator("The VentCreator can create vents and he's vents will connect with all nearby vents.").StringName;
+        public StringNames RoleName { get; } = new Translator("Digger").StringName;
+        public StringNames RoleBlur { get; } = new Translator("You can dig vents.").StringName;
+        public StringNames RoleBlurMed { get; } = new Translator("you can dig vents.").StringName;
+        public StringNames RoleBlurLong { get; } = new Translator("The Digger can dig vents and he's vents will connect with all nearby vents.").StringName;
         public Color RoleColor { get; } = Color.red;
         public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }

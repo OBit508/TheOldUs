@@ -51,12 +51,14 @@
     <Compile Include="Roles\Impostors\AcidMaster.cs" />
     <Compile Include="Roles\Impostors\NovisorRole.cs" />
     <Compile Include="Roles\Neutrals\ArsonistRole.cs" />
+    <Compile Include="Roles\Neutrals\ExecutionerRole.cs" />
     <Compile Include="RPCs\RpcChangeTimeManipulation.cs" />
     <Compile Include="RPCs\RpcDie.cs" />
     <Compile Include="RPCs\RpcHaunt.cs" />
     <Compile Include="RPCs\RpcInvisible.cs" />
     <Compile Include="RPCs\RpcNovisorTransform.cs" />
     <Compile Include="RPCs\RpcRevive.cs" />
+    <Compile Include="RPCs\RpcSetTarget.cs" />
     <Compile Include="RPCs\RpcSummonTsunami.cs" />
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
     <Compile Include="RPCs\RpcSplit.cs" />
@@ -78,9 +80,9 @@
     <Compile Include="RPCs\RpcMove.cs" />
     <Compile Include="Buttons\SheriffKillButton.cs" />
     <Compile Include="Roles\Crewmates\SheriffRole.cs" />
-    <Compile Include="Buttons\CreateVentButton.cs" />
+    <Compile Include="Buttons\DigVentButton.cs" />
     <Compile Include="RPCs\RpcCreateVent.cs" />
-    <Compile Include="Roles\Impostors\VentCreatorRole.cs" />
+    <Compile Include="Roles\Impostors\DiggerRole.cs" />
     <Compile Include="TheOldUsPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
