@@ -1,5 +1,6 @@
 ﻿using AmongUs.GameOptions;
 using FungleAPI.Components;
+using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,7 @@ namespace TheOldUs.Components
                 catch { }
                 if (Target != null)
                 {
-
+                    Target.cosmetics.nameText.color = Helpers.Dark(ExecutionerRole.ExecutionerColor);
                 }
             }
         }
