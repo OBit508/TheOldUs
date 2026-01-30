@@ -1,4 +1,5 @@
 ﻿using AmongUs.GameOptions;
+using BepInEx.Unity.IL2CPP.Utils.Collections;
 using FungleAPI.Base.Rpc;
 using FungleAPI.Components;
 using FungleAPI.Networking;
@@ -27,11 +28,13 @@ namespace TheOldUs.RPCs
             if (playerControl != null)
             {
                 PlayerHelper playerHelper = playerControl.GetPlayerComponent<PlayerHelper>();
-                RoleBehaviour roleBehaviour = playerHelper.OldRole;
-                playerControl.Revive();
-                RoleManager.Instance.SetRole(playerControl, roleBehaviour.Role);
-                playerHelper.OldRole = roleBehaviour;
+                playerHelper.StartCoroutine(CoRevive(playerHelper, RoleManager.Instance.GetRole(playerHelper.OldRole.Role)).WrapToIl2Cpp());
             }
+        }
+        public static System.Collections.IEnumerator CoRevive(PlayerHelper playerHelper, RoleBehaviour oldRole)
+        {
+            yield return playerHelper.player.CoSetRole(oldRole.Role, false);
+            playerHelper.OldRole = oldRole;
         }
         public override void Write(MessageWriter messageWriter, DeadBody value)
         {
