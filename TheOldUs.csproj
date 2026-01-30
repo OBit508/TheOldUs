@@ -35,6 +35,7 @@
     <Compile Include="Components\TargetBehaviour.cs" />
     <Compile Include="Components\TimeManager.cs" />
     <Compile Include="GameOvers\NotSkeldGameOver.cs" />
+    <Compile Include="GameOvers\TouNeutralGameOver.cs" />
     <Compile Include="Patches\DummyBehaviourPatch.cs" />
     <Compile Include="Patches\ExileControllerPatch.cs" />
     <Compile Include="Patches\MapBehaviourPatch.cs" />
@@ -51,14 +52,12 @@
     <Compile Include="Roles\Impostors\AcidMaster.cs" />
     <Compile Include="Roles\Impostors\NovisorRole.cs" />
     <Compile Include="Roles\Neutrals\ArsonistRole.cs" />
-    <Compile Include="Roles\Neutrals\ExecutionerRole.cs" />
     <Compile Include="RPCs\RpcChangeTimeManipulation.cs" />
     <Compile Include="RPCs\RpcDie.cs" />
     <Compile Include="RPCs\RpcHaunt.cs" />
     <Compile Include="RPCs\RpcInvisible.cs" />
     <Compile Include="RPCs\RpcNovisorTransform.cs" />
     <Compile Include="RPCs\RpcRevive.cs" />
-    <Compile Include="RPCs\RpcSetTarget.cs" />
     <Compile Include="RPCs\RpcSummonTsunami.cs" />
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
     <Compile Include="RPCs\RpcSplit.cs" />

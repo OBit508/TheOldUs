@@ -24,8 +24,7 @@ namespace TheOldUs.Buttons
         public static ShapeshifterMinigame ShapPanelPrefab = RoleManager.Instance.AllRoles.ToSystemList().FirstOrDefault(role => role.Role == AmongUs.GameOptions.RoleTypes.Shapeshifter).SafeCast<ShapeshifterRole>().ShapeshifterMenu;
         public static ShapeshifterMinigame ShapMinigame;
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => Vector2.Distance(PlayerControl.LocalPlayer.transform.position, JailBehaviour.Bars.transform.position) <= 2 && ShapMinigame == null;
-        public override bool CanClick => CanUse;
+        public override bool CanUse() => base.CanUse() && Vector2.Distance(PlayerControl.LocalPlayer.transform.position, JailBehaviour.Bars.transform.position) <= 2 && ShapMinigame == null;
         public override float Cooldown => JailerRole.ReleaseCooldown;
         public override string OverrideText => "Release";
         public override Color32 TextOutlineColor { get; } = Color.blue;
@@ -35,11 +34,11 @@ namespace TheOldUs.Buttons
             base.Update();
             if (JailBehaviour.Bars != null)
             {
-                JailBehaviour.Bars.material.SetFloat("_Outline", CanUse ? 1 : 0);
+                JailBehaviour.Bars.material.SetFloat("_Outline", CanUse() ? 1 : 0);
                 JailBehaviour.Bars.material.SetColor("_OutlineColor", TextOutlineColor);
             }
         }
-        public override void Click()
+        public override void OnClick()
         {
             SetCooldown(0);
             ShapMinigame = GameObject.Instantiate<ShapeshifterMinigame>(ShapPanelPrefab, Camera.main.transform);

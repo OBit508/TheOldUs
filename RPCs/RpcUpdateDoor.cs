@@ -14,15 +14,13 @@ namespace TheOldUs.RPCs
     {
         public override void Write(MessageWriter writer, BetterDoorHelper value)
         {
-            writer.Write(value.Door.Id);
-            writer.Write((int)value.Door.Room);
+            writer.Write(value.DoorId);
             value.SetDoorway();
         }
         public override void Handle(MessageReader reader)
         {
             int id = reader.ReadInt32();
-            SystemTypes room = (SystemTypes)reader.ReadInt32();
-            ShipStatus.Instance.AllDoors.FirstOrDefault(d => d.Id == id && d.Room == room).GetComponent<BetterDoorHelper>().SetDoorway();
+            BetterDoorHelper.Doors.FirstOrDefault(d => d.DoorId == id).SetDoorway();
         }
     }
 }

@@ -20,12 +20,9 @@ namespace TheOldUs.Buttons
     internal class ReviveButton : RoleTargetButton<DeadBody, MedicRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => Target != null;
-        public override bool CanClick => CanUse;
         public override float Cooldown => MedicRole.ReviveCooldown;
         public override string OverrideText => "Revive";
-        public override bool HaveUses => true;
-        public override int NumUses => MedicRole.ReviveUses;
+        public override int MaxUses => MedicRole.ReviveUses;
         public override Color32 TextOutlineColor { get; } = new Color32(40, 165, 0, byte.MaxValue);
         public override Sprite ButtonSprite => TouAssets.Revive;
         public override void SetOutline(DeadBody target, bool active)
@@ -40,7 +37,7 @@ namespace TheOldUs.Buttons
         {
             return Role != null ? Role.FindClosestBody() : null;
         }
-        public override void Click()
+        public override void OnClick()
         {
             Rpc<RpcRevive>.Instance.Send(Target, PlayerControl.LocalPlayer);
             Target = null;

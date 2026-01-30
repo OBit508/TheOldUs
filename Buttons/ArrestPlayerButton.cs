@@ -23,12 +23,9 @@ namespace TheOldUs.Buttons
     internal class ArrestPlayerButton : RoleTargetButton<PlayerControl, JailerRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => Target != null;
-        public override bool CanClick => CanUse;
         public override float Cooldown => JailerRole.ArrestCooldown;
         public override string OverrideText => "Arrest";
-        public override bool HaveUses => JailerRole.ArrestUses > 0;
-        public override int NumUses => JailerRole.ArrestUses;
+        public override int MaxUses => JailerRole.ArrestUses;
         public override Color32 TextOutlineColor { get; } = Color.blue;
         public override Sprite ButtonSprite => TouAssets.JailerArrest;
         public override void SetOutline(PlayerControl target, bool active)
@@ -39,7 +36,7 @@ namespace TheOldUs.Buttons
         {
             return Role != null ? Role.FindClosestTarget() : null;
         }
-        public override void Click()
+        public override void OnClick()
         {
             try
             {

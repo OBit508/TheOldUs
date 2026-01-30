@@ -28,32 +28,29 @@ namespace TheOldUs.Buttons
             }
         }
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => true;
-        public override bool CanClick => CanUse;
         public override float Cooldown => NovisorRole.TransformCooldown;
         public override string OverrideText => "Transform";
         public override bool TransformButton => true;
         public override float TransformDuration => NovisorRole.TransformDuration;
         public override Color32 TextOutlineColor { get; } = Color.red;
         public override Sprite ButtonSprite => TouAssets.TemporaryButton;
-        public override void Click()
+        public override void OnClick()
         {
             if (Novisor != null)
             {
-                HudManager.Instance.ImpostorVentButton.ToggleVisible(false);
                 CustomRpcManager.Instance<RpcNovisorTransform>().Send((PlayerControl.LocalPlayer, true), PlayerControl.LocalPlayer);
             }
         }
-        public override void Destransform()
+        public override void EndTransform()
         {
+            base.EndTransform();
             if (Novisor != null)
             {
-                HudManager.Instance.ImpostorVentButton.ToggleVisible(true);
                 CustomRpcManager.Instance<RpcNovisorTransform>().Send((PlayerControl.LocalPlayer, false), PlayerControl.LocalPlayer);
-                NovisorInvisibleButton novisorInvisible = CustomAbilityButton.Instance<NovisorInvisibleButton>();
+                NovisorInvisibleButton novisorInvisible = Instance<NovisorInvisibleButton>();
                 if (novisorInvisible.Transformed)
                 {
-                    novisorInvisible.Destransform();
+                    novisorInvisible.EndTransform();
                 }
             }
         }

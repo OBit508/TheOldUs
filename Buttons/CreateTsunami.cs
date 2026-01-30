@@ -17,15 +17,13 @@ namespace TheOldUs.Buttons
     internal class CreateTsunami : RoleButton<AcidMaster>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => AcidTsunami.Instance == null;
-        public override bool CanClick => CanUse;
+        public override bool CanUse() => base.CanUse() && AcidTsunami.Instance == null;
         public override float Cooldown => AcidMaster.AcidCooldown;
         public override string OverrideText => "Acid";
-        public override bool HaveUses => AcidMaster.AcidUses > 0;
-        public override int NumUses => AcidMaster.AcidUses;
+        public override int MaxUses => AcidMaster.AcidUses;
         public override Color32 TextOutlineColor { get; } = new Color32(0, 255, 8, byte.MaxValue);
         public override Sprite ButtonSprite => TouAssets.Acid;
-        public override void Click()
+        public override void OnClick()
         {
             CustomRpcManager.Instance<RpcSummonTsunami>().Send(PlayerControl.LocalPlayer);
         }

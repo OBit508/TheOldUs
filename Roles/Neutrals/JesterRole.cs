@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.GameOvers;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Neutrals
@@ -30,9 +31,11 @@ namespace TheOldUs.Roles.Neutrals
         public bool CanUseVent => Vent;
         public override void OnDeath(DeathReason reason)
         {
-            if (reason == DeathReason.Exile && AmongUsClient.Instance.AmHost)
+            if (reason == DeathReason.Exile && Player.AmOwner)
             {
-                GameManager.Instance.RpcEndGame(new List<NetworkedPlayerInfo>() { Player.Data }, "Jester's victory", RoleColor, RoleColor);
+                TouNeutralGameOver.WinnerId = Player.PlayerId;
+                TouNeutralGameOver.Win = TouNeutralGameOver.NeutralWin.Jester;
+                GameManager.Instance.RpcEndGame<TouNeutralGameOver>();
             }
         }
         public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;

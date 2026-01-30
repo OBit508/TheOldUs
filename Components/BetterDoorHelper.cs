@@ -15,6 +15,8 @@ namespace TheOldUs.Components
     [FungleAPI.Attributes.RegisterTypeInIl2Cpp]
     public class BetterDoorHelper : SystemConsole
     {
+        public static List<BetterDoorHelper> Doors = new List<BetterDoorHelper>();
+        public int DoorId;
         public AutoOpenDoor Door;
         public bool Open = true;
         public float timer;
@@ -26,7 +28,15 @@ namespace TheOldUs.Components
         }
         public new void Start()
         {
-            SetDoorway();
+            for (int i = 0; i < ShipStatus.Instance.AllDoors.Count; i++)
+            {
+                if (ShipStatus.Instance.AllDoors[i] == Door)
+                {
+                    DoorId = i;
+                    break;
+                }
+            }
+            Doors.Add(this);
         }
         public void Update()
         {

@@ -12,10 +12,10 @@ namespace TheOldUs.GameOvers
     {
         public override string WinText => "Only The Skeld map is supported";
         public override Color BackgroundColor { get; } = new Color32(41, 41, 41, byte.MaxValue);
-        public override GameOverReason Reason => GameOverManager.GetValidGameOver();
-        public override List<NetworkedPlayerInfo> GetWinners()
+        public override GameOverReason Reason { get; } = GameOverManager.GetValidGameOver();
+        public override void SetData()
         {
-            return new List<NetworkedPlayerInfo>();
+            Winners = new List<CachedPlayerData>();
         }
     }
 }

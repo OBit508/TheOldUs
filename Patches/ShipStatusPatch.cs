@@ -45,6 +45,7 @@ namespace TheOldUs.Patches
             }
             __instance.transform.localScale = size;
             TimeManager.Instance = __instance.gameObject.AddComponent<TimeManager>();
+            BetterDoorHelper.Doors.Clear();
         }
     }
 }

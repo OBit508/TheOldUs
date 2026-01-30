@@ -21,8 +21,6 @@ namespace TheOldUs.Buttons
     internal class CleanDeadBodyButton : RoleTargetButton<DeadBody, CleanerRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => Target != null;
-        public override bool CanClick => CanUse;
         public override float Cooldown => CleanerRole.CleanCooldown;
         public override string OverrideText => "Clean";
         public override Color32 TextOutlineColor { get; } = new Color32(47, 173, 212, byte.MaxValue);
@@ -35,7 +33,7 @@ namespace TheOldUs.Buttons
         {
             return Role != null ? Role.FindClosestBody() : null;
         }
-        public override void Click()
+        public override void OnClick()
         {
             CustomRpcManager.Instance<RpcCleanDeadBody>().Send(Target, PlayerControl.LocalPlayer);
         }

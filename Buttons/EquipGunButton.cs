@@ -30,13 +30,11 @@ namespace TheOldUs.Buttons
             }
         }
         public override bool Active => base.Active && Helper != null && !Helper.ShowingGun;
-        public override bool CanUse => true;
-        public override bool CanClick => CanUse;
         public override float Cooldown => 1;
         public override string OverrideText => "Equip Gun";
         public override Color32 TextOutlineColor { get; } = Palette.Orange;
         public override Sprite ButtonSprite => TouAssets.EquipGun;
-        public override void Click()
+        public override void OnClick()
         {
             CustomRpcManager.Instance<RpcUpdateGun>().Send(true, PlayerControl.LocalPlayer);
             Button.ToggleVisible(false);

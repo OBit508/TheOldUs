@@ -29,15 +29,13 @@ namespace TheOldUs.Buttons
         }
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool Active => base.Active && Helper != null && Helper.ShowingGun;
-        public override bool CanUse => !HitmanRole.CanShoot;
-        public override bool CanClick => CanUse;
+        public override bool CanUse() => base.CanUse() && !HitmanRole.CanShoot;
         public override float Cooldown => HitmanRole.ReloadCooldown;
-        public override bool HaveUses => HitmanRole.ReloadUses > 0;
-        public override int NumUses => HitmanRole.ReloadUses;
+        public override int MaxUses => HitmanRole.ReloadUses;
         public override string OverrideText => "Reload";
         public override Color32 TextOutlineColor { get; } = Palette.Orange;
         public override Sprite ButtonSprite => TouAssets.Reload;
-        public override void Click()
+        public override void OnClick()
         {
             HitmanRole.CanShoot = true;
         }

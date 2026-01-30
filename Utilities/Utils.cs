@@ -227,20 +227,13 @@ namespace TheOldUs.Utilities
                     else if (neutralKillerCount.Count == 1 && crewmateCount <= 1)
                     {
                         NetworkedPlayerInfo data = neutralKillerCount[0].Data;
-                        string winText = "Victory of the " + data.Role.NiceName;
-                        if (data.Role.CustomRole() != null)
+                        ICustomRole customRole = data.Role.CustomRole();
+                        if (customRole != null && customRole.NeutralGameOver != null)
                         {
-                            winText = data.Role.CustomRole().NeutralWinText;
+                            gameManager.RpcEndGame(customRole.NeutralGameOver);
+                            return false;
                         }
-                        if (TutorialManager.InstanceExists)
-                        {
-                            DestroyableSingleton<HudManager>.Instance.ShowPopUp(winText);
-                            gameManager.ReviveEveryoneFreeplay();
-                        }
-                        else
-                        {
-                            gameManager.RpcEndGame(new List<NetworkedPlayerInfo>() { data }, winText, data.Role.NameColor, data.Role.NameColor);
-                        }
+                        gameManager.RpcEndGame(customRole.NeutralGameOver);
                     }
                 }
                 else if (independentTeams.Count == 1)
@@ -278,7 +271,7 @@ namespace TheOldUs.Utilities
                         }
                         else
                         {
-                            gameManager.RpcEndGame(pair.Key);
+                            gameManager.RpcEndGame(pair.Key.DefaultGameOver);
                         }
                     }
                 }

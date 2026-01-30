@@ -28,21 +28,20 @@ namespace TheOldUs.Buttons
             }
         }
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => Novisor != null && Novisor.Transformed;
-        public override bool CanClick => CanUse;
+        public override bool CanUse() => base.CanUse() && Novisor != null && Novisor.Transformed;
         public override float Cooldown => NovisorRole.InvisibleCooldown;
         public override string OverrideText => "Invisible";
         public override bool TransformButton => true;
         public override float TransformDuration => NovisorRole.InvisibleDuration;
         public override Color32 TextOutlineColor { get; } = Color.red;
         public override Sprite ButtonSprite => TouAssets.TemporaryButton;
-        public override void Click()
+        public override void OnClick()
         {
             CustomRpcManager.Instance<RpcInvisible>().Send((PlayerControl.LocalPlayer, true), PlayerControl.LocalPlayer);
         }
-        public override void Destransform()
+        public override void EndTransform()
         {
-            base.Destransform();
+            base.EndTransform();
             CustomRpcManager.Instance<RpcInvisible>().Send((PlayerControl.LocalPlayer, false), PlayerControl.LocalPlayer);
         }
     }

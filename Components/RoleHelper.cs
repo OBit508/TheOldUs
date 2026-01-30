@@ -19,7 +19,6 @@ namespace TheOldUs.Components
         public bool ShowingGun;
         public bool Soaked;
         public Color DefaultVisorColor = new Color(0.5843f, 0.7922f, 0.8627f, 1);
-        public PlayerControl Target;
         public void Update()
         {
             if (player != null)
@@ -43,15 +42,6 @@ namespace TheOldUs.Components
                         }
                         Gun.transform.localScale = vec;
                     }
-                }
-                try
-                {
-                    player.cosmetics.currentBodySprite.BodySprite.material.SetColor("_VisorColor", Soaked ? Palette.Orange : DefaultVisorColor);
-                }
-                catch { }
-                if (Target != null)
-                {
-                    Target.cosmetics.nameText.color = Helpers.Dark(ExecutionerRole.ExecutionerColor);
                 }
             }
         }

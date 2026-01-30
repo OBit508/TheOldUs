@@ -22,8 +22,6 @@ namespace TheOldUs.Buttons
     internal class GasolineButton : RoleTargetButton<PlayerControl, ArsonistRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => Target != null;
-        public override bool CanClick => CanUse;
         public override float Cooldown => ArsonistRole.GasolineCooldown;
         public override string OverrideText => "Gasoline";
         public override Color32 TextOutlineColor { get; } = new Color32(173, 95, 5, byte.MaxValue);
@@ -36,7 +34,7 @@ namespace TheOldUs.Buttons
         {
             return Role != null ? Role.FindClosestTarget() : null;
         }
-        public override void Click()
+        public override void OnClick()
         {
             try
             {

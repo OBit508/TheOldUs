@@ -21,67 +21,48 @@ namespace TheOldUs.Buttons
     {
         public int Percent;
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => TimeManager.Instance != null && TimeManager.Instance.TimeManipulation == TimeManipulationType.None && Percent >= 100;
-        public override bool CanClick => CanUse;
+        public override bool CanUse() => base.CanUse() && CanCooldown && Percent >= 100;
         public override float Cooldown => TimeMasterRole.RewindCooldown;
+        public override bool CanCooldown => TimeManager.Instance != null && TimeManager.Instance.TimeManipulation == TimeManipulationType.None;
         public override string OverrideText => "Rewind";
         public override Color32 TextOutlineColor { get; } = new Color32(0, 124, 228, byte.MaxValue);
         public override Sprite ButtonSprite => TouAssets.Rewind;
-        public override void Click()
+        public override void OnClick()
         {
             if (TimeManager.Instance != null)
             {
                 Rpc<RpcChangeTimeManipulation>.Instance.Send(TimeManipulationType.TimeMaster, PlayerControl.LocalPlayer);
             }
         }
-        public override void Update()
+        public override void ClickHandler()
         {
-            base.Update();
-            Percent = 100 - ((TimeManager.Instance.MaxPoints - TimeManager.Instance.TimePoints.Count) * 100 / TimeManager.Instance.MaxPoints);
-            Button.usesRemainingText.text = Percent.ToString() + "%";
-        }
-        public override AbilityButton CreateButton()
-        {
-            if (Button != null)
+            if (!CanClick())
             {
-                Destroy();
+                return;
             }
-
-            Reset(creating: true);
-            Button = UnityEngine.Object.Instantiate(DestroyableSingleton<HudManager>.Instance.AbilityButton, (Location == ButtonLocation.BottomRight) ? HudHelper.BottomRight : HudHelper.BottomLeft);
-            Button.name = GetType().Name;
-            PassiveButton component = Button.GetComponent<PassiveButton>();
+            OnClick();
+            Timer = Cooldown;
+        }
+        public override void CreateButton()
+        {
+            if (Button)
+            {
+                return;
+            }
+            Reset(ResetType.Create);
+            Button = GameObject.Instantiate(HudManager.Instance.AbilityButton, Location == ButtonLocation.BottomRight ? HudHelper.BottomRight : HudHelper.BottomLeft);
+            Button.name = OverrideText;
             Button.graphic.sprite = ButtonSprite;
-            Button.graphic.color = new Color(1f, 1f, 1f, 1f);
-            Button.gameObject.SetActive(value: true);
             Button.OverrideText(OverrideText);
             Button.buttonLabelText.SetOutlineColor(TextOutlineColor);
-            Button.GetComponent<PassiveButton>().SetNewAction(delegate
-            {
-                if (CanClick && CanUse)
-                {
-                    if (Timer <= 0f)
-                    {
-                        Timer = Cooldown;
-                        if (HaveUses)
-                        {
-                            CurrentNumUses--;
-                            if (Button != null)
-                            {
-                                Button.SetUsesRemaining(CurrentNumUses);
-                            }
-                        }
-                        Click();
-                        if (TransformButton)
-                        {
-                            Transformed = true;
-                        }
-                    }
-                }
-            });
-            Button.SetCoolDown(Timer, Cooldown);
             Button.usesRemainingSprite.gameObject.SetActive(true);
-            return Button;
+            Button.GetComponent<PassiveButton>().SetNewAction(ClickHandler);
+        }
+        protected override void UpdateUI()
+        {
+            base.UpdateUI();
+            Percent = 100 - ((TimeManager.Instance.MaxPoints - TimeManager.Instance.TimePoints.Count) * 100 / TimeManager.Instance.MaxPoints);
+            Button.usesRemainingText.text = Percent.ToString() + "%";
         }
     }
 }

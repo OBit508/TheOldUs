@@ -30,13 +30,12 @@ namespace TheOldUs.Buttons
             }
         }
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanClick => Novisor != null && Novisor.Transformed && Novisor.Target == null && ShapMinigame == null;
-        public override bool CanUse => CanClick;
+        public override bool CanUse() => base.CanUse() && Novisor != null && Novisor.Transformed && Novisor.Target == null && ShapMinigame == null;
         public override float Cooldown => NovisorRole.HauntCooldown;
         public override string OverrideText => "Haunt";
         public override Sprite ButtonSprite => TouAssets.TemporaryButton;
         public override Color32 TextOutlineColor => Color.red;
-        public override void Click()
+        public override void OnClick()
         {
             if (Novisor != null)
             {

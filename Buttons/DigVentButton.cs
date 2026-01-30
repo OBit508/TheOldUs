@@ -20,15 +20,12 @@ namespace TheOldUs.Buttons
     internal class DigVentButton : RoleButton<DiggerRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override bool CanUse => true;
-        public override bool CanClick => CanUse;
         public override float Cooldown => DiggerRole.CreateVentCooldown;
         public override string OverrideText => "Dig Vent";
-        public override bool HaveUses => DiggerRole.MaxVents > 0;
-        public override int NumUses => DiggerRole.MaxVents;
+        public override int MaxUses => DiggerRole.MaxVents;
         public override Color32 TextOutlineColor { get; } = Color.red;
         public override Sprite ButtonSprite => TouAssets.CreateVent;
-        public override void Click()
+        public override void OnClick()
         {
             CustomRpcManager.Instance<RpcCreateVent>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer);
         }
