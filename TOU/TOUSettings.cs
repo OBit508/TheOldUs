@@ -15,20 +15,20 @@ namespace TheOldUs.TOU
         public class Jail : SettingsGroup
         {
             [TranslationHelper("tousettings_jail_arrestWhenEjected")]
-            [ModdedToggleOption("When ejected players go to jail")]
+            [ModdedToggleOption("")]
             public static bool ArrestWhenEjected => true;
         }
         [TranslationHelper("tousettings_ship")]
         public class Ship : SettingsGroup
         {
             [TranslationHelper("tousettings_ship_invertX")]
-            [ModdedToggleOption("Invert X")]
+            [ModdedToggleOption(null)]
             public static bool InvertX => false;
             [TranslationHelper("tousettings_ship_invertY")]
-            [ModdedToggleOption("Invert Y")]
+            [ModdedToggleOption(null)]
             public static bool InvertY => false;
             [TranslationHelper("tousettings_ship_betterDoors")]
-            [ModdedToggleOption("Better Doors")]
+            [ModdedToggleOption(null)]
             public static bool BetterDoors => true;
         }
     }

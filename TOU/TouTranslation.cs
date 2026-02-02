@@ -1,4 +1,6 @@
-﻿using FungleAPI.Translation;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Configuration.Attributes;
+using FungleAPI.Translation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,6 +75,36 @@ namespace TheOldUs.TOU
         }
         public static void SetTranslationIDs()
         {
+            TranslationManager.TranslationIDs.Add(, new Translator()
+               .AddTranslation(SupportedLangs.Brazilian, ));
+
+
+            TranslationManager.TranslationIDs.Add("hacker_teleportCooldown", new Translator("Teleport Cooldown")
+                .AddTranslation(SupportedLangs.Brazilian, "Recarga do teleporte"));
+            TranslationManager.TranslationIDs.Add("hacker_teleportDelay", new Translator("Teleport Delay")
+                .AddTranslation(SupportedLangs.Brazilian, "Demora do teleporte"));
+            TranslationManager.TranslationIDs.Add("hacker_teleportUses", new Translator("Teleporte Uses")
+                .AddTranslation(SupportedLangs.Brazilian, "Usos do teleporte"));
+            TranslationManager.TranslationIDs.Add("hacker_unlockVentsCooldown", new Translator("Unlock Vents Cooldown")
+                .AddTranslation(SupportedLangs.Brazilian, "Recarga para desbloquear as ventilações"));
+            TranslationManager.TranslationIDs.Add("hacker_unlockVentsDuration", new Translator("Unlock Vents Duration")
+                .AddTranslation(SupportedLangs.Brazilian, "Duração do desbloqueio das ventilações"));
+            TranslationManager.TranslationIDs.Add("hacker_unlockVentsUses", new Translator("Unlock Vents Uses")
+                .AddTranslation(SupportedLangs.Brazilian, "Usos do desbloqueio das ventilações"));
+
+            TranslationManager.TranslationIDs.Add("hitman_reloadCooldown", new Translator("Reload Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga do recarregamento"));
+            TranslationManager.TranslationIDs.Add("hitman_reloadUses", new Translator("Reload Uses")
+               .AddTranslation(SupportedLangs.Brazilian, "Máximo de recargas"));
+
+            TranslationManager.TranslationIDs.Add("jailer_arrestCooldown", new Translator("Arrest Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga para prender"));
+            TranslationManager.TranslationIDs.Add("jailer_arrestUses", new Translator("Arrest Uses")
+               .AddTranslation(SupportedLangs.Brazilian, "Máximo de prisões"));
+            TranslationManager.TranslationIDs.Add("jailer_releaseCooldown", new Translator("Release Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga para liberar"));
+
+
             TranslationManager.TranslationIDs.Add("tousettings_jail", new Translator("Jail")
                 .AddTranslation(SupportedLangs.Brazilian, "Prisão"));
             TranslationManager.TranslationIDs.Add("tousettings_jail_arrestWhenEjected", new Translator("When ejected players go to jail")
@@ -135,59 +167,69 @@ namespace TheOldUs.TOU
                 .AddTranslation(SupportedLangs.Brazilian, "Use suas abilidades para sobreviver!").StringName;
             HackerBlurMed = new Translator("You can teleport and unlock vents to survive.")
                 .AddTranslation(SupportedLangs.Brazilian, "Você pode se teleportar e desbloquear as ventilações para sobreviver.").StringName;
+
             HitmanName = new Translator("Hitman").StringName;
             HitmanBlur = new Translator("Shoot the impostors.")
                 .AddTranslation(SupportedLangs.Brazilian, "Atire nos impostores.").StringName;
             HitmanBlurMed = new Translator("Use your gun to shoot the impostors.")
                 .AddTranslation(SupportedLangs.Brazilian, "Use a sua arma para atirar nos impostores.").StringName;
+
             JailerName = new Translator("Jailer")
                 .AddTranslation(SupportedLangs.Brazilian, "Carcereiro").StringName;
             JailerBlur = new Translator("Arrest the impostors.")
                 .AddTranslation(SupportedLangs.Brazilian, "Prenda os impostores.").StringName;
             JailerBlurMed = new Translator("Arrest the impostors to help the crew.")
                 .AddTranslation(SupportedLangs.Brazilian, "Prenda os impostores para ajudar a tripulação.").StringName;
+
             MedicName = new Translator("Medic")
                 .AddTranslation(SupportedLangs.Brazilian, "Médico").StringName;
             MedicBlur = new Translator("Revive dead bodies.")
                 .AddTranslation(SupportedLangs.Brazilian, "Reviva corpos mortos.").StringName;
             MedicBlurMed = new Translator("Revive dead bodies and help them to tell who is the impostor.")
                 .AddTranslation(SupportedLangs.Brazilian, "Reviva corpos mortos e os ajude a dizer quem são os impostores").StringName;
+
             SheriffName = new Translator("Sheriff")
                 .AddTranslation(SupportedLangs.Brazilian, "Xerife").StringName;
             SheriffBlur = new Translator("Kill the impostors.")
                 .AddTranslation(SupportedLangs.Brazilian, "Mate os impostores.").StringName;
             SheriffBlurMed = new Translator("Kill the impostors but if you kill a crewmate you die.")
                 .AddTranslation(SupportedLangs.Brazilian, "Mate os impostores mas se você matar um tripulante você morre.").StringName;
+
             TimeMasterName = new Translator("Time Master")
                 .AddTranslation(SupportedLangs.Brazilian, "Mestre do Tempo").StringName;
             TimeMasterBlur = new Translator("Rewind the time.")
                 .AddTranslation(SupportedLangs.Brazilian, "Rebobine o tempo.").StringName;
             TimeMasterBlurMed = new Translator("Rewind the time and revert kills.")
                 .AddTranslation(SupportedLangs.Brazilian, "Rebobine o tempo para reverter mortes.").StringName;
+
             AcidMasterName = new Translator("Acid Master")
                 .AddTranslation(SupportedLangs.Brazilian, "Mestre do ácido").StringName;
             AcidMasterBlur = new Translator("Summon a acid tsunami.")
                 .AddTranslation(SupportedLangs.Brazilian, "Sumone um tsunami ácido.").StringName;
             AcidMasterBlurMed = new Translator("You put acid on your victims and can summon a acid tsunami.")
                 .AddTranslation(SupportedLangs.Brazilian, "Você coloca ácido nas suas vítimas e pode sumonar um tsunami ácido.").StringName;
+
             JanitorName = new Translator("Janitor")
                 .AddTranslation(SupportedLangs.Brazilian, "Zelador").StringName;
             JanitorBlur = new Translator("Clean dead bodies.")
                 .AddTranslation(SupportedLangs.Brazilian, "Limpe corpos mortos.").StringName;
             JanitorBlurMed = new Translator("Help the impostors cleaning dead bodies.")
                 .AddTranslation(SupportedLangs.Brazilian, "Ajude os impostores limpando corpos mortos.").StringName;
+
             DiggerName = new Translator("Digger")
                 .AddTranslation(SupportedLangs.Brazilian, "Escavador").StringName;
             DiggerBlur = new Translator("Dig vents.")
                 .AddTranslation(SupportedLangs.Brazilian, "Cave ventilações").StringName;
             DiggerBlurMed = new Translator("Dig and connect vents.")
                 .AddTranslation(SupportedLangs.Brazilian, "Cave e conecte ventilações.").StringName;
+
             ArsonistName = new Translator("Arsonist")
                 .AddTranslation(SupportedLangs.Brazilian, "Incendiário").StringName;
             ArsonistBlur = new Translator("Put gasoline on others.")
                 .AddTranslation(SupportedLangs.Brazilian, "Coloque gasolina nos outros.").StringName;
             ArsonistBlurMed = new Translator("Put gasoline on everyone and light it.")
                 .AddTranslation(SupportedLangs.Brazilian, "Coloque gasolina em todos e acenda.").StringName;
+
             JesterName = new Translator("Jester")
                 .AddTranslation(SupportedLangs.Brazilian, "Palhaço").StringName;
             JesterBlur = new Translator("Get ejected to win.")

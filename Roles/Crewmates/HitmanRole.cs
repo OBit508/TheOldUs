@@ -1,4 +1,5 @@
-﻿using FungleAPI.Base.Roles;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
@@ -23,9 +24,11 @@ namespace TheOldUs.Roles.Crewmates
 {
     internal class HitmanRole : CrewmateBase, ICustomRole
     {
-        [ModdedNumberOption("Reload Cooldown", 5, 120)]
+        [TranslationHelper("hitman_reloadCooldown")]
+        [ModdedNumberOption(null, 5, 120)]
         public static float ReloadCooldown => 15;
-        [ModdedNumberOption("Reload Uses", 0, 30, 1, null, true, NumberSuffixes.None)]
+        [TranslationHelper("hitman_reloadUses")]
+        [ModdedNumberOption(null, 0, 30, 1, null, true, NumberSuffixes.None)]
         public static int ReloadUses => 5;
         public static bool CanShoot;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
