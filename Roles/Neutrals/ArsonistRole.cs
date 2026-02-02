@@ -1,4 +1,5 @@
-﻿using FungleAPI.Base.Roles;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Player;
 using FungleAPI.Role;
@@ -18,7 +19,8 @@ namespace TheOldUs.Roles.Neutrals
 {
     internal class ArsonistRole : NeutralBase, ICustomRole
     {
-        [ModdedNumberOption("Gasoline Cooldown", 5, 50)]
+        [TranslationHelper("arsonist_gasolineCooldown")]
+        [ModdedNumberOption(null, 5, 50)]
         public static int GasolineCooldown => 20;
         public ModdedTeam Team { get; } = ModdedTeam.Neutrals;
         public StringNames RoleName => TouTranslation.ArsonistName;

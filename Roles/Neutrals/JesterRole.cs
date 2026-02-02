@@ -1,4 +1,5 @@
-﻿using FungleAPI.Base.Roles;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.GameOver;
@@ -21,7 +22,8 @@ namespace TheOldUs.Roles.Neutrals
 {
     internal class JesterRole : NeutralBase, ICustomRole
     {
-        [ModdedToggleOption("Can Vent")]
+        [TranslationHelper("jester_canVent")]
+        [ModdedToggleOption(null)]
         public static bool Vent => true;
         public ModdedTeam Team { get; } = ModdedTeam.Neutrals;
         public StringNames RoleName => TouTranslation.JesterName;

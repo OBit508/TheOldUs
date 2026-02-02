@@ -1,4 +1,5 @@
 ﻿using AmongUs.GameOptions;
+using FungleAPI.Attributes;
 using FungleAPI.Base.Roles;
 using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
@@ -21,7 +22,8 @@ namespace TheOldUs.Roles.Impostors
 {
     internal class JanitorRole : ImpostorBase, ICustomRole
     {
-        [ModdedNumberOption("Clean Cooldown", 5, 60)]
+        [TranslationHelper("janitor_cleanCooldown")]
+        [ModdedNumberOption(null, 5, 60)]
         public static float CleanCooldown => 15;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
         public StringNames RoleName => TouTranslation.JanitorName;

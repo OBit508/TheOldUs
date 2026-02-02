@@ -75,10 +75,6 @@ namespace TheOldUs.TOU
         }
         public static void SetTranslationIDs()
         {
-            TranslationManager.TranslationIDs.Add(, new Translator()
-               .AddTranslation(SupportedLangs.Brazilian, ));
-
-
             TranslationManager.TranslationIDs.Add("hacker_teleportCooldown", new Translator("Teleport Cooldown")
                 .AddTranslation(SupportedLangs.Brazilian, "Recarga do teleporte"));
             TranslationManager.TranslationIDs.Add("hacker_teleportDelay", new Translator("Teleport Delay")
@@ -121,6 +117,32 @@ namespace TheOldUs.TOU
             TranslationManager.TranslationIDs.Add("timeMaster_rewindDuration", new Translator("Rewind Duration")
                .AddTranslation(SupportedLangs.Brazilian, "Duração da rebobinação"));
 
+            TranslationManager.TranslationIDs.Add("acidMaster_tsunamiSpeed", new Translator("Tsunami Speed")
+               .AddTranslation(SupportedLangs.Brazilian, "Velocidade do tsunami"));
+            TranslationManager.TranslationIDs.Add("acidMaster_acidCooldown", new Translator("Acid Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Regarga do Tsunami"));
+            TranslationManager.TranslationIDs.Add("acidMaster_acidUses", new Translator("Acid Uses")
+               .AddTranslation(SupportedLangs.Brazilian, "Máximo de Tsunamis"));
+            TranslationManager.TranslationIDs.Add("acidMaster_extraCooldown", new Translator("Extra Kill Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Regarga extra para matar"));
+            TranslationManager.TranslationIDs.Add("acidMaster_dissolveDelay", new Translator("Body Dissolve Delay")
+               .AddTranslation(SupportedLangs.Brazilian, "Demora para corpos mortos dissolverem"));
+
+            TranslationManager.TranslationIDs.Add("digger_digVentCooldown", new Translator("Dig Vent Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga para cavar ventilação"));
+            TranslationManager.TranslationIDs.Add("digger_maxVents", new Translator("Max Vents")
+               .AddTranslation(SupportedLangs.Brazilian, "Máximo de ventilações"));
+            TranslationManager.TranslationIDs.Add("digger_connectDistance", new Translator("Connect Distance")
+               .AddTranslation(SupportedLangs.Brazilian, "Distância para a conexão"));
+
+            TranslationManager.TranslationIDs.Add("janitor_cleanCooldown", new Translator("Clean Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga para limpar"));
+
+            TranslationManager.TranslationIDs.Add("arsonist_gasolineCooldown", new Translator("Gasoline Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga da gasolina"));
+
+            TranslationManager.TranslationIDs.Add("jester_canVent", new Translator("Can Vent")
+               .AddTranslation(SupportedLangs.Brazilian, "Pode usar ventilações"));
 
             TranslationManager.TranslationIDs.Add("tousettings_jail", new Translator("Jail")
                 .AddTranslation(SupportedLangs.Brazilian, "Prisão"));
