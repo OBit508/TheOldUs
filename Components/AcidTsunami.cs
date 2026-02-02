@@ -61,7 +61,7 @@ namespace TheOldUs.Components
             if (MeetingHud.Instance == null)
             {
                 PlayerControl component = other.GetComponent<PlayerControl>();
-                if (component != null && component.Data != null && !component.Data.IsDead && !component.inVent && component.Data.Role != null && component.Data.Role.GetTeam() != FungleAPI.Teams.ModdedTeam.Impostors && (AmongUsClient.Instance.NetworkMode == NetworkModes.OnlineGame && component.AmOwner || AmongUsClient.Instance.NetworkMode == NetworkModes.FreePlay))
+                if (component != null && component.Data != null && !component.Data.IsDead && !component.inVent && component.Data.Role != null && component.Data.Role.GetTeam() != FungleAPI.Teams.ModdedTeam.Impostors && (AmongUsClient.Instance.NetworkMode != NetworkModes.FreePlay && component.AmOwner || AmongUsClient.Instance.NetworkMode == NetworkModes.FreePlay))
                 {
                     component.RpcDie(DeadBodyType.Viper, AcidMaster.DissolveDelay);
                 }
