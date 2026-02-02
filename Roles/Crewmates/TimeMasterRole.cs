@@ -1,4 +1,5 @@
-﻿using FungleAPI.Base.Roles;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Role;
 using FungleAPI.Teams;
@@ -15,9 +16,11 @@ namespace TheOldUs.Roles.Crewmates
 {
     internal class TimeMasterRole : CrewmateBase, ICustomRole
     {
-        [ModdedNumberOption("Rewind Cooldown", 7, 60)]
+        [TranslationHelper("timeMaster_rewindCooldown")]
+        [ModdedNumberOption(null, 7, 60)]
         public static float RewindCooldown => 30;
-        [ModdedNumberOption("Rewind Duration", 5, 20)]
+        [TranslationHelper("timeMaster_rewindDuration")]
+        [ModdedNumberOption(null, 5, 20)]
         public static float RewindDuration => 10;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
         public StringNames RoleName => TouTranslation.TimeMasterName;

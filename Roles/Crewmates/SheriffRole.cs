@@ -1,4 +1,5 @@
-﻿using FungleAPI.Base.Roles;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Base.Roles;
 using FungleAPI.Components;
 using FungleAPI.Configuration;
 using FungleAPI.Configuration.Attributes;
@@ -20,11 +21,14 @@ namespace TheOldUs.Roles.Crewmates
 {
     internal class SheriffRole : CrewmateBase, ICustomRole
     {
-        [ModdedNumberOption("Kill Cooldown", 5, 60)]
+        [TranslationHelper("sheriff_killCooldown")]
+        [ModdedNumberOption(null, 5, 60)]
         public static float KillCooldown => 15;
-        [ModdedNumberOption("Uses Count", 0, 10, 1, null, true, NumberSuffixes.None)]
+        [TranslationHelper("sheriff_killUses")]
+        [ModdedNumberOption(null, 0, 10, 1, null, true, NumberSuffixes.None)]
         public static float UsesCount => 0;
-        [ModdedToggleOption("Target die too")]
+        [TranslationHelper("sheriff_targetDie")]
+        [ModdedToggleOption(null)]
         public static bool TargetDie => false;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
         public StringNames RoleName => TouTranslation.SheriffName;

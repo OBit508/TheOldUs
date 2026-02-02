@@ -104,6 +104,23 @@ namespace TheOldUs.TOU
             TranslationManager.TranslationIDs.Add("jailer_releaseCooldown", new Translator("Release Cooldown")
                .AddTranslation(SupportedLangs.Brazilian, "Recarga para liberar"));
 
+            TranslationManager.TranslationIDs.Add("medic_reviveCooldown", new Translator("Revive Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga para reviver"));
+            TranslationManager.TranslationIDs.Add("medic_reviveUses", new Translator("Revive Uses")
+               .AddTranslation(SupportedLangs.Brazilian, "Máximo de ressureições"));
+
+            TranslationManager.TranslationIDs.Add("sheriff_killCooldown", new Translator("Shoot Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga para atirar"));
+            TranslationManager.TranslationIDs.Add("sheriff_killUses", new Translator("Shoot Uses")
+               .AddTranslation(SupportedLangs.Brazilian, "Máximo de tiros"));
+            TranslationManager.TranslationIDs.Add("sheriff_targetDie", new Translator("Crewmate target dies")
+               .AddTranslation(SupportedLangs.Brazilian, "O alvo tripulante morre"));
+
+            TranslationManager.TranslationIDs.Add("timeMaster_rewindCooldown", new Translator("Rewind Cooldown")
+               .AddTranslation(SupportedLangs.Brazilian, "Recarga para rebobinar"));
+            TranslationManager.TranslationIDs.Add("timeMaster_rewindDuration", new Translator("Rewind Duration")
+               .AddTranslation(SupportedLangs.Brazilian, "Duração da rebobinação"));
+
 
             TranslationManager.TranslationIDs.Add("tousettings_jail", new Translator("Jail")
                 .AddTranslation(SupportedLangs.Brazilian, "Prisão"));

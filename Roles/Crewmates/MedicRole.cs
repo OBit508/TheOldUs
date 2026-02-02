@@ -1,4 +1,5 @@
-﻿using FungleAPI.Base.Roles;
+﻿using FungleAPI.Attributes;
+using FungleAPI.Base.Roles;
 using FungleAPI.Configuration.Attributes;
 using FungleAPI.Role;
 using FungleAPI.Teams;
@@ -15,9 +16,11 @@ namespace TheOldUs.Roles.Crewmates
 {
     internal class MedicRole : CrewmateBase, ICustomRole
     {
-        [ModdedNumberOption("Revive Cooldown", 5, 60)]
+        [TranslationHelper("medic_reviveCooldown")]
+        [ModdedNumberOption(null, 5, 60)]
         public static float ReviveCooldown => 25;
-        [ModdedNumberOption("Revive Uses", 1, 5, 1, null, false, NumberSuffixes.None)]
+        [TranslationHelper("medic_reviveUses")]
+        [ModdedNumberOption(null, 1, 5, 1, null, false, NumberSuffixes.None)]
         public static int ReviveUses => 3;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
         public StringNames RoleName => TouTranslation.MedicName;
