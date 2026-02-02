@@ -69,6 +69,22 @@ namespace TheOldUs.TOU
             SetRoles();
             SetWins();
             SetButtons();
+            SetTranslationIDs();
+        }
+        public static void SetTranslationIDs()
+        {
+            TranslationManager.TranslationIDs.Add("tousettings_jail", new Translator("Jail")
+                .AddTranslation(SupportedLangs.Brazilian, "Prisão"));
+            TranslationManager.TranslationIDs.Add("tousettings_jail_arrestWhenEjected", new Translator("When ejected players go to jail")
+                .AddTranslation(SupportedLangs.Brazilian, "Quando ejetados jogadores vão para a prisão"));
+            TranslationManager.TranslationIDs.Add("tousettings_ship", new Translator("Ship")
+                .AddTranslation(SupportedLangs.Brazilian, "Nave"));
+            TranslationManager.TranslationIDs.Add("tousettings_ship_invertX", new Translator("Invert X")
+                .AddTranslation(SupportedLangs.Brazilian, "Inverter X"));
+            TranslationManager.TranslationIDs.Add("tousettings_ship_invertY", new Translator("Invert Y")
+                .AddTranslation(SupportedLangs.Brazilian, "Inverter Y"));
+            TranslationManager.TranslationIDs.Add("tousettings_ship_betterDoors", new Translator("Better Doors")
+                .AddTranslation(SupportedLangs.Brazilian, "Portas melhoradas"));
         }
         public static void SetWins()
         {
