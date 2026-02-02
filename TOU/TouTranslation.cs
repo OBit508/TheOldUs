@@ -46,6 +46,7 @@ namespace TheOldUs.TOU
 
         public static StringNames JesterWin;
         public static StringNames ArsonistWin;
+        public static StringNames NotSkeld;
 
 
         public static StringNames Arrest;
@@ -75,6 +76,8 @@ namespace TheOldUs.TOU
                 .AddTranslation(SupportedLangs.Brazilian, "Vitória do Palhaço").StringName;
             ArsonistWin = new Translator("Arsonis's victory")
                 .AddTranslation(SupportedLangs.Brazilian, "Vitória do Incendiário").StringName;
+            NotSkeld = new Translator("Only The Skeld map is supported")
+                .AddTranslation(SupportedLangs.Brazilian, "Apenas o mapa The Skeld é suportado").StringName;
         }
         public static void SetButtons()
         {

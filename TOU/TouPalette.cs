@@ -20,5 +20,8 @@ namespace TheOldUs.TOU
         public static Color JanitorColor = new Color32(47, 173, 212, byte.MaxValue);
         public static Color ArsonistColor = new Color32(173, 95, 5, byte.MaxValue);
         public static Color JesterColor = new Color32(173, 54, 181, byte.MaxValue);
+
+
+        public static Color NotSkeldColor = new Color32(41, 41, 41, byte.MaxValue);
     }
 }
