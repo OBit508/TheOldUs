@@ -7,12 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Roles.Impostors;
-using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
 
-namespace TheOldUs.Buttons
+namespace TheOldUs.Comming
 {
     public class SplitButton : RoleButton<NovisorRole>
     {

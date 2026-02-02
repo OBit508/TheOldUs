@@ -7,9 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Roles.Impostors;
 
-namespace TheOldUs.RPCs
+namespace TheOldUs.Comming
 {
     public class RpcNovisorTransform : AdvancedRpc<(PlayerControl novisor, bool transformed)>
     {

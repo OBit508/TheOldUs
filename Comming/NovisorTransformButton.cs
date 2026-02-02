@@ -7,12 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Roles.Impostors;
-using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
 
-namespace TheOldUs.Buttons
+namespace TheOldUs.Comming
 {
     public class NovisorTransformButton : RoleButton<NovisorRole>
     {
@@ -47,7 +45,7 @@ namespace TheOldUs.Buttons
             if (Novisor != null)
             {
                 CustomRpcManager.Instance<RpcNovisorTransform>().Send((PlayerControl.LocalPlayer, false), PlayerControl.LocalPlayer);
-                NovisorInvisibleButton novisorInvisible = Instance<NovisorInvisibleButton>();
+                NovisorInvisibleButton novisorInvisible = CustomButton<NovisorInvisibleButton>.Instance;
                 if (novisorInvisible.Transformed)
                 {
                     novisorInvisible.EndTransform();

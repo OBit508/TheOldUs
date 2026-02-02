@@ -18,12 +18,12 @@ using UnityEngine;
 
 namespace TheOldUs.Buttons
 {
-    internal class CleanDeadBodyButton : RoleTargetButton<DeadBody, CleanerRole>
+    internal class CleanDeadBodyButton : RoleTargetButton<DeadBody, JanitorRole>
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
-        public override float Cooldown => CleanerRole.CleanCooldown;
-        public override string OverrideText => "Clean";
-        public override Color32 TextOutlineColor { get; } = new Color32(47, 173, 212, byte.MaxValue);
+        public override float Cooldown => JanitorRole.CleanCooldown;
+        public override string OverrideText => TouTranslation.Clean.GetString();
+        public override Color32 TextOutlineColor { get; } = TouPalette.JanitorColor;
         public override Sprite ButtonSprite => TouAssets.Clean;
         public override void SetOutline(DeadBody target, bool active)
         {

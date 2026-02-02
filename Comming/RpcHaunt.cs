@@ -8,10 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Roles.Impostors;
 using static Il2CppSystem.Linq.Expressions.Interpreter.CastInstruction.CastInstructionNoT;
 
-namespace TheOldUs.RPCs
+namespace TheOldUs.Comming
 {
     public class RpcHaunt : AdvancedRpc<(PlayerControl novisor, PlayerControl target)>
     {

@@ -18,13 +18,13 @@
     <Compile Include="Buttons\EquipGunButton.cs" />
     <Compile Include="Buttons\FlameButton.cs" />
     <Compile Include="Buttons\GasolineButton.cs" />
-    <Compile Include="Buttons\HauntButton.cs" />
-    <Compile Include="Buttons\NovisorInvisibleButton.cs" />
-    <Compile Include="Buttons\NovisorTransformButton.cs" />
+    <Compile Include="Comming\HauntButton.cs" />
+    <Compile Include="Comming\NovisorInvisibleButton.cs" />
+    <Compile Include="Comming\NovisorTransformButton.cs" />
     <Compile Include="Buttons\ReloadButton.cs" />
     <Compile Include="Buttons\ReviveButton.cs" />
     <Compile Include="Buttons\RewindButton.cs" />
-    <Compile Include="Buttons\SplitButton.cs" />
+    <Compile Include="Comming\SplitButton.cs" />
     <Compile Include="Buttons\TeleportButton.cs" />
     <Compile Include="Buttons\UnequipGunButton.cs" />
     <Compile Include="Buttons\UnlockVentsButton.cs" />
@@ -50,17 +50,17 @@
     <Compile Include="Roles\Crewmates\MedicRole.cs" />
     <Compile Include="Roles\Crewmates\TimeMasterRole.cs" />
     <Compile Include="Roles\Impostors\AcidMaster.cs" />
-    <Compile Include="Roles\Impostors\NovisorRole.cs" />
+    <Compile Include="Comming\NovisorRole.cs" />
     <Compile Include="Roles\Neutrals\ArsonistRole.cs" />
     <Compile Include="RPCs\RpcChangeTimeManipulation.cs" />
     <Compile Include="RPCs\RpcDie.cs" />
-    <Compile Include="RPCs\RpcHaunt.cs" />
-    <Compile Include="RPCs\RpcInvisible.cs" />
-    <Compile Include="RPCs\RpcNovisorTransform.cs" />
+    <Compile Include="Comming\RpcHaunt.cs" />
+    <Compile Include="Comming\RpcInvisible.cs" />
+    <Compile Include="Comming\RpcNovisorTransform.cs" />
     <Compile Include="RPCs\RpcRevive.cs" />
     <Compile Include="RPCs\RpcSummonTsunami.cs" />
     <Compile Include="RPCs\RpcUpdateDoor.cs" />
-    <Compile Include="RPCs\RpcSplit.cs" />
+    <Compile Include="Comming\RpcSplit.cs" />
     <Compile Include="RPCs\RpcUpdateGun.cs" />
     <Compile Include="TOU\TouAssets.cs" />
     <Compile Include="BepInEx\BepInAutoPluginAttribute.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="Components\JailBehaviour.cs" />
     <Compile Include="Patches\ShipStatusPatch.cs" />
     <Compile Include="Buttons\CleanDeadBodyButton.cs" />
-    <Compile Include="Roles\Impostors\CleanerRole.cs" />
+    <Compile Include="Roles\Impostors\JanitorRole.cs" />
     <Compile Include="RPCs\RpcCleanDeadBody.cs" />
     <Compile Include="RPCs\RpcArrestPlayer.cs" />
     <Compile Include="Buttons\ArrestPlayerButton.cs" />
@@ -85,7 +85,9 @@
     <Compile Include="TheOldUsPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
+    <Compile Include="TOU\TouPalette.cs" />
     <Compile Include="TOU\TouSettings.cs" />
+    <Compile Include="TOU\TouTranslation.cs" />
     <Compile Include="Utilities\TimeManipulationType.cs" />
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
@@ -96,9 +98,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\Teleport.png" />
     <EmbeddedResource Include="Resources\Buttons\UnlockVents.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Buttons\Grab.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\CreateVent.png" />

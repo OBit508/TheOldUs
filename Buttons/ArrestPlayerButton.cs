@@ -24,9 +24,9 @@ namespace TheOldUs.Buttons
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override float Cooldown => JailerRole.ArrestCooldown;
-        public override string OverrideText => "Arrest";
+        public override string OverrideText => TouTranslation.Arrest.GetString();
         public override int MaxUses => JailerRole.ArrestUses;
-        public override Color32 TextOutlineColor { get; } = Color.blue;
+        public override Color32 TextOutlineColor { get; } = TouPalette.JailerColor;
         public override Sprite ButtonSprite => TouAssets.JailerArrest;
         public override void SetOutline(PlayerControl target, bool active)
         {

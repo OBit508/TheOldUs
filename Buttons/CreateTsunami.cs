@@ -1,6 +1,7 @@
 ﻿using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
+using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,9 @@ namespace TheOldUs.Buttons
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse() => base.CanUse() && AcidTsunami.Instance == null;
         public override float Cooldown => AcidMaster.AcidCooldown;
-        public override string OverrideText => "Acid";
+        public override string OverrideText => TouTranslation.AcidTsunami.GetString();
         public override int MaxUses => AcidMaster.AcidUses;
-        public override Color32 TextOutlineColor { get; } = new Color32(0, 255, 8, byte.MaxValue);
+        public override Color32 TextOutlineColor { get; } = TouPalette.AcidMasterColor;
         public override Sprite ButtonSprite => TouAssets.Acid;
         public override void OnClick()
         {

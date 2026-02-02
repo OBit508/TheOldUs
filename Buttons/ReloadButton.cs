@@ -1,6 +1,7 @@
 ﻿using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
 using FungleAPI.Networking;
+using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,8 +33,8 @@ namespace TheOldUs.Buttons
         public override bool CanUse() => base.CanUse() && !HitmanRole.CanShoot;
         public override float Cooldown => HitmanRole.ReloadCooldown;
         public override int MaxUses => HitmanRole.ReloadUses;
-        public override string OverrideText => "Reload";
-        public override Color32 TextOutlineColor { get; } = Palette.Orange;
+        public override string OverrideText => TouTranslation.ReloadGun.GetString();
+        public override Color32 TextOutlineColor { get; } = TouPalette.HitmanColor;
         public override Sprite ButtonSprite => TouAssets.Reload;
         public override void OnClick()
         {

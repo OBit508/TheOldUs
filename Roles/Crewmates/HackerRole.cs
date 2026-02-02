@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Buttons;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Crewmates
@@ -29,12 +30,11 @@ namespace TheOldUs.Roles.Crewmates
         [ModdedNumberOption("Unlock Vents Uses", 0, 10, 1, null, true, NumberSuffixes.None)]
         public static int UnlockVentsUses => 5;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
-        public StringNames RoleName { get; } = new Translator("Hacker").StringName;
-        public StringNames RoleBlur { get; } = new Translator("You are a hacker.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("Use your powers to survive.").StringName;
-        public StringNames RoleBlurLong { get; } = new Translator("The Hacker can Teleport and Unlock all Vents for a short time.").StringName;
-        public Color RoleColor { get; } = new Color32(0, 110, 17, byte.MaxValue);
-        public CustomAbilityButton Button = CustomAbilityButton.Instance<UnlockVentsButton>();
+        public StringNames RoleName => TouTranslation.HackerName;
+        public StringNames RoleBlur => TouTranslation.HackerBlur;
+        public StringNames RoleBlurMed => TouTranslation.HackerBlurMed;
+        public Color RoleColor { get; } = TouPalette.HackerColor;
+        public CustomAbilityButton Button = CustomButton<UnlockVentsButton>.Instance;
         public bool CanUseVent => Button.Transformed;
         public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }

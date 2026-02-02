@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheOldUs.Roles.Impostors;
+using TheOldUs.Comming;
 using TheOldUs.TOU;
 using TheOldUs.Utilities;
 using UnityEngine;

@@ -24,8 +24,8 @@ namespace TheOldUs.Buttons
         public override bool CanUse() => base.CanUse() && CanCooldown && Percent >= 100;
         public override float Cooldown => TimeMasterRole.RewindCooldown;
         public override bool CanCooldown => TimeManager.Instance != null && TimeManager.Instance.TimeManipulation == TimeManipulationType.None;
-        public override string OverrideText => "Rewind";
-        public override Color32 TextOutlineColor { get; } = new Color32(0, 124, 228, byte.MaxValue);
+        public override string OverrideText => TouTranslation.Rewind.GetString();
+        public override Color32 TextOutlineColor { get; } = TouPalette.TimeMasterColor;
         public override Sprite ButtonSprite => TouAssets.Rewind;
         public override void OnClick()
         {

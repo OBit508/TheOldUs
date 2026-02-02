@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
@@ -27,11 +28,10 @@ namespace TheOldUs.Roles.Impostors
         [ModdedNumberOption("Deadbody dissolve delay", 5, 30)]
         public static float DissolveDelay => 15;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
-        public StringNames RoleName { get; } = new Translator("Acid Master").StringName;
-        public StringNames RoleBlur { get; } = new Translator("You can summon a acid tsunami.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("You can summon a acid tsunami that kills players.").StringName;
-        public StringNames RoleBlurLong { get; } = new Translator("The Acid Master can summon a acid tsunami that destroy bodies and kill players.").StringName;
-        public Color RoleColor { get; } = new Color32(0, 255, 8, byte.MaxValue);
+        public StringNames RoleName => TouTranslation.AcidMasterName;
+        public StringNames RoleBlur => TouTranslation.AcidMasterBlur;
+        public StringNames RoleBlurMed => TouTranslation.AcidMasterBlurMed;
+        public Color RoleColor { get; } = TouPalette.AcidMasterColor;
         public DeadBodyType CreatedDeadBodyOnKill => DeadBodyType.Viper;
         public override void KillAnimSpecialSetup(DeadBody deadBody, PlayerControl killer, PlayerControl victim)
         {

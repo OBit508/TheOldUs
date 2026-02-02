@@ -19,9 +19,9 @@ namespace TheOldUs.Buttons
     internal class SheriffKillButton : RoleTargetButton<PlayerControl, SheriffRole>
     {
         public override float Cooldown => SheriffRole.KillCooldown;
-        public override string OverrideText => "Shoot";
+        public override string OverrideText => TouTranslation.Shoot.GetString();
         public override int MaxUses => (int)SheriffRole.UsesCount;
-        public override Color32 TextOutlineColor { get; } = new Color32(254, 153, 0, byte.MaxValue);
+        public override Color32 TextOutlineColor { get; } = TouPalette.SheriffColor;
         public override Sprite ButtonSprite => TouAssets.SheriffKill;
         public override void SetOutline(PlayerControl target, bool active)
         {

@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Buttons;
 using TheOldUs.Components;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Crewmates
@@ -26,11 +27,10 @@ namespace TheOldUs.Roles.Crewmates
         [ModdedToggleOption("Target die too")]
         public static bool TargetDie => false;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
-        public StringNames RoleName { get; } = new Translator("Sheriff").StringName;
-        public StringNames RoleBlur { get; } = new Translator("You can shoot others players.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("You can shoot others players but if you shoot an crewmate you die.").StringName;
-        public StringNames RoleBlurLong { get; } = new Translator("The sheriff can shoot others players but if he shoot an crewmate he die.").StringName;
-        public Color RoleColor { get; } = new Color(1, (float)(204.0 / 255.0), 0, 1);
+        public StringNames RoleName => TouTranslation.SheriffName;
+        public StringNames RoleBlur => TouTranslation.SheriffBlur;
+        public StringNames RoleBlurMed => TouTranslation.SheriffBlurMed;
+        public Color RoleColor { get; } = TouPalette.SheriffColor;
         public bool CanKill => true;
         public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }

@@ -15,11 +15,10 @@ using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Buttons;
 using TheOldUs.Components;
-using TheOldUs.RPCs;
 using TheOldUs.TOU;
 using UnityEngine;
 
-namespace TheOldUs.Roles.Impostors
+namespace TheOldUs.Comming
 {
     [FungleIgnore]
     public class NovisorRole : ImpostorBase, ICustomRole

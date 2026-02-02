@@ -12,7 +12,7 @@ using TheOldUs.Components;
 using TheOldUs.TOU;
 using UnityEngine;
 
-namespace TheOldUs.RPCs
+namespace TheOldUs.Comming
 {
     public class RpcSplit : AdvancedRpc<Vector2>
     {

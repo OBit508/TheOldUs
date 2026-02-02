@@ -29,11 +29,10 @@ namespace TheOldUs.Roles.Crewmates
         public static int ReloadUses => 5;
         public static bool CanShoot;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
-        public StringNames RoleName { get; } = new Translator("Hitman").StringName;
-        public StringNames RoleBlur { get; } = new Translator("Shoot the impostors.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("Use your gun to shoot the impostors.").StringName;
-        public StringNames RoleBlurLong { get; } = new Translator("The Hitman can use a gun to shoot players.").StringName;
-        public Color RoleColor { get; } = Palette.Orange;
+        public StringNames RoleName => TouTranslation.HitmanName;
+        public StringNames RoleBlur => TouTranslation.HitmanBlur;
+        public StringNames RoleBlurMed => TouTranslation.HitmanBlurMed;
+        public Color RoleColor { get; } = TouPalette.HitmanColor;
         public RoleHelper Helper;
         public void Start()
         {

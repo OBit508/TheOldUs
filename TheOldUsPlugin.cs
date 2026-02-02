@@ -32,6 +32,7 @@ namespace TheOldUs
             Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TouAssets.LoadAssets), ModName, "[TheOldUs v" + ModVersion + "] - Dev");
             Harmony.PatchAll();
             Utils.PatchFungleAPI();
+            TouTranslation.SetTranslations();
         }
     }
 }

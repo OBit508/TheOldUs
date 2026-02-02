@@ -1,5 +1,6 @@
 ﻿using FungleAPI.Base.Buttons;
 using FungleAPI.Hud;
+using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,11 @@ namespace TheOldUs.Buttons
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override float Cooldown => HackerRole.UnlockVentsCooldown;
-        public override string OverrideText => "Unlock Vents";
+        public override string OverrideText => TouTranslation.UnlockVents.GetString();
         public override int MaxUses => HackerRole.UnlockVentsUses;
         public override bool TransformButton => true;
         public override float TransformDuration => HackerRole.UnlockVentsDuration;
-        public override Color32 TextOutlineColor { get; } = new Color32(0, 110, 17, byte.MaxValue);
+        public override Color32 TextOutlineColor { get; } = TouPalette.HackerColor;
         public override Sprite ButtonSprite => TouAssets.UnlockVents;
         public override void OnClick() { }
         public override void EndTransform()

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using TheOldUs.Components;
 using static Il2CppSystem.Linq.Expressions.Interpreter.CastInstruction.CastInstructionNoT;
 
-namespace TheOldUs.RPCs
+namespace TheOldUs.Comming
 {
     public class RpcInvisible : AdvancedRpc<(PlayerControl player, bool invisible)>
     {

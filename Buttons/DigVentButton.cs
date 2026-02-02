@@ -21,9 +21,9 @@ namespace TheOldUs.Buttons
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override float Cooldown => DiggerRole.CreateVentCooldown;
-        public override string OverrideText => "Dig Vent";
+        public override string OverrideText => TouTranslation.DigVent.GetString();
         public override int MaxUses => DiggerRole.MaxVents;
-        public override Color32 TextOutlineColor { get; } = Color.red;
+        public override Color32 TextOutlineColor { get; } = TouPalette.DiggerColor;
         public override Sprite ButtonSprite => TouAssets.CreateVent;
         public override void OnClick()
         {

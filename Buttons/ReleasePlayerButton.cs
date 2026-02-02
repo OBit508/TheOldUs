@@ -26,8 +26,8 @@ namespace TheOldUs.Buttons
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse() => base.CanUse() && Vector2.Distance(PlayerControl.LocalPlayer.transform.position, JailBehaviour.Bars.transform.position) <= 2 && ShapMinigame == null;
         public override float Cooldown => JailerRole.ReleaseCooldown;
-        public override string OverrideText => "Release";
-        public override Color32 TextOutlineColor { get; } = Color.blue;
+        public override string OverrideText => TouTranslation.Release.GetString();
+        public override Color32 TextOutlineColor { get; } = TouPalette.JailerColor;
         public override Sprite ButtonSprite => TouAssets.JailerRelease;
         public override void Update()
         {

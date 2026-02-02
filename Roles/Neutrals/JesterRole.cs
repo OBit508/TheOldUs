@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.GameOvers;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Neutrals
@@ -23,11 +24,10 @@ namespace TheOldUs.Roles.Neutrals
         [ModdedToggleOption("Can Vent")]
         public static bool Vent => true;
         public ModdedTeam Team { get; } = ModdedTeam.Neutrals;
-        public StringNames RoleName { get; } = new Translator("Jester").StringName;
-        public StringNames RoleBlur { get; } = new Translator("When you get ejected you win.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("Try to get ejected to win.").StringName;
-        public StringNames RoleBlurLong { get; } = new Translator("When the Jester get ejected he win.").StringName;
-        public Color RoleColor { get; } = new Color32(173, 54, 181, byte.MaxValue);
+        public StringNames RoleName => TouTranslation.JesterName;
+        public StringNames RoleBlur => TouTranslation.JesterBlur;
+        public StringNames RoleBlurMed => TouTranslation.JesterBlurMed;
+        public Color RoleColor { get; } = TouPalette.JesterColor;
         public bool CanUseVent => Vent;
         public override void OnDeath(DeathReason reason)
         {

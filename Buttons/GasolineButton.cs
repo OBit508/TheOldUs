@@ -23,8 +23,8 @@ namespace TheOldUs.Buttons
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override float Cooldown => ArsonistRole.GasolineCooldown;
-        public override string OverrideText => "Gasoline";
-        public override Color32 TextOutlineColor { get; } = new Color32(173, 95, 5, byte.MaxValue);
+        public override string OverrideText => TouTranslation.Gasoline.GetString();
+        public override Color32 TextOutlineColor { get; } = TouPalette.ArsonistColor;
         public override Sprite ButtonSprite => TouAssets.Gasoline;
         public override void SetOutline(PlayerControl target, bool active)
         {

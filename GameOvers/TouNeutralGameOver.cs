@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Roles.Neutrals;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.GameOvers
@@ -38,12 +39,12 @@ namespace TheOldUs.GameOvers
             Winners.Add(new CachedPlayerData(networkedPlayerInfo));
             if (Win == NeutralWin.Jester)
             {
-                text = "Jester's victory";
-                color = new Color32(173, 54, 181, byte.MaxValue);
+                text = TouTranslation.JesterWin.GetString();
+                color = TouPalette.JesterColor;
                 return;
             }
-            text = "Arsonist's victory";
-            color = new Color32(173, 95, 5, byte.MaxValue);
+            text = TouTranslation.ArsonistWin.GetString();
+            color = TouPalette.ArsonistColor;
         }
         public enum NeutralWin
         {

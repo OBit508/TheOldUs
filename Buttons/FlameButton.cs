@@ -23,10 +23,10 @@ namespace TheOldUs.Buttons
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override bool CanUse() => base.CanUse() && PlayerControl.AllPlayerControls.FindAll(new Predicate<PlayerControl>(p => !p.AmOwner && !p.Data.IsDead && !p.GetPlayerComponent<RoleHelper>().Soaked).ToIl2CppPredicate()).Count <= 0;
-        public override string OverrideText => "Flame";
+        public override string OverrideText => TouTranslation.Flame.GetString();
         public override float Cooldown => 5;
         public override int MaxUses => 1;
-        public override Color32 TextOutlineColor { get; } = new Color32(173, 95, 5, byte.MaxValue);
+        public override Color32 TextOutlineColor { get; } = TouPalette.ArsonistColor;
         public override Sprite ButtonSprite => TouAssets.Flame;
         public override void OnClick()
         {

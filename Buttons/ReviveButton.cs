@@ -21,9 +21,9 @@ namespace TheOldUs.Buttons
     {
         public override ButtonLocation Location => ButtonLocation.BottomLeft;
         public override float Cooldown => MedicRole.ReviveCooldown;
-        public override string OverrideText => "Revive";
+        public override string OverrideText => TouTranslation.Revive.GetString();
         public override int MaxUses => MedicRole.ReviveUses;
-        public override Color32 TextOutlineColor { get; } = new Color32(40, 165, 0, byte.MaxValue);
+        public override Color32 TextOutlineColor { get; } = TouPalette.MedicColor;
         public override Sprite ButtonSprite => TouAssets.Revive;
         public override void SetOutline(DeadBody target, bool active)
         {

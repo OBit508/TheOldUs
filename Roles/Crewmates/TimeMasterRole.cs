@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Crewmates
@@ -19,11 +20,10 @@ namespace TheOldUs.Roles.Crewmates
         [ModdedNumberOption("Rewind Duration", 5, 20)]
         public static float RewindDuration => 10;
         public ModdedTeam Team { get; } = ModdedTeam.Crewmates;
-        public StringNames RoleName { get; } = new Translator("Time Master").StringName;
-        public StringNames RoleBlur { get; } = new Translator("Rewind the time.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("The Time Master can rewind the time.").StringName;
-        public StringNames RoleBlurLong => RoleBlurMed;
-        public Color RoleColor { get; } = new Color32(0, 124, 228, byte.MaxValue);
+        public StringNames RoleName => TouTranslation.TimeMasterName;
+        public StringNames RoleBlur => TouTranslation.TimeMasterBlur;
+        public StringNames RoleBlurMed => TouTranslation.TimeMasterBlurMed;
+        public Color RoleColor { get; } = TouPalette.TimeMasterColor;
         public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }

@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheOldUs.Buttons;
+using TheOldUs.TOU;
 using UnityEngine;
 
 namespace TheOldUs.Roles.Impostors
@@ -25,11 +26,10 @@ namespace TheOldUs.Roles.Impostors
         [ModdedNumberOption("Connect Distance", 0.5f, 10, 0.5f)]
         public static float ConnectDistance => 4;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
-        public StringNames RoleName { get; } = new Translator("Digger").StringName;
-        public StringNames RoleBlur { get; } = new Translator("You can dig vents.").StringName;
-        public StringNames RoleBlurMed { get; } = new Translator("you can dig vents.").StringName;
-        public StringNames RoleBlurLong { get; } = new Translator("The Digger can dig vents and he's vents will connect with all nearby vents.").StringName;
-        public Color RoleColor { get; } = Color.red;
+        public StringNames RoleName { get; } = TouTranslation.DiggerName;
+        public StringNames RoleBlur { get; } = TouTranslation.DiggerBlur;
+        public StringNames RoleBlurMed { get; } = TouTranslation.DiggerBlurMed;
+        public Color RoleColor { get; } = TouPalette.DiggerColor;
         public RoleHintType HintType => RoleHintType.MiraAPI_RoleTab;
     }
 }
