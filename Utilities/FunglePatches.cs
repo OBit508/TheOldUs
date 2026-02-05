@@ -109,7 +109,7 @@ namespace TheOldUs.Utilities
             {
                 float num = float.MaxValue;
                 PlayerControl @object = pc.Object;
-                bool playerCanVent = pc.Role.CanVent() || __instance.ForceVentUse();
+                bool playerCanVent = pc.Role.CanVent() && !ShipStatusPatch.AcidVents.Contains(__instance) || __instance.ForceVentUse();
                 couldUse = playerCanVent && GameManager.Instance.LogicUsables.CanUse(__instance.SafeCast<IUsable>(), @object) && pc.Role.CanUse(__instance.SafeCast<IUsable>()) && (!@object.MustCleanVent(__instance.Id) || (@object.inVent && Vent.currentVent == __instance)) && !pc.IsDead && (@object.CanMove || @object.inVent);
                 ISystemType systemType;
                 if (ShipStatus.Instance.Systems.TryGetValue(SystemTypes.Ventilation, out systemType))
