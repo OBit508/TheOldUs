@@ -30,8 +30,9 @@ namespace TheOldUs
         public override void Load()
         {
             Plugin = ModPluginManager.RegisterMod(this, ModVersion, new Action(TouAssets.LoadAssets), ModName, "[TheOldUs v" + ModVersion + "] - Dev");
+            Plugin.PageLink = "https://github.com/OBit508/TheOldUs";
             Harmony.PatchAll();
-            Utils.PatchFungleAPI();
+            FunglePatches.PatchFungleAPI();
             TouTranslation.SetTranslations();
         }
     }

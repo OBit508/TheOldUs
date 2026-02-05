@@ -10,20 +10,18 @@ using UnityEngine;
 using System.Reflection;
 using FungleAPI.Utilities;
 using FungleAPI.Components;
+using FungleAPI.Role;
 
 namespace TheOldUs.TOU
 {
     public static class TouAssets
     {
-        public static Sprite TemporaryButton;
         public static void LoadAssets()
         {
-            TemporaryButton = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.funnyTemporaryButton", 100);
             SheriffKill = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.SheriffKill", 130);
             JailerArrest = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.JailerArrest", 300);
             JailerRelease = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.JailerRelease", 250);
-            CreateVent = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.CreateVent", 100);
-            MedScan = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.MedScan", 100);
+            DigVent = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.DigVent", 150);
             Cuffs = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Varied.Cuffs", 225);
             EquipGun = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.EquipGun", 100);
             UnequipGun = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.UnequipGun", 100);
@@ -38,9 +36,6 @@ namespace TheOldUs.TOU
             UnlockVents = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.UnlockVents", 110);
             Revive = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Revive", 150);
             Rewind = ResourceHelper.LoadSprite(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Buttons.Rewind", 120);
-            NovisorIdle = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorIdle", 100);
-            NovisorRun = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorRun", 100);
-            NovisorAttack = ResourceHelper.LoadGif(TheOldUsPlugin.Plugin, "TheOldUs.Resources.Animations.NovisorAttack", 100);
             LoadPrefabs();
         }
         public static void LoadPrefabs()
@@ -104,8 +99,7 @@ namespace TheOldUs.TOU
         public static Sprite SheriffKill;
         public static Sprite JailerArrest;
         public static Sprite JailerRelease;
-        public static Sprite CreateVent;
-        public static Sprite MedScan;
+        public static Sprite DigVent;
         public static Sprite Cuffs;
         public static Sprite EquipGun;
         public static Sprite UnequipGun;

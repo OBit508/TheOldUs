@@ -44,7 +44,6 @@
     <Compile Include="Patches\PlayerControlPatch.cs" />
     <Compile Include="Patches\PlayerVoteAreaPatch.cs" />
     <Compile Include="Patches\UseButtonPatch.cs" />
-    <Compile Include="Patches\VentPatch.cs" />
     <Compile Include="Roles\Crewmates\HackerRole.cs" />
     <Compile Include="Roles\Crewmates\HitmanRole.cs" />
     <Compile Include="Roles\Crewmates\MedicRole.cs" />
@@ -88,8 +87,12 @@
     <Compile Include="TOU\TouPalette.cs" />
     <Compile Include="TOU\TouSettings.cs" />
     <Compile Include="TOU\TouTranslation.cs" />
+    <Compile Include="Utilities\FunglePatches.cs" />
     <Compile Include="Utilities\TimeManipulationType.cs" />
     <Compile Include="Utilities\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Buttons\DigVent.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\Revive.png" />
@@ -98,9 +101,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\Teleport.png" />
     <EmbeddedResource Include="Resources\Buttons\UnlockVents.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Buttons\CreateVent.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\Clean.png" />
@@ -139,19 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Ship\Jail.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Buttons\MedScan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Animations\NovisorIdle.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Animations\NovisorAttack.gif" />
-    <EmbeddedResource Include="Resources\Animations\NovisorRun.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Buttons\funnyTemporaryButton.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Buttons\JailerArrest.png" />
@@ -614,5 +601,8 @@
     <Reference Include="__Generated">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Among Us\BepInEx\interop\__Generated.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Animations\" />
   </ItemGroup>
 </Project>

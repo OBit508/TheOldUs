@@ -24,7 +24,7 @@ namespace TheOldUs.Buttons
         public override string OverrideText => TouTranslation.DigVent.GetString();
         public override int MaxUses => DiggerRole.MaxVents;
         public override Color32 TextOutlineColor { get; } = TouPalette.DiggerColor;
-        public override Sprite ButtonSprite => TouAssets.CreateVent;
+        public override Sprite ButtonSprite => TouAssets.DigVent;
         public override void OnClick()
         {
             CustomRpcManager.Instance<RpcCreateVent>().Send(PlayerControl.LocalPlayer.transform.position, PlayerControl.LocalPlayer);
